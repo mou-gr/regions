@@ -1,0 +1,50 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  padding-bottom: 40px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+  padding-top: 15px;
+}
+.download-btn {
+  margin-left: 10px;
+}
+.padded-array tbody td {
+  padding-left: 30px !important;
+  padding-right: 20px !important;
+}
+.padded-array textarea {
+  min-width: 300px;
+}
+.checkbox-array .col-sm-9 {
+  width: 25%;
+}
+.checkbox-array .col-sm-3 {
+  width: 65%;
+}
+.strong-helper .alpaca-helper {
+  background: #a0debf;
+  padding: 10px;
+}
+.xs-col {
+  max-width: 20px;
+}
+.l-col {
+  min-Width: 250px;
+}
+#result {
+  display: none;
+}
+.zero-margin .alpaca-field {
+	margin-left: 0px !important;
+}

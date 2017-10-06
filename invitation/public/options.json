@@ -1,0 +1,96 @@
+{
+  "fields": {
+    "tab1": {
+      "id": "tab1",
+      "fields": {
+        "DATE_ENARKSHS_ISXYOS": {
+          "hideInitValidationError": true
+        }
+      }
+    },
+    "tab2": {
+      "id": "tab2"
+    },
+    "tab3": {
+      "id": "tab3"
+    },
+    "tab4": {
+      "id": "tab4",
+      "fields": {
+        "INVITATION_ABOUT": {
+          "fields": {
+            "KOIN_KAIN_DIAKR_SYN": {
+              "hideNone": true
+            }
+          }
+        },
+        "CODED_DATA_FOR_INVITATION": {
+          "fields": {
+            "OPSMorfh_Xrhmatodothshs_ID": {
+              "hideNone": true,
+              "multiple": true,
+              "type": "checkbox",
+              "optionLabels": [
+                "Μη επιστρεπτέα επιχορήγηση",
+                "Επιστρεπτέα επιδότηση",
+                "Στήριξη με χρηματοδοτικά μέσα: επιχειρηματικά κεφάλαια και συμμετοχή στο μετοχικό κεφάλαιο (ή ισοδύναμα)",
+                "Στήριξη με χρηματοδοτικά μέσα: δάνειο ή ισοδύναμο",
+                "Στήριξη με χρηματοδοτικά μέσα: εγγύηση ή ισοδύναμο",
+                "Στήριξη με χρηματοδοτικά μέσα: επιδότηση επιτοκίου, επιδότηση τέλους εγγύησης, τεχνική στήριξη ή ισοδύναμο",
+                "Βραβείο"
+              ]
+            },
+            "KAD_NACE_LIST": {
+              "type": "table",
+              "items": {
+                "fields": {
+                  "KAD_NACE": {
+                    "type": "select",
+                    "optionLabels": [
+                      "Value1",
+                      "Value2",
+                      "Value3",
+                      "Value4",
+                      "Value5"
+                    ]
+                  }
+                }
+              }
+            }
+          }
+        }
+      }
+    },
+    "tab5": {
+      "id": "tab5",
+      "fields": {
+        "PEDIA_PAREMVASHS_OBJ": {
+          "id": "PEDIA_PAREMVASHS_OBJ",
+          "fields": {
+            "PEDIA_PAREMVASHS_LIST": {
+              "type": "table",
+              "view": "bootstrap-edit",
+              "fieldClass": "section52, zero-margin,  array52, dynamic-table, auto-sum, no-remove-button, array-with-help"
+            }
+          }
+        },
+        "b": {
+          "type": "table",
+          "view": "bootstrap-edit",
+          "fieldClass": "section52, zero-margin,  array52, dynamic-table, auto-sum, no-remove-button, array-with-help",
+          "items": {
+            "fields": {
+              "c": {
+                "fieldClass": "sum-col"
+              },
+              "b": {
+                "type": "select",
+                "hideNone": true
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+}

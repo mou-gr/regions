@@ -1,0 +1,19 @@
+{
+  "name": "pske-printer",
+  "version": "1.0.0",
+  "description": "Invitation Managment",
+  "main": "app.js",
+  "scripts": {
+    "test": "node app.js"
+  },
+  "author": "apanagio",
+  "license": "GPL-3.0",
+  "dependencies": {
+    "body-parser": "^1.18.2",
+    "express": "^4.15.3",
+    "express-handlebars": "^3.0.0",
+    "moment": "^2.18.1",
+    "mssql": "^4.0.4",
+    "ramda": "^0.24.1",
+  }
+}

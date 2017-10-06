@@ -1,0 +1,23 @@
+<table class="table table-bordered">
+    <thead>
+        <th>ID</th>
+        <th>Name</th>
+        <th>Διαχείριση Χρηστών</th>
+    </thead>
+    <tbody>
+        {{#invitations}}
+        <tr>
+            <td>{{ID}}</td>
+            <td><a href="edit/{{ID}}">{{Name}}</a></td>
+            <td><a href="invitation/{{ID}}/users" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Χρήστες</a></td>
+        </tr>
+        {{/invitations}}
+    </tbody>
+</table>
+
+<br>
+<label>
+    Name: <input id="fieldName">
+    <button type="button" id="new-invitation" class="btn btn-info btn-sm" >Προσθήκη</button>
+</label>
+<script src="/list.js"></script>
