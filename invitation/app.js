@@ -35,7 +35,7 @@ app.get('/invitation/:id/users', function (req, res) {
     model.getInvitationUsers(req.params.id, app.locals.pool)
     .catch(err => console.error(err.stack))
     .then(result => {
-        res.render('users', {users: R.path(['recordset'], result)});
+        res.render('users', {users: R.path(['recordset'], result), invitationId: req.params.id});
     })
 });
 
@@ -54,7 +54,6 @@ app.post('/invitation/:id', function (req, res){
         console.error(err.stack)
     })
     .then(result => {
-        console.log(12)
         res.sendStatus(200)
     })
 })
@@ -70,7 +69,8 @@ app.post('/invitation', function (req, res) {
     })
 });
 app.post('/userRoleType', function (req, res) {
-    model.addInvitationUsers(1, 100, '{}', req.body.name, app.locals.pool)
+    const p = R.map(el => model.addInvitationUsers(req.body.invitationId, el, req.body.role, app.locals.pool))(req.body.users.split(','))
+    Promise.all(p)
     .catch(err => {
         res.sendStatus(500)
         console.error(err.stack)
@@ -79,7 +79,17 @@ app.post('/userRoleType', function (req, res) {
         res.sendStatus(200)
     })
 });
-app.get('/users', function (req, res) {
+app.delete('/userRoleType', function (req, res) {
+    model.deleteInvitationUser(req.body.id, app.locals.pool)
+    .catch(err => {
+        res.sendStatus(500)
+        console.error(err.stack)
+    })
+    .then(result => {
+        res.sendStatus(200)
+    })
+});
+app.get('/users.json', function (req, res) {
     if (!app.locals.users) {
         model.getUsers(app.locals.pool)
         .catch(err => {
@@ -87,7 +97,7 @@ app.get('/users', function (req, res) {
             console.error(err.stack)
         })
         .then(result => {
-            app.locals.users = result.recordset;
+            app.locals.users = result.recordset.map(el => ({value: el.UserID, text: el.U_LoginName}));
             res.send(app.locals.users)
         });
     } else {

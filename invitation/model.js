@@ -39,6 +39,7 @@ const getInvitationUsers = (id, pool) => {
   FROM [MIS_DB_DEV].[dbo].[Invitation_User_Role] iur join _User u on u.UserID = iur.U_UserID
   join invitation i on i.ID = iur.IN_InvitationID
   join UserRoleType urt on urt.UserRoleType_Code = iur.URT_UserRoleType_Code
+  where i.ID = ${id}
   order by urt.UserRoleType_Code`;
     return query(q, pool);
 }
@@ -46,9 +47,9 @@ const addInvitationUsers = (id, userId, role, pool) => {
     var q = `insert into Invitation_User_Role (U_UserID, IN_InvitationID, URT_UserRoleType_Code) values (${userId}, ${id}, ${role})`;
     return query(q, pool);
 }
-const removeInvitationUsers = (ids, pool) => {
+const deleteInvitationUser = (ids, pool) => {
     const idString = '(' + ids.join() + ')'
-    var q = `delete from Invitation_User_Role ID in ${idString}`;
+    var q = `delete from Invitation_User_Role where ID in ${idString}`;
     return query(q, pool);
 }
 
@@ -81,5 +82,5 @@ const getUsers = pool => {
 
 module.exports = {getConnection, query, deleteInvitation, newInvitation,
      getInvitation, getList, closeConnection, updateInvitation, getInvitationUsers,
-     getUsers
+     getUsers, addInvitationUsers, deleteInvitationUser
  }

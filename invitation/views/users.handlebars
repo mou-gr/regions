@@ -5,6 +5,10 @@
     </div>
 </header>
 
+<input type=hidden id="invitation-id" value="{{invitationId}}">
+<input type=hidden id="user-list" value="{{userList}}">
+
+
 <table class="table table-bordered">
     <thead>
         <th>Χρήστης</th>
@@ -16,19 +20,19 @@
         <tr>
             <td>{{U_LoginName}}</a></td>
             <td>{{URT_Description}}</td>
-            <td><input type="checkbox"></td>
+            <td><input type="checkbox" name="user-role-id" value="{{ID}}"></td>
         </tr>
         {{/users}}
     </tbody>
 </table>
 
 <br>
-<button type="button" id="new-invitation" class="btn btn-danger btn-sm" >Διαγραφή επιλεγμένων</button></br>
-Ρόλος:
-<label class="radio-inline"><input type="radio" name="optradio">Διαχειριστής</label>
-<label class="radio-inline"><input type="radio" name="optradio" checked>Αξιολογητής</label>
-Χρήστες: <input type="text" value="Amsterdam,Washington" data-role="tagsinput">
-<button type="button" id="new-invitation" class="btn btn-info btn-sm" >Προσθήκη</button>
+<button type="button" id="delete-user" class="btn btn-danger btn-sm" >Διαγραφή επιλεγμένων</button></br>
+<label class="radio-inline"><input type="radio" name="optradio" value="20">Διαχειριστής</label>
+<label class="radio-inline"><input type="radio" name="optradio" checked value="50">Αξιολογητής</label>
+<input type="text"  id="new-user-list">
+<button type="button" id="new-user" class="btn btn-info btn-sm" >Προσθήκη</button>
+
 <script src="/bootstrap-tagsinput.min.js"></script>
 <script src="/typeahead.bundle.js"></script>
 <script src="/user.js"></script>
