@@ -15,8 +15,12 @@
           "title": "Κωδικός"
         },
         "AA_PROSKLHSHS": {
-          "type": "string",
+          "type": "number",
           "title": "Α/Α ΟΠΣ"
+        },
+        "EKDOSI_PROSKLHSHS": {
+          "type": "number",
+          "title": "Έκδοση"
         },
         "KODIKOS_FOREA_EGKRISHS": {
           "type": "string",
@@ -32,7 +36,6 @@
         },
         "DATE_ENARKSHS_ISXYOS": {
           "type": "string",
-          "format": "date",
           "title": "Ημερομηνία Έναρξης Ισχύος"
         },
         "DATE_ENARKSHS_YPOV": {
@@ -45,15 +48,36 @@
         },
         "EIDOS_AJIOLOGHSHS": {
           "type": "string",
-          "title": "Είδος Αξιολόγησης"
+          "title": "Είδος Αξιολόγησης",
+          "enum": [
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"
+          ]
         },
         "KATHESTOS_ENISXYSHS": {
           "type": "string",
-          "title": "Εφαρμοστέος Κανονισμός / Καθεστώς Ενίσχυσης"
+          "title": "Εφαρμοστέος Κανονισμός / Καθεστώς Ενίσχυσης",
+          "enum": [
+            "1.",
+            "2.",
+            "3.",
+            "4.",
+            "5."
+          ]
         },
         "KATHESTOS_ENISXYSHS_ID": {
           "type": "string",
-          "title": "Κωδικός  Kαθεστώτος Ενίσχυσης"
+          "title": "Κωδικός  Kαθεστώτος Ενίσχυσης",
+          "enum": [
+            "1.",
+            "2.",
+            "3.",
+            "4.",
+            "5."
+          ]
         },
         "AR_KOINOP": {
           "type": "string",
@@ -66,63 +90,67 @@
       }
     },
     "tab2": {
-      "type": "object",
-      "title": "Θεματικοί Στόχοι, Επενδυτικές Προτεραιότητες, Ειδικοί Στόχοι",
-      "properties": {
-        "EP_PERIGRAFH": {
-          "type": "string",
-          "title": "Επιχειρησιακό Πρόγραμμα",
-          "enum": [
-            "1.",
-            "2.",
-            "3.",
-            "4.",
-            "5."
-          ]
-        },
-        "AXONAS_PERIGRAFH": {
-          "type": "string",
-          "title": "Άξονας Προτεραιότητας",
-          "enum": [
-            "1.",
-            "2.",
-            "3.",
-            "4.",
-            "5."
-          ]
-        },
-        "THEMATIKOI_STOXOI": {
-          "type": "string",
-          "title": "Θεματικός Στόχος",
-          "enum": [
-            "1.",
-            "2.",
-            "3.",
-            "4.",
-            "5."
-          ]
-        },
-        "EPENDYTIKES_PROTERAIOTHTES": {
-          "type": "string",
-          "title": "Επενδυτική Προτεραιότητα",
-          "enum": [
-            "1.",
-            "2.",
-            "3.",
-            "4.",
-            "5."
-          ]
-        },
-        "EIDIKOI_STOXOI": {
-          "type": "string",
-          "title": "Ειδικός Στόχος",
-          "enum": [
-            "1.",
-            "2.",
-            "3.",
-            "4.",
-            "5."
-          ]
+      "type": "array",
+      "default": [
+        {}
+      ],
+      "items": {
+        "type": "object",
+        "title": "Θεματικοί Στόχοι, Επενδυτικές Προτεραιότητες, Ειδικοί Στόχοι",
+        "properties": {
+          "EP_PERIGRAFH": {
+            "type": "string",
+            "title": "Επιχειρησιακό Πρόγραμμα",
+            "enum": [
+              "1.",
+              "2.",
+              "3.",
+              "4.",
+              "5."
+            ]
+          },
+          "AXONAS_PERIGRAFH": {
+            "type": "string",
+            "title": "Άξονας Προτεραιότητας",
+            "enum": [
+              "1.",
+              "2.",
+              "3.",
+              "4.",
+              "5."
+            ]
+          },
+          "KATHGORIA_PER": {
+            "type": "string",
+            "title": "Κατηγορία Περιφέρειας",
+            "enum": [
+              "1.",
+              "2.",
+              "3.",
+              "4.",
+              "5."
+            ]
+          },
+          "KODIKOS_EKXORISIS": {
+            "type": "string",
+            "title": "Κωδικός Εκχώρησης"
+          },
+          "TAMEIO": {
+            "type": "string",
+            "title": "Ταμείο"
+          },
+          "THEMATIKOI_STOXOI": {
+            "type": "string",
+            "title": "Θεματικός Στόχος"
+          },
+          "EPENDYTIKES_PROTERAIOTHTES": {
+            "type": "string",
+            "title": "Επενδυτική Προτεραιότητα"
+          },
+          "EIDIKOI_STOXOI": {
+            "type": "string",
+            "title": "Ειδικός Στόχος"
+          }
         }
       }
     },
@@ -135,18 +163,15 @@
         "type": "object",
         "title": "Προβλεπόμενος Δείκτης Παρακολούθησης",
         "properties": {
-          "EP_KODIKOS": {
+          "EIDOS_DEIKTH": {
             "type": "string",
-            "title": "Επιχειρησιακό Πρόγραμμα",
-            "enum": [
-              "1.",
-              "2.",
-              "3.",
-              "4.",
-              "5."
-            ]
+            "title": "Είδος Δείκτη"
           },
-          "AXONAS_KODIKOS": {
+          "EP_PERIGRAFH": {
+            "type": "string",
+            "title": "Επιχειρησιακό Πρόγραμμα"
+          },
+          "AXONAS_PERIGRAFH": {
             "type": "string",
             "title": "Άξονας Προτεραιότητας",
             "enum": [
@@ -157,11 +182,11 @@
               "5."
             ]
           },
-          "TAMEIO_KODIKOS": {
+          "TAMEIO": {
             "type": "string",
             "title": "Ταμείο"
           },
-          "OPSEpendytikh_Proteraiothta_ID": {
+          "EPENDYTIKES_PROTERAIOTHTES": {
             "type": "string",
             "title": "Επενδυτική Προτεραιότητα",
             "enum": [
@@ -178,26 +203,40 @@
           },
           "MONADA_METRHSHS": {
             "type": "string",
-            "title": "Μονάδα Μέτρησης"
+            "title": "Μονάδα Μέτρησης",
+            "enum": [
+              "1.",
+              "2.",
+              "3.",
+              "4.",
+              "5."
+            ]
           },
           "KATHGORIA_PER": {
             "type": "string",
-            "title": "Κατηγορία Περιφέρειας"
+            "title": "Κατηγορία Περιφέρειας",
+            "enum": [
+              "1.",
+              "2.",
+              "3.",
+              "4.",
+              "5."
+            ]
           },
           "VALUEGOAL": {
             "type": "object",
             "title": "Τιμή Στόχος",
             "properties": {
               "TIMH_STOXOS_SUM": {
-                "type": "string",
+                "type": "number",
                 "title": "Σύνολο"
               },
               "TIMH_STOXOS_MEN": {
-                "type": "string",
+                "type": "number",
                 "title": "Άντρες"
               },
               "TIMH_STOXOS_WOMEN": {
-                "type": "string",
+                "type": "number",
                 "title": "Γυναίκες"
               }
             }
@@ -213,29 +252,45 @@
           "title": "Η πρόσκληση αφορά",
           "properties": {
             "CCI_KOINO_SXEDIO_DRASHS": {
-              "type": "boolean",
-              "title": "Πράξεις που εντάσσονται σε κοινό σχέδιο δράσης"
+              "type": "string",
+              "title": "Πράξεις που εντάσσονται σε κοινό σχέδιο δράσης",
+              "enum": [
+                "0",
+                "1"
+              ]
             },
             "XRHMATOD_PAN_FLAG": {
-              "type": "boolean",
-              "title": "Πράξεις που περιλαμβάνουν χρηματοδότηση ΠΑΝ"
+              "type": "string",
+              "title": "Πράξεις που περιλαμβάνουν χρηματοδότηση ΠΑΝ",
+              "enum": [
+                "0",
+                "1"
+              ]
             },
             "ENISXYSH_MME": {
-              "type": "boolean",
-              "title": "Ενίσχυση ΜΜΕ"
+              "type": "string",
+              "title": "Ενίσχυση ΜΜΕ",
+              "enum": [
+                "0",
+                "1"
+              ]
             },
             "KOIN_KAIN_DIAKR_SYN": {
-              "type": "select",
+              "type": "string",
               "title": "Κοινωνική Καινοτομία ή Διακρατική Συνεργασία ή και τα δύο",
               "enum": [
-                "1. Κοινωνική Καινοτομία",
-                "2. Διακρατική Συνεργασία",
-                "3. Και τα δύο"
+                "0",
+                "1",
+                "2"
               ]
             },
             "MICRODATA": {
-              "type": "boolean",
-              "title": "Συλλογή, επεξεργασία, αποθήκευση, διαβίβαση μίκροδεδομενων"
+              "type": "string",
+              "title": "Συλλογή, επεξεργασία, αποθήκευση, διαβίβαση μίκροδεδομενων",
+              "enum": [
+                "0",
+                "1"
+              ]
             }
           }
         },
@@ -244,28 +299,12 @@
           "title": "Κωδικοποιημένα Στοιχεία Πρόσκλησης",
           "properties": {
             "OPSMorfh_Xrhmatodothshs_ID": {
-              "type": "array",
-              "title": "Μορφή Χρηματοδότησης",
-              "enum": [
-                "801",
-                "802",
-                "803",
-                "804",
-                "805",
-                "806",
-                "807"
-              ]
+              "type": "string",
+              "title": "Μορφή Χρηματοδότησης"
             },
             "OPSEdafikh_Diastash_Typos_ID": {
               "type": "string",
-              "title": "Τύπος Εδαφικής Μονάδας",
-              "enum": [
-                "1.",
-                "2.",
-                "3.",
-                "4.",
-                "5."
-              ]
+              "title": "Τύπος Εδαφικής Μονάδας"
             },
             "OPSEdafikh_Diastash_Mhxanismos_id": {
               "type": "string",
@@ -280,66 +319,34 @@
             },
             "OPSDeytereyon_stoxos_EKT_ID": {
               "type": "string",
-              "title": "Δευτερέυων θεματικός στόχος ΕΚΤ",
-              "enum": [
-                "1.",
-                "2.",
-                "3.",
-                "4.",
-                "5."
-              ]
+              "title": "Δευτερέυων θεματικός στόχος ΕΚΤ"
             },
             "OPSOikonomikh_Drasthriothta_id": {
               "type": "string",
-              "title": "Οικονομική Δραστηριότητα",
-              "enum": [
-                "1.",
-                "2.",
-                "3.",
-                "4.",
-                "5."
-              ]
+              "title": "Οικονομική Δραστηριότητα"
             },
             "ID_GEO": {
               "type": "string",
-              "title": "Γεωγραφική Θέση (Περιφέρεια ή Νομός/ΟΤΑ) - (NUTS/LAU)",
-              "enum": [
-                "1.",
-                "2.",
-                "3.",
-                "4.",
-                "5."
-              ]
+              "title": "Γεωγραφική Θέση (Περιφέρεια ή Νομός/ΟΤΑ) - (NUTS/LAU)"
             },
             "KAD_NACE_LIST": {
               "type": "array",
+              "default": [
+                {}
+              ],
               "items": {
                 "type": "object",
                 "properties": {
                   "KAD_NACE": {
                     "type": "string",
-                    "title": "ΚΑΔ / NACE",
-                    "enum": [
-                      "Key1",
-                      "Key2",
-                      "Key3",
-                      "Key4",
-                      "Key5"
-                    ]
+                    "title": "ΚΑΔ / NACE"
                   }
                 }
               }
             },
             "EIDOS_EPENDYSH_ID": {
               "type": "string",
-              "title": "Είδος Επένδυσης",
-              "enum": [
-                "1.",
-                "2.",
-                "3.",
-                "4.",
-                "5."
-              ]
+              "title": "Είδος Επένδυσης"
             }
           }
         }
@@ -348,23 +355,6 @@
     "tab5": {
       "type": "object",
       "properties": {
-        "INVITATION_ABOUT": {
-          "type": "object",
-          "properties": {
-            "EP_KODIKOS": {
-              "type": "string",
-              "title": "Επιχειρησιακό Πρόγραμμα"
-            },
-            "AXONAS_KODIKOS": {
-              "type": "string",
-              "title": "Άξονας Προτεραιότητας"
-            },
-            "KODIKOS_EKXORHSHS": {
-              "type": "string",
-              "title": "Κωδικός Εκχώρησης"
-            }
-          }
-        },
         "PEDIA_PAREMVASHS_OBJ": {
           "type": "object",
           "properties": {
@@ -375,11 +365,25 @@
                 "properties": {
                   "PEDIA_PAREMVASHS": {
                     "type": "string",
-                    "title": "Πεδία Παρέμβασης"
+                    "title": "Πεδία Παρέμβασης",
+                    "enum": [
+                      "1.",
+                      "2.",
+                      "3.",
+                      "4.",
+                      "5."
+                    ]
                   },
-                  "KATHGORIA_PRIFEREIAS": {
+                  "KATHGORIA_PERIFEREIAS": {
                     "type": "string",
-                    "title": "Κατηγορία Περιφέρειας"
+                    "title": "Κατηγορία Περιφέρειας",
+                    "enum": [
+                      "1.",
+                      "2.",
+                      "3.",
+                      "4.",
+                      "5."
+                    ]
                   },
                   "DHMOSIA_DAPANH": {
                     "type": "number",
@@ -390,85 +394,108 @@
               "default": [
                 {}
               ]
+            },
+            "DHMOSIA_DAPANH_TOTAL_OBJ": {
+              "type": "object",
+              "properties": {
+                "DHMOSIA_DAPANH_TOTAL": {
+                  "type": "number",
+                  "title": "Σύνολο Δημοσίων Δαπανών"
+                }
+              }
             }
           }
         },
         "INVITATION_TOTAL_AMOUNTS": {
           "type": "object",
           "properties": {
-            "SYNOLO_DD": {
-              "type": "string",
-              "title": "Σύνολο Δημοσίας Δαπάνης Πρόσκλησης"
-            },
             "IDIOTIKI_SYMMETOXH": {
               "type": "number",
               "title": "Εκτιμώμενη Ιδιωτική Συμμετοχή"
             }
           }
-        },
-        "b": {
-          "type": "array",
-          "title": null,
-          "default": [
-            {},
-            {
-              "a": "Σύνολο Δικαιούχος",
-              "b": null,
-              "c": null,
-              "d": null,
-              "e": null,
-              "f": null,
-              "g": null
-            }
-          ],
-          "items": {
-            "type": "object",
-            "properties": {
-              "a": {
-                "type": "string",
-                "title": "ΔΑΠΑΝΗ"
+        }
+      }
+    },
+    "tab6": {
+      "type": "object",
+      "properties": {
+        "KATHGORIES_DAPANON_OBJ": {
+          "type": "object",
+          "properties": {
+            "KATHGORIES_DAPANON_LIST": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "AA": {
+                    "type": "number",
+                    "title": "AA",
+                    "readonly": true
+                  },
+                  "KATHGORIA_ENERGEIAS": {
+                    "type": "string",
+                    "title": "Κατηγορία Ενέργειας",
+                    "enum": [
+                      "1.",
+                      "2.",
+                      "3.",
+                      "4.",
+                      "5."
+                    ]
+                  },
+                  "KATHGORIA_PERIFEREIAS": {
+                    "type": "string",
+                    "title": "Κατηγορία Περιφέρειας",
+                    "enum": [
+                      "1.",
+                      "2.",
+                      "3.",
+                      "4.",
+                      "5."
+                    ]
+                  },
+                  "MONADA_METRHSHS": {
+                    "type": "string",
+                    "title": "Μονάδα Μέτρησης",
+                    "enum": [
+                      "1.",
+                      "2.",
+                      "3.",
+                      "4.",
+                      "5."
+                    ]
+                  },
+                  "ANOTERO_POSO": {
+                    "type": "number",
+                    "title": "Ανώτερο ποσό"
+                  },
+                  "ELAXISTO_POSO": {
+                    "type": "number",
+                    "title": "Ελάχιστο ποσό"
+                  },
+                  "ANOTERO_POSOSTO_EPI_TOY_PROIPOLOGISMOY": {
+                    "type": "number",
+                    "title": "Μέγιστο ποσοστό επί του προυπολογισμού",
+                    "minimum": 0,
+                    "maximum": 100
+                  },
+                  "ELAXISTO_POSOSTO_EPI_TOY_PROIPOLOGISMOY": {
+                    "type": "number",
+                    "title": "Ελάχιστο ποσοστό επί του προυπολογισμού",
+                    "minimum": 0,
+                    "maximum": 100
+                  }
+                }
               },
-              "b": {
-                "type": "string",
-                "title": "(*) ΕΙΔΟΣ ΕΡΕΥΝΑΣ",
-                "enum": [
-                  "ΒΙΕ",
-                  "ΠΕΑ",
-                  "ΜΤΣ"
-                ]
-              },
-              "c": {
-                "type": "number",
-                "title": "Προϋπολογισμός  (€)"
-              },
-              "d": {
-                "type": "number",
-                "title": "Ένταση Ενίσχυσης (%)"
-              },
-              "e": {
-                "type": "number",
-                "title": "ΠΡΟΣΑYΞΗΣΗ ΑΝΑΛΟΓΑ ΤΟ ΜΕΓΕΘΟΣ",
-                "readonly": true
-              },
-              "f": {
-                "type": "number",
-                "title": "ΠΡΟΣΑΥΞΗΣΕΙΣ ΠΕΔΙΟΥ 4.4 ΕΝΤΥΠΟΥ ΥΠΟΒΟΛΗΣ",
-                "readonly": true
-              },
-              "g": {
-                "type": "number",
-                "title": "Δημόσια Δαπάνη  (€)",
-                "readonly": true
-              },
-              "h": {
-                "type": "number",
-                "title": "(**) % επί του συνολικού Π/Υ έργου ",
-                "readonly": true
-              }
+              "default": [
+                {"AA":"1"}
+              ]
             }
           }
         }
       }
     }
+
   }
 }
