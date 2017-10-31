@@ -495,7 +495,45 @@
           }
         }
       }
+    }, 
+    "tab7": {
+        "type": "object"
+        , "properties": {
+            "businessType": {
+                "type": "string"
+                , "enum": ["0", "1", "2"]
+                , "title": "Επιτρεπόμενες Επιχειρήσεις"
+            }
+            , "attachmentInstruction": {
+                "title": "Γενικές Οδηγίες για Συνημμένα"
+                , "type": "string"
+            }
+            , "attachment": {
+                "type": "array"
+                , "title": "Συνημμένα Έγγραφα"
+                , "items": {
+                    "type": "object"
+                    , "properties": {
+                        "name": {
+                            "type": "string"
+                            , "title": "Όνομα"
+                        }
+                        , "description": {
+                            "type": "string"
+                            , "title": "Περιγραφή"
+                        }
+                        , "prototype": {
+                            "type": "string"
+                            , "title": "Πρότυπο (link)"
+                        }
+                        , "mandatory": {
+                            "type": "boolean"
+                            , "title": "Υποχρεωτικό"
+                        }
+                    }
+                }
+            }
+        }
     }
-
   }
 }

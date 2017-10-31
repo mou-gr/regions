@@ -117,7 +117,7 @@ $(document).ready(function() {
                                 this.top().getControlByPath('tab5/PEDIA_PAREMVASHS_OBJ/DHMOSIA_DAPANH_TOTAL_OBJ/DHMOSIA_DAPANH_TOTAL').setValue(sum);
                               }
                             }
-                          }
+                          } 
                         }
                       }
                     }
@@ -187,7 +187,9 @@ $(document).ready(function() {
                     "tab2": 2,
                     "tab3": 3,
                     "tab4": 4,
-                    "tab5": 5
+                    "tab5": 5, 
+                    "tab6": 6, 
+                    "tab7": 7
                 },
                 steps: [{
                     title: "1",
@@ -204,6 +206,12 @@ $(document).ready(function() {
                 }, {
                     title: "5",
                     description: "Οικονομικά Στοιχεία Πρόσκλησης"
+                }, {
+                  title: "6",
+                  description: "Κατηγορίες Δαπανών"
+                }, {
+                  title: "7",
+                  description: "Υποβολή"
                 }]
             }
         }

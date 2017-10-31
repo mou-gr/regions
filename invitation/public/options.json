@@ -388,6 +388,21 @@
           }
         }
       }
+    }, 
+    "tab7": {
+        "fields": {
+            "businessType": {
+                "hideNone": true
+                , "emptySelectFirst": true
+                , "optionLabels": ["Υφιστάμενες", "Υπό Σύσταση", "Και τα δύο"]
+            }
+            , "attachmentInstruction": {
+                "type": "textarea"
+            }            
+            , "attachment": {
+                "type": "table"
+            }
+        }
     }
   }
 }
