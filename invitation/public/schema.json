@@ -222,24 +222,6 @@
               "4.",
               "5."
             ]
-          },
-          "VALUEGOAL": {
-            "type": "object",
-            "title": "Τιμή Στόχος",
-            "properties": {
-              "TIMH_STOXOS_SUM": {
-                "type": "number",
-                "title": "Σύνολο"
-              },
-              "TIMH_STOXOS_MEN": {
-                "type": "number",
-                "title": "Άντρες"
-              },
-              "TIMH_STOXOS_WOMEN": {
-                "type": "number",
-                "title": "Γυναίκες"
-              }
-            }
           }
         }
       }
