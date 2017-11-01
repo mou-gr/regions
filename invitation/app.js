@@ -4,6 +4,7 @@ const moment = require('moment');
 const model = require('./model');
 const R = require('ramda');
 const app = express();
+const config = require('./config');
 
 const exphbs = require('express-handlebars');
 
@@ -110,7 +111,7 @@ model.getConnection()
     .catch(err => console.error(err.stack))
     .then( pool => {
         app.locals.pool = pool;
-        app.listen(3000, function () {
-            console.log('app listening on port 3000!')
+        app.listen(config.serverPort, function () {
+            console.log('app listening on port ' + config.serverPort)
         })
     });
