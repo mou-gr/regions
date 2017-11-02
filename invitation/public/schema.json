@@ -439,6 +439,26 @@
                 "properties": {
                   "id": {
                     "title": "Group"
+                  }, 
+                  "ANOTERO_POSO": {
+                    "type": "number",
+                    "title": "Ανώτερο ποσό"
+                  },
+                  "ELAXISTO_POSO": {
+                    "type": "number",
+                    "title": "Ελάχιστο ποσό"
+                  },
+                  "ANOTERO_POSOSTO_EPI_TOY_PROIPOLOGISMOY": {
+                    "type": "number",
+                    "title": "Μέγιστο ποσοστό επί του προυπολογισμού",
+                    "minimum": 0,
+                    "maximum": 100
+                  },
+                  "ELAXISTO_POSOSTO_EPI_TOY_PROIPOLOGISMOY": {
+                    "type": "number",
+                    "title": "Ελάχιστο ποσοστό επί του προυπολογισμού",
+                    "minimum": 0,
+                    "maximum": 100
                   }
                 }
               }

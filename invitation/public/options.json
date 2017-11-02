@@ -1,5 +1,5 @@
 {
-  "fields": { 
+  "fields": {
     "tab1": {
       "id": "tab1",
       "fields": {
@@ -322,6 +322,11 @@
         "KATHGORIES_DAPANON_OBJ": {
           "id": "KATHGORIES_DAPANON_OBJ",
           "fields": {
+            "groups": {
+                "type": "table"
+                , "view": "bootstrap-edit"
+                , "fieldClass": "padded-array"
+            },
             "KATHGORIES_DAPANON_LIST": {
               "type": "table",
               "view": "bootstrap-edit",
