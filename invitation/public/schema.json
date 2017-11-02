@@ -222,6 +222,24 @@
               "4.",
               "5."
             ]
+          },
+          "VALUEGOAL": {
+            "type": "object",
+            "title": "Τιμή Στόχος",
+            "properties": {
+              "TIMH_STOXOS_SUM": {
+                "type": "number",
+                "title": "Σύνολο"
+              },
+              "TIMH_STOXOS_MEN": {
+                "type": "number",
+                "title": "Άντρες"
+              },
+              "TIMH_STOXOS_WOMEN": {
+                "type": "number",
+                "title": "Γυναίκες"
+              }
+            }
           }
         }
       }
@@ -235,7 +253,7 @@
           "properties": {
             "CCI_KOINO_SXEDIO_DRASHS": {
               "type": "string",
-              "title": "Πράξεις που εντάσσονται σε κοινό σχέδιο δράσης",
+              "title": "Πράξεις που εντάσaσονται σε κοινό σχέδιο δράσης",
               "enum": [
                 "0",
                 "1"
@@ -402,6 +420,15 @@
     "tab6": {
       "type": "object",
       "properties": {
+        "ENTASI_ENISXISIS_OBJ": {
+          "type": "object",
+          "properties": {
+            "ENTASI_ENISXISIS": {
+              "type": "number",
+              "title": "Μέγιστη Προσαύξηση Έντασης Ενίσχυσης"
+            }
+          }
+        },
         "KATHGORIES_DAPANON_OBJ": {
           "type": "object",
           "properties": {
@@ -471,51 +498,57 @@
                 }
               },
               "default": [
-                {"AA":"1"}
+                {
+                  "AA": "1"
+                }
               ]
             }
           }
         }
       }
-    }, 
+    },
     "tab7": {
-        "type": "object"
-        , "properties": {
-            "businessType": {
-                "type": "string"
-                , "enum": ["0", "1", "2"]
-                , "title": "Επιτρεπόμενες Επιχειρήσεις"
+      "type": "object",
+      "properties": {
+        "businessType": {
+          "type": "string",
+          "enum": [
+            "0",
+            "1",
+            "2"
+          ],
+          "title": "Επιτρεπόμενες Επιχειρήσεις"
+        },
+        "attachmentInstruction": {
+          "title": "Γενικές Οδηγίες για Συνημμένα",
+          "type": "string"
+        },
+        "attachment": {
+          "type": "array",
+          "title": "Συνημμένα Έγγραφα",
+          "items": {
+            "type": "object",
+            "properties": {
+              "name": {
+                "type": "string",
+                "title": "Όνομα"
+              },
+              "description": {
+                "type": "string",
+                "title": "Περιγραφή"
+              },
+              "prototype": {
+                "type": "string",
+                "title": "Πρότυπο (link)"
+              },
+              "mandatory": {
+                "type": "boolean",
+                "title": "Υποχρεωτικό"
+              }
             }
-            , "attachmentInstruction": {
-                "title": "Γενικές Οδηγίες για Συνημμένα"
-                , "type": "string"
-            }
-            , "attachment": {
-                "type": "array"
-                , "title": "Συνημμένα Έγγραφα"
-                , "items": {
-                    "type": "object"
-                    , "properties": {
-                        "name": {
-                            "type": "string"
-                            , "title": "Όνομα"
-                        }
-                        , "description": {
-                            "type": "string"
-                            , "title": "Περιγραφή"
-                        }
-                        , "prototype": {
-                            "type": "string"
-                            , "title": "Πρότυπο (link)"
-                        }
-                        , "mandatory": {
-                            "type": "boolean"
-                            , "title": "Υποχρεωτικό"
-                        }
-                    }
-                }
-            }
+          }
         }
+      }
     }
   }
 }
