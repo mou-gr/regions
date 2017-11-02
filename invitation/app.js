@@ -112,6 +112,6 @@ model.getConnection()
     .then( pool => {
         app.locals.pool = pool;
         app.listen(config.serverPort, function () {
-            console.log('app listening on port ' + config.serverPort)
+            console.log('app listening on port: ' + config.serverPort)
         })
     });
