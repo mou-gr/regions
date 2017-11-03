@@ -412,6 +412,7 @@
     , "compiled": {
         "type": "editor"
         , "aceHeight": "500px"
+        , "aceMode": "ace/mode/json"
     }
   }
 }

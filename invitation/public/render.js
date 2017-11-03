@@ -226,11 +226,17 @@ $(document).ready(function() {
         if (value === "") {
             return
         }
+        try {
+            JSON.parse(value.compiled)
+        } catch (e) {
+            alert('Invalid json in last tab\nWill not save!')
+            return;
+        }
         $.ajax({
             url: "/invitation/" + invitationID,
             type: "POST",
             dataType: "json",
-            data: JSON.stringify(value),
+            data: JSON.stringify(value, null, 0),
             contentType: "application/json",
             cache: false,
             timeout: 5000,
