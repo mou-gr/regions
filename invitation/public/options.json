@@ -409,5 +409,9 @@
             }
         }
     }
+    , "compiled": {
+        "type": "editor"
+        , "aceHeight": "500px"
+    }
   }
 }

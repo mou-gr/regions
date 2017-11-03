@@ -183,13 +183,14 @@ $(document).ready(function() {
                 markAllStepsVisited: true,
 				hideSubmitButton: true,
                 bindings: {
-                    "tab1": 1,
-                    "tab2": 2,
-                    "tab3": 3,
-                    "tab4": 4,
-                    "tab5": 5, 
-                    "tab6": 6, 
-                    "tab7": 7
+                    "tab1": 1
+                    , "tab2": 2
+                    , "tab3": 3
+                    , "tab4": 4
+                    , "tab5": 5 
+                    , "tab6": 6 
+                    , "tab7": 7
+                    , "compiled": 8
                 },
                 steps: [{
                     title: "1",
@@ -212,6 +213,9 @@ $(document).ready(function() {
                 }, {
                   title: "7",
                   description: "Υποβολή"
+                }, {
+                  title: "8",
+                  description: "Κώδικας"
                 }]
             }
         }

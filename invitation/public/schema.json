@@ -423,7 +423,7 @@
         "ENTASI_ENISXISIS_OBJ": {
           "type": "object",
           "properties": {
-            "MAX_ENTASI_ENISXISIS": {
+            "ENTASI_ENISXISIS": {
               "type": "number",
               "title": "Μέγιστη Προσαύξηση Έντασης Ενίσχυσης"
             }
@@ -532,12 +532,6 @@
                     "title": "Ελάχιστο ποσοστό επί του προυπολογισμού",
                     "minimum": 0,
                     "maximum": 100
-                  },
-				   "ENTASI_ENISXISIS": {
-                    "type": "number",
-                    "title": "Ένταση Ενίσχυσης",
-                    "minimum": 0,
-                    "maximum": 100
                   }
                 }
               },
@@ -593,6 +587,9 @@
           }
         }
       }
+    }
+    , "compiled": {
+        "type": "string"
     }
   }
 }
