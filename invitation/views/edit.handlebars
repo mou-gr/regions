@@ -1,26 +1,31 @@
     <header class="jumbotron">
         <div class="container">
-            Φόρμα υποβολής για τη δράση <h1>{{0.Name}}</h1>
-            <a href="/">index</a>
+            <h1>{{0.Name}}</h1>
         </div>
     </header>
 
     <input type=hidden id="invitation-id" value="{{0.ID}}">
         <div class="container-fluid">
             <div class="row">
-                <div class="col-md-4">
+                <div class="col-md-1">
                     <button type="button"  id="commit"  class="download-btn btn btn-info btn-sm">
-                        <span class="glyphicon glyphicon-open" aria-hidden="true"></span>Commit
+                        <span class="glyphicon glyphicon-open" aria-hidden="true"></span> Commit
                     </button>
                 </div>
-
-                <div class="col-md-4 text-right">
+                <div class="col-md-4" role="alert">
+                    <textarea type="text" class="form-control" rows="2" id="message-area"></textarea>
+                </div>
+                <div class="col-md-1 text-right">
+                    <a href="/" type="button" class="btn btn-info btn-sm"><span class=" glyphicon glyphicon-list" aria-hidden="true"></span> Index</a>
+                </div>
+                <div class="col-md-1 text-right">
                     <button type="button" id="advanced-download-link" data-toggle="modal" data-target="#advanced-download" class="download-btn btn btn-danger btn-sm">
                         <span class="glyphicon glyphicon-wrench" aria-hidden="true"></span> Πρόβλημα στο κατέβασμα
                     </button>
                 </div>
             </div>
         </div>
+
 
         <div id="form1"></div>
 

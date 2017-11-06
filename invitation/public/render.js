@@ -220,7 +220,9 @@ $(document).ready(function() {
             }
         }
     });
-
+    
+    var count = 0
+    
     $("#commit").on('click', function() {
         var value = $("#form1").alpaca('get').getValue();
         if (value === "") {
@@ -245,8 +247,8 @@ $(document).ready(function() {
                 // location.reload();
             },
             success: function(data) {
-                console.log(data);
-                console.log('process sucess');
+                $('#message-area').prepend(++count + ': Η εγγραφή ενημερώθηκε\n')
+                console.log('succesfully updated invitation');
             },
             error: function() {
                 console.log('process error');

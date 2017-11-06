@@ -18,6 +18,13 @@ app.use(bodyParser.json());       // to support JSON-encoded bodies
 //     {name: 'evaluator', value: 50, 'class': 'btn-info active'},
 // ];
 
+const nocache = function nocache(req, res, next) {
+  res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate');
+  res.header('Expires', '-1');
+  res.header('Pragma', 'no-cache');
+  next();
+}
+
 app.get('/', function (req, res) {
     model.getList(app.locals.pool)
     .catch(err => console.error(err.stack))
@@ -40,7 +47,7 @@ app.get('/invitation/:id/users', function (req, res) {
     })
 });
 
-app.get('/invitation/:id', function (req, res) {
+app.get('/invitation/:id', nocache, function (req, res) {
     model.getInvitation(req.params.id, app.locals.pool)
     .catch(err => console.error(err.stack))
     .then(result => {
@@ -55,7 +62,7 @@ app.post('/invitation/:id', function (req, res){
         console.error(err.stack)
     })
     .then(result => {
-        res.sendStatus(200)
+        res.sendStatus(204)
     })
 })
 
@@ -66,7 +73,7 @@ app.post('/invitation', function (req, res) {
         console.error(err.stack)
     })
     .then(result => {
-        res.sendStatus(200)
+        res.sendStatus(204)
     })
 });
 app.post('/userRoleType', function (req, res) {
@@ -77,7 +84,7 @@ app.post('/userRoleType', function (req, res) {
         console.error(err.stack)
     })
     .then(result => {
-        res.sendStatus(200)
+        res.sendStatus(204)
     })
 });
 app.delete('/userRoleType', function (req, res) {
@@ -87,10 +94,10 @@ app.delete('/userRoleType', function (req, res) {
         console.error(err.stack)
     })
     .then(result => {
-        res.sendStatus(200)
+        res.sendStatus(204)
     })
 });
-app.get('/users.json', function (req, res) {
+app.get('/users.json', nocache, function (req, res) {
     if (!app.locals.users) {
         model.getUsers(app.locals.pool)
         .catch(err => {
