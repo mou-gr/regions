@@ -173,6 +173,9 @@ $(document).ready(function() {
                 control.getControlByPath('tab6/KATHGORIES_DAPANON_OBJ/KATHGORIES_DAPANON_LIST['+ (data.length - 1) +']/AA').setValue(data.length);
                 console.log("The value of this was changed to:");
             })
+            var codeControl = control.getControlByPath('compiled')
+            var code = codeControl.data;
+            codeControl.setValue(JSON.stringify(JSON.parse(code), null, 4))
         },
         view: {
             parent: "bootstrap-edit-horizontal",
@@ -229,7 +232,8 @@ $(document).ready(function() {
             return
         }
         try {
-            JSON.parse(value.compiled)
+            var val = JSON.parse(value.compiled)
+            value.compiled = JSON.stringify(val, null, 0);
         } catch (e) {
             alert('Invalid json in last tab\nWill not save!')
             return;
