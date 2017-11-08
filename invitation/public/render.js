@@ -25,6 +25,9 @@ $(document).ready(function() {
                   EP_PERIGRAFH: {
                     dataSource: '/epixeirisiakaProgrammata.json'
                   },
+				  AXONAS_PERIGRAFH: {
+					dataSource: '/axonesProteraiotitas.json'
+				  },
                   TAMEIO: {
                     dataSource: '/tameia.json'
                   },
@@ -49,6 +52,9 @@ $(document).ready(function() {
                   EP_PERIGRAFH: {
                     dataSource: '/epixeirisiakaProgrammata.json'
                   },
+				  AXONAS_PERIGRAFH: {
+					dataSource: '/axonesProteraiotitas.json'
+				  },
                   TAMEIO: {
                     dataSource: '/tameia.json'
                   },
@@ -172,13 +178,13 @@ $(document).ready(function() {
         dataSource: "/invitation/" + invitationID,
         postRender: function (control) {
             $('body').css('cursor', 'default');
-            control.getControlByPath('tab6/KATHGORIES_DAPANON_OBJ/KATHGORIES_DAPANON_LIST').on('add', function() {
+            /*control.getControlByPath('tab6/KATHGORIES_DAPANON_OBJ/KATHGORIES_DAPANON_LIST').on('add', function() {
 
                 var my_object = control.getControlByPath('tab6/KATHGORIES_DAPANON_OBJ/KATHGORIES_DAPANON_LIST');
                 var data = my_object.getValue();
                 control.getControlByPath('tab6/KATHGORIES_DAPANON_OBJ/KATHGORIES_DAPANON_LIST['+ (data.length - 1) +']/AA').setValue(data.length);
                 console.log("The value of this was changed to:");
-            })
+            })*/
             var codeControl = control.getControlByPath('compiled')
             var code = codeControl.data;
             codeControl.setValue(JSON.stringify(JSON.parse(code), null, 4))

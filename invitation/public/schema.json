@@ -111,14 +111,7 @@
           },
           "AXONAS_PERIGRAFH": {
             "type": "string",
-            "title": "Άξονας Προτεραιότητας",
-            "enum": [
-              "1.",
-              "2.",
-              "3.",
-              "4.",
-              "5."
-            ]
+            "title": "Άξονας Προτεραιότητας"
           },
           "KATHGORIA_PER": {
             "type": "string",
@@ -173,14 +166,7 @@
           },
           "AXONAS_PERIGRAFH": {
             "type": "string",
-            "title": "Άξονας Προτεραιότητας",
-            "enum": [
-              "1.",
-              "2.",
-              "3.",
-              "4.",
-              "5."
-            ]
+            "title": "Άξονας Προτεραιότητας"
           },
           "TAMEIO": {
             "type": "string",
@@ -453,7 +439,7 @@
                   "AA": {
                     "type": "number",
                     "title": "AA",
-                    "readonly": true
+                    "readonly": false
                   },
                   "title": {
                     "title": "Τίτλος"

@@ -67,14 +67,7 @@
           },
           "AXONAS_PERIGRAFH": {
             "type": "select",
-            "hideNone": true,
-            "optionLabels": [
-              "Value1",
-              "Value2",
-              "Value3",
-              "Value4",
-              "Value5"
-            ]
+            "hideNone": false
           },
           "KATHGORIA_PER": {
             "type": "select",
@@ -120,14 +113,7 @@
           },
           "AXONAS_PERIGRAFH": {
             "type": "select",
-            "hideNone": true,
-            "optionLabels": [
-              "Value1",
-              "Value2",
-              "Value3",
-              "Value4",
-              "Value5"
-            ]
+            "hideNone": false
           },
           "TAMEIO": {
             "type": "select",
