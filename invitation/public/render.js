@@ -28,6 +28,9 @@ $(document).ready(function() {
 				  AXONAS_PERIGRAFH: {
 					dataSource: '/axonesProteraiotitas.json'
 				  },
+				  KATHGORIA_PER: {
+					dataSource: '/katigoriesPerifereias.json'
+				  },
                   TAMEIO: {
                     dataSource: '/tameia.json'
                   },
@@ -66,7 +69,10 @@ $(document).ready(function() {
                   },
 				  MONADA_METRHSHS: {
                     dataSource: '/monadesMetrisis.json'
-                  }
+                  },
+				  KATHGORIA_PER: {
+					dataSource: '/katigoriesPerifereias.json'
+				  }
                 }
               }
             },
@@ -154,7 +160,11 @@ $(document).ready(function() {
                          fields: {
 						 MONADA_METRHSHS: {
                       dataSource: '/monadesMetrisis.json'
-						 }
+						 },
+						 KATHGORIA_PERIFEREIAS: {
+                      dataSource: '/katigoriesPerifereias.json'
+						 },
+						 
                     //     AA: {
                     //         events: {
                     //           'change': function() {

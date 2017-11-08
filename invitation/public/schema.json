@@ -115,14 +115,7 @@
           },
           "KATHGORIA_PER": {
             "type": "string",
-            "title": "Κατηγορία Περιφέρειας",
-            "enum": [
-              "1.",
-              "2.",
-              "3.",
-              "4.",
-              "5."
-            ]
+            "title": "Κατηγορία Περιφέρειας"
           },
           "KODIKOS_EKXORISIS": {
             "type": "string",
@@ -193,14 +186,7 @@
           },
           "KATHGORIA_PER": {
             "type": "string",
-            "title": "Κατηγορία Περιφέρειας",
-            "enum": [
-              "1.",
-              "2.",
-              "3.",
-              "4.",
-              "5."
-            ]
+            "title": "Κατηγορία Περιφέρειας"
           }
         }
       }
@@ -460,14 +446,7 @@
                   },
                   "KATHGORIA_PERIFEREIAS": {
                     "type": "string",
-                    "title": "Κατηγορία Περιφέρειας",
-                    "enum": [
-                      "1.",
-                      "2.",
-                      "3.",
-                      "4.",
-                      "5."
-                    ]
+                    "title": "Κατηγορία Περιφέρειας"
                   },
                   "MONADA_METRHSHS": {
                     "type": "string",

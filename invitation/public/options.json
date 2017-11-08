@@ -71,14 +71,7 @@
           },
           "KATHGORIA_PER": {
             "type": "select",
-            "hideNone": true,
-            "optionLabels": [
-              "Value1",
-              "Value2",
-              "Value3",
-              "Value4",
-              "Value5"
-            ]
+            "hideNone": false
           },
           "TAMEIO": {
             "type": "select",
@@ -133,14 +126,7 @@
           },
           "KATHGORIA_PER": {
             "type": "select",
-            "hideNone": true,
-            "optionLabels": [
-              "Value1",
-              "Value2",
-              "Value3",
-              "Value4",
-              "Value5"
-            ]
+            "hideNone": false
           }
         }
       }
@@ -343,14 +329,7 @@
                   },
                   "KATHGORIA_PERIFEREIAS": {
                     "type": "select",
-                    "hideNone": false,
-                    "optionLabels": [
-                      "Value1",
-                      "Value2",
-                      "Value3",
-                      "Value4",
-                      "Value5"
-                    ]
+                    "hideNone": false
                   },
                   "MONADA_METRHSHS": {
                     "type": "select",
