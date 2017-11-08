@@ -1,0 +1,598 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema"
+	xmlns="http://www.ops.gr/docs/ws/ret_ops/tdp" targetNamespace="http://www.ops.gr/docs/ws/ret_ops/tdp"
+	elementFormDefault="qualified" attributeFormDefault="unqualified"
+	xml:lang="gr">
+	<xsd:include schemaLocation="datatypes.xsd" />
+	<xsd:element name="TDP">
+		<xsd:annotation>
+			<xsd:documentation>XSD gia thn Eisagwgh, Enhmerwsh kai Diagrafh twn
+				components toy Texnikoy Deltioy Ergoy Kratikon Enisxyseon Epixeirhmatikothtas
+			</xsd:documentation>
+		</xsd:annotation>
+		<xsd:complexType>
+			<xsd:sequence>
+				<xsd:element name="KPS5_TDP" maxOccurs="unbounded">
+					<xsd:complexType>
+						<xsd:sequence>
+							<!--TMHMA A ΤΑΥΤΟΤΗΤΑ ΠΡΑΞΗΣ-->
+							<xsd:element name="KODIKOS_MIS" minOccurs="0" type="xsd:integer"/>
+							<xsd:element name="KATASTASH_DELTIOY" type="OPSKatastash_Deltiou"/>
+							<xsd:element name="KODIKOS_ERGOY_EXTERNAL" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="100"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="EL_KODIKOS" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="100"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="TITLOS">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="255"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="TITLOS_KSENOS" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="255"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="CCI_MEGALO_ERGO" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="50"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="CCI_KOINO_SXEDIO_DRASHS" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="50"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="MORFH_SDIT_FLAG" type="OPSBoolean" minOccurs="0"/>
+							<xsd:element name="XRHMATOD_PAN_FLAG" type="OPSBoolean" minOccurs="0"/>
+							<xsd:element name="KATHESTOS_ENISXYSHS_ID">
+								<xsd:annotation>
+									<xsd:documentation> Βλ. Κωδικοποιημένα στοιχεία ΟΠΣ
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="20"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="KODIKOS_SOREYSHS" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="50"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="MICRODATA" minOccurs="0" maxOccurs="1">
+								<xsd:complexType>
+									<xsd:all>
+										<xsd:element name="MICRODATA_LEVEL_FLAG" type="OPSBoolean"
+											fixed="1"/>
+										<xsd:element name="MICRODATA_LEVEL" type="OPSMicrodataLevel" />
+										<xsd:element name="MICRODATA_ARMOD" type="OPSMicrodataArmod" />
+									</xsd:all>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="TDP_EKDOSH" type="xsd:integer"/>
+							<xsd:element name="TDP_YPOEKDOSH" type="xsd:integer"/>
+							<xsd:element name="KATHGORIA_EKDOSHS" type="OPSKathgoria_Ekdoshs"/>
+							<xsd:element name="DATE_AITHSHS" type="OPSDate" minOccurs="0"/>
+							<xsd:element name="PROTOKOLLO_AITHSHS" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="100"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="DATE_AITHSHS_EYD" type="OPSDate" minOccurs="0"/>
+							<xsd:element name="PROTOKOLLO_AITHSHS_EYD" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="100"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:choice>
+								<xsd:annotation>
+									<xsd:documentation> Συμπληρώνεται τουλάχιστον ένα από τα
+										παρακάτω όταν υποβάλλεται τροποποιητικό ΤΔΠ
+									</xsd:documentation>
+								</xsd:annotation>
+								<xsd:sequence>
+									<xsd:element name="TROPOP_XRONODIAGRAMMA_FLAG" type="OPSBoolean"
+										minOccurs="0"/>
+									<xsd:element name="TROPOP_FYSIKO_ANTIKEIMENO_FLAG"
+										type="OPSBoolean" minOccurs="0"/>
+									<xsd:element name="TROPOP_OIKONOMIKA_FLAG" type="OPSBoolean"
+										minOccurs="0"/>
+									<xsd:element name="TROPOP_LOIPA_FLAG" type="OPSBoolean"
+										minOccurs="0"/>
+									<xsd:element name="TROPOP_SXOLIA" minOccurs="0">
+										<xsd:simpleType>
+											<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="2000"/>
+											</xsd:restriction>
+										</xsd:simpleType>
+									</xsd:element>
+								</xsd:sequence>
+							</xsd:choice>
+							<xsd:element name="DD_YPOVOLHS"  type="OPSDecimal"  minOccurs="0">
+								<xsd:annotation>
+									<xsd:documentation> Αιτούμενη Δημόσια Δαπάνη Δικαιούχου
+									</xsd:documentation>
+								</xsd:annotation>
+							</xsd:element>
+
+							<!--TMHMA Β ΕΜΠΛΕΚΟΜΕΝΟΙ ΦΟΡΕΙΣ -->
+							<xsd:element name="KPS5_TDP_FOREIS" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="VAT_FOREA">
+											<xsd:annotation>
+												<xsd:documentation> ΑΦΜ Δικαιούχου
+												</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="12"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="ANADOXOI_EPONYMIA" nillable="true"
+											minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="500"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										
+										<xsd:element name="ANADOXOI_EMAIL" nillable="true"
+											minOccurs="0" type="OPSEmail"/>
+										
+										<xsd:element name="ANADOXOI_MEGETHOS_VALUE" nillable="true"
+											minOccurs="0" type="OPSMegethos"/>
+										<xsd:element name="YPO_SYSTASH_FLAG" type="OPSBoolean"
+											nillable="true" minOccurs="0"/>
+										<xsd:element name="VAT_LEGAL_REP" nillable="true"
+											minOccurs="0">
+											<xsd:annotation>
+												<xsd:documentation> ΑΦΜ Νομίμου Εκπροσώπου</xsd:documentation>
+											</xsd:annotation>
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="12"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="NOMIMOS_EKPROSOPOS_ANADOXOY"
+											nillable="true" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="100"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									
+							
+							<xsd:element name="ONOMA_YPEYTHINOY_PRAXIS"
+								minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="100" />
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="THESH_YPEYTHINOY_PRAXIS"
+								minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="100" />
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="DIEYTHYNSH_YPEYTHINOY_PRAXIS"
+								minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="100" />
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="THL_YPEYTHINOY_PRAXIS"
+								minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="30" />
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="EMAIL_YPEYTHINOY_PRAXIS"
+								minOccurs="0" type="OPSEmail" />
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+				
+
+							<!--ΤΜΗΜΑ Γ ΣΤΟΙΧΕΙΑ ΠΡΟΓΡΑΜΜΑΤΟΣ-->
+							<xsd:element name="AA_PROSKLHSHS" type="xsd:integer"/>
+							<xsd:element name="KODIKOS_FOREA_EGKRISHS" minOccurs="0"
+								type="xsd:integer"/>
+							<xsd:element name="ID_XEIRISTHS_PRAXHS_USERNAME" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="100"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="KPS5_MIS_ATP" maxOccurs="unbounded" minOccurs="0">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ID_ATP" type="xsd:integer"/>
+										<xsd:element name="POSOSTO_ERGOY_ANA_ATP" type="OPSDecimal"
+											minOccurs="0"/>
+										<!--Συμπληρώνεται μόνο από την ΥΟΠΣ -->
+										<xsd:element name="SXOLIA_YOPS" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="2000"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+
+							<xsd:element name="THEMATIKOI_STOXOI" maxOccurs="unbounded" minOccurs="0">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ID" type="OPSThematikos_stoxos"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="EPENDYTIKES_PROTERAIOTHTES" maxOccurs="unbounded" minOccurs="0">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ID" type="OPSEpendytikh_Proteraiothta"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="EIDIKOI_STOXOI" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ID" type="OPSEidikos_stoxos"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="EDAFIKES_DIASTASEIS_MHXANISMOS">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ID" type="OPSEdafikh_Diastash_Mhxanismos"
+										/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="STRATIGIKES_ANAPTYXHS" minOccurs="0" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ID" type="OPSStratigikh_Anaptyxhs"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="PEDIA_PAREMVASHS" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ID" type="OPSPedio_Paremvashs"/>
+										<xsd:element name="POSOSTO" type="OPSDecimal"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="DRASEIS" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ID" type="xsd:integer"/>
+										<xsd:element name="POSOSTO" type="OPSDecimal"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="MORFES_XRHMATODOTHSHS" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ID" type="OPSMorfh_Xrhmatodothshs"/>
+										<xsd:element name="POSOSTO" type="OPSDecimal"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="EDAFIKES_DIASTASEIS_TYPOS" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ID" type="OPSEdafikh_Diastash_Typos"/>
+										<xsd:element name="POSOSTO" type="OPSDecimal"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="DEYTEREYON_STOXOS_EKT" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ID" type="OPSDeytereyon_stoxos_EKT"/>
+										<xsd:element name="POSOSTO" type="OPSDecimal"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="GEOGRAFIKES_THESEIS" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ID" type="OPSGeografikh_Thesh"/>
+										<xsd:element name="POSOSTO" type="OPSDecimal"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="OIKONOMIKES_DRASTHRIOTHTES" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ID" type="OPSOikonomikh_Drasthriothta"/>
+										<xsd:element name="POSOSTO" type="OPSDecimal"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="KAD_NACE" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ID" type="OPSKadNace"/>
+										<xsd:element name="POSOSTO" type="xsd:integer"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="EIDOS_EPENDYSH" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ID" type="OPSEidosEpendysh"/>
+										<xsd:element name="POSOSTO" type="xsd:integer"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+
+							<!--ΤΜΗΜΑ Δ ΦΥΣΙΚΟ ΑΝΤΙΚΕΙΜΕΝΟ-->
+							<xsd:element name="PERIGRAFH_FYSIKOY_ANTIKEIMENOY" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="4000"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="PERIGRAFH_FYSIKOY_WOAT" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="4000"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="METHODOLOGIA" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="4000"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="RESULTS" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="4000"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="OBJECTIVES" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="4000"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="DRASTHRIOTHTES_EPIKOINONIAS" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="4000"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ARXH_ISOTHTAS" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="4000"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="APOTROPH_DIAKRISHS" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="4000"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="PROSVASIMOTHTA" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="4000"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="AEIFOROS_ANAPTYKSH" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="4000"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+
+							<!-- ΤΜΗΜΑ Ε ΣΥΝΑΦΕΙΑ ΠΡΑΞΗΣ ΜΕ ΤΟΥΣ ΣΤΟΧΟΥΣ ΚΑΙ ΤΑ ΑΠΟΤΕΛΕΣΜΑΤΑ ΕΠ -->
+							<!--ΣΚΟΠΙΜΠΟΤΗΤΑ ΠΡΑΞΗΣ-->
+							<xsd:element name="KRISIMOTHTA" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="4000"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="PROSTITHEMENH_AKSIA" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="4000"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="EPITEFKSH_STOXON" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="4000"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ANAMENOMENA_OFELH" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="4000"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="ADRIATIKI_FLAG" type="OPSBoolean" minOccurs="0"/>
+							<!--ΔΕΙΚΤΕΣ-->
+							<xsd:element name="KPS5_TDP_DEIKTES" maxOccurs="unbounded" minOccurs="0">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ID_DEIKTH" type="xsd:integer"/>
+										<xsd:element name="ID_GEO" type="OPSGeografikh_Thesh"/>
+										<xsd:element name="TIMH_STOXOS_WOMEN" type="OPSDecimal"
+											nillable="true" minOccurs="0"/>
+										<xsd:element name="TIMH_STOXOS_SUM" type="OPSDecimal"
+											nillable="true" minOccurs="0"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+
+							<!--ΤΜΗΜΑ ΣΤ ΠΡΟΓΡΑΜΜΑΤΙΣΜΟΣ ΥΛΟΠΟΙΗΣΗΣ ΠΡΑΞΗΣ-->
+							<xsd:element name="KPS5_TDP_YPOERGA" maxOccurs="unbounded">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="AA_YPOERGOY" minOccurs="0"
+											type="xsd:integer" />
+										<xsd:element name="VAT_FOREA">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="12"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="TITLOS_YPOERGOY" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="255"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+										<xsd:element name="POSO_SYNOLIKH_DD_YPOERGOY"
+											type="OPSDecimal" minOccurs="0"/>
+										<xsd:element name="POSO_IDIOTIKH_SYMMETOXH"
+											type="OPSDecimal" minOccurs="0"/>
+										<xsd:element name="ID_ATP" minOccurs="0" type="xsd:integer"
+										/>
+										<xsd:element name="RHTRA" type="OPSBoolean"
+											minOccurs="0" />
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="DATE_ENARKSHS_ERGOY" type="OPSDate" minOccurs="0"/>
+							<xsd:element name="DATE_LHKSHS_ERGOY" type="OPSDate" minOccurs="0"/>
+
+							<!--ΤΜΗΜΑ Ζ ΟΙΚΟΝΟΜΙΚΑ ΣΤΟΙΧΕΙΑ-->
+							<!--ΚΑΤΑΝΟΜΗ ΔΑΠΑΝΗΣ ΑΝΑ ΚΑΤΗΓΟΡΙΑ ΔΑΠΑΝΗΣ-->
+							<xsd:element name="KPS5_TDP_DD_ANA_KATHG_DAPANON" maxOccurs="unbounded"
+								minOccurs="0">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="ID_KATHGORIA_DAPANHS" type="OPSKathgoria_Dapanhs"/>
+										<xsd:element name="POSO_DD_XORIS_FPA" type="OPSDecimal"
+											minOccurs="0"/>
+										<xsd:element name="TDP_DD_SXOLIA_YOPS" minOccurs="0">
+											<xsd:simpleType>
+												<xsd:restriction base="xsd:string">
+												<xsd:maxLength value="2000"/>
+												</xsd:restriction>
+											</xsd:simpleType>
+										</xsd:element>
+
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="POSO_SYNOLIKH_IDIOT_SIMMETOX" type="OPSDecimal"
+								minOccurs="0"/>
+							<!--hd80259_elen_19102017 xsd:element name="MH_ENISXYOMENOS_PY" type="OPSDecimal"  minOccurs="0" /-->
+							<xsd:element name="POSO_MH_ENISXYOMENO" type="OPSDecimal" minOccurs="0"/>
+							<xsd:element name="POSO_DANEIA" type="OPSDecimal" minOccurs="0"/>
+							<xsd:element name="FOREAS_DANEIOY" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="50"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+
+							<!--ΕΤΗΣΙΑ ΚΑΤΑΝΟΜΗ ΔΑΠΑΝΗΣ-->
+							<xsd:element name="KPS5_TDP_ETHSIA_KATANOMH" maxOccurs="unbounded"
+								minOccurs="0">
+								<xsd:complexType>
+									<xsd:sequence>
+										<xsd:element name="AA_ETOYS" type="xsd:integer"/>
+										<xsd:element name="ETOS" type="xsd:integer"/>
+										<xsd:element name="POSO_SYNOLIKH_DHMOSIA_DAPANH"
+											type="OPSDecimal" minOccurs="0"/>
+										<xsd:element name="POSO_IDIOT_SYMMETOX" type="OPSDecimal"
+											minOccurs="0"/>
+									</xsd:sequence>
+								</xsd:complexType>
+							</xsd:element>
+							<xsd:element name="TDP_SXOLIA_DIKAIOYXOY" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="2000"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<xsd:element name="TDP_SXOLIA_EYD" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="2000"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+							<!--Συμπληρώνεται μόνο από την ΥΟΠΣ -->
+							<xsd:element name="TDP_SXOLIA_YOPS" minOccurs="0">
+								<xsd:simpleType>
+									<xsd:restriction base="xsd:string">
+										<xsd:maxLength value="2000"/>
+									</xsd:restriction>
+								</xsd:simpleType>
+							</xsd:element>
+						</xsd:sequence>
+					</xsd:complexType>
+				</xsd:element>
+			</xsd:sequence>
+		</xsd:complexType>
+	</xsd:element>
+</xsd:schema>
