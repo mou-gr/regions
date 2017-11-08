@@ -203,14 +203,7 @@
           },
           "MONADA_METRHSHS": {
             "type": "string",
-            "title": "Μονάδα Μέτρησης",
-            "enum": [
-              "1.",
-              "2.",
-              "3.",
-              "4.",
-              "5."
-            ]
+            "title": "Μονάδα Μέτρησης"
           },
           "KATHGORIA_PER": {
             "type": "string",
@@ -222,24 +215,6 @@
               "4.",
               "5."
             ]
-          },
-          "VALUEGOAL": {
-            "type": "object",
-            "title": "Τιμή Στόχος",
-            "properties": {
-              "TIMH_STOXOS_SUM": {
-                "type": "number",
-                "title": "Σύνολο"
-              },
-              "TIMH_STOXOS_MEN": {
-                "type": "number",
-                "title": "Άντρες"
-              },
-              "TIMH_STOXOS_WOMEN": {
-                "type": "number",
-                "title": "Γυναίκες"
-              }
-            }
           }
         }
       }
@@ -510,14 +485,7 @@
                   },
                   "MONADA_METRHSHS": {
                     "type": "string",
-                    "title": "Μονάδα Μέτρησης",
-                    "enum": [
-                      "1.",
-                      "2.",
-                      "3.",
-                      "4.",
-                      "5."
-                    ]
+                    "title": "Μονάδα Μέτρησης"
                   },
                   "ANOTERO_POSO": {
                     "type": "number",

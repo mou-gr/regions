@@ -57,6 +57,9 @@ $(document).ready(function() {
                   },
                   ONOMASIA_DEIKTH: {
                     dataSource: '/deiktes.json'
+                  },
+				  MONADA_METRHSHS: {
+                    dataSource: '/monadesMetrisis.json'
                   }
                 }
               }
@@ -128,8 +131,8 @@ $(document).ready(function() {
             tab6: {
               fields: {
                 KATHGORIES_DAPANON_OBJ: {
-                  // fields: {
-                    // KATHGORIES_DAPANON_LIST: {
+                   fields: {
+                     KATHGORIES_DAPANON_LIST: {
                       events: {
                         'add': function() {
                       console.log("The value of this was changed to:");
@@ -138,11 +141,14 @@ $(document).ready(function() {
                       // control.getControlByPath('tab6/KATHGORIES_DAPANON_OBJ/KATHGORIES_DAPANON_LIST['+ (data.length - 1) +']/AA').setValue(data.length);
                       // console.log("The value of this was changed to:");
                     }
-                  }
+                  },
                 // }
 
-                    //  items: {
-                    //     fields: {
+                      items: {
+                         fields: {
+						 MONADA_METRHSHS: {
+                      dataSource: '/monadesMetrisis.json'
+						 }
                     //     AA: {
                     //         events: {
                     //           'change': function() {
@@ -150,14 +156,14 @@ $(document).ready(function() {
                     //             //  this.top().getControlByPath('tab6/KATHGORIES_DAPANON_OBJ/KATHGORIES_DAPANON_LIST/ELAXISTO_POSOSTO_EPI_TOY_PROIPOLOGISMOY').setValue(sum);
                      //
                     //           }
-                    //         }
-                    //       }
-                    //     }
-                    //   }
+                             }
+                           }
+                         }
+                       }
 
 
-
-                }
+				
+				}
               }
             }
 

@@ -143,14 +143,7 @@
           },
           "MONADA_METRHSHS": {
             "type": "select",
-            "hideNone": true,
-            "optionLabels": [
-              "Value1",
-              "Value2",
-              "Value3",
-              "Value4",
-              "Value5"
-            ]
+            "hideNone": false
           },
           "KATHGORIA_PER": {
             "type": "select",
@@ -353,7 +346,7 @@
                 "fields": {
                   "KATHGORIA_ENERGEIAS": {
                     "type": "select",
-                    "hideNone": true,
+                    "hideNone": false,
                     "optionLabels": [
                       "Value1",
                       "Value2",
@@ -364,7 +357,7 @@
                   },
                   "KATHGORIA_PERIFEREIAS": {
                     "type": "select",
-                    "hideNone": true,
+                    "hideNone": false,
                     "optionLabels": [
                       "Value1",
                       "Value2",
@@ -375,14 +368,7 @@
                   },
                   "MONADA_METRHSHS": {
                     "type": "select",
-                    "hideNone": true,
-                    "optionLabels": [
-                      "Value1",
-                      "Value2",
-                      "Value3",
-                      "Value4",
-                      "Value5"
-                    ]
+                    "hideNone": false
                   },
                   "ELAXISTO_POSOSTO_EPI_TOY_PROIPOLOGISMOY": {
                     "size": "4"
