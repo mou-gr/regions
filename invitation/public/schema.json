@@ -312,25 +312,11 @@
                 "properties": {
                   "PEDIA_PAREMVASHS": {
                     "type": "string",
-                    "title": "Πεδία Παρέμβασης",
-                    "enum": [
-                      "1.",
-                      "2.",
-                      "3.",
-                      "4.",
-                      "5."
-                    ]
+                    "title": "Πεδία Παρέμβασης"
                   },
                   "KATHGORIA_PERIFEREIAS": {
                     "type": "string",
-                    "title": "Κατηγορία Περιφέρειας",
-                    "enum": [
-                      "1.",
-                      "2.",
-                      "3.",
-                      "4.",
-                      "5."
-                    ]
+                    "title": "Κατηγορία Περιφέρειας"
                   },
                   "DHMOSIA_DAPANH": {
                     "type": "number",
@@ -407,7 +393,7 @@
                     "minimum": 0,
                     "maximum": 100
                   },
-				  				   "ENTASI_ENISXISIS": {
+				  "ENTASI_ENISXISIS": {
                     "type": "number",
                     "title": "Ένταση Ενίσχυσης",
                     "minimum": 0,
@@ -453,11 +439,11 @@
                     "title": "Μονάδα Μέτρησης"
                   },
                   "ANOTERO_POSO": {
-                    "type": "number",
+                    "type": "string",
                     "title": "Ανώτερο ποσό"
                   },
                   "ELAXISTO_POSO": {
-                    "type": "number",
+                    "type": "string",
                     "title": "Ελάχιστο ποσό"
                   },
                   "ANOTERO_POSOSTO_EPI_TOY_PROIPOLOGISMOY": {

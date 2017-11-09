@@ -124,6 +124,9 @@ $(document).ready(function() {
                           PEDIA_PAREMVASHS: {
                             dataSource: '/pediaParemvasis.json'
                           },
+						  KATHGORIA_PERIFEREIAS: {
+                            dataSource: '/katigoriesPerifereias.json'
+                          },
                           DHMOSIA_DAPANH: {
                             events: {
                               'change': function(a) {

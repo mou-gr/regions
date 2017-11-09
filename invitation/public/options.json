@@ -255,24 +255,15 @@
                   "PEDIA_PAREMVASHS": {
                     "type": "select",
                     "hideNone": true,
-                    "optionLabels": [
-                      "Value1",
-                      "Value2",
-                      "Value3",
-                      "Value4",
-                      "Value5"
-                    ]
+                    "fieldClass": "l-col"
                   },
                   "KATHGORIA_PERIFEREIAS": {
                     "type": "select",
-                    "hideNone": true,
-                    "optionLabels": [
-                      "Value1",
-                      "Value2",
-                      "Value3",
-                      "Value4",
-                      "Value5"
-                    ]
+                    "hideNone": false,
+                    "fieldClass": "l-col"
+                  },
+                  "DHMOSIA_DAPANH": {
+                    "fieldClass": "l-col"
                   }
                 }
               }
@@ -288,9 +279,9 @@
           "id": "KATHGORIES_DAPANON_OBJ",
           "fields": {
             "groups": {
-                "type": "table"
-                , "view": "bootstrap-edit"
-                , "fieldClass": "padded-array"
+              "type": "table",
+              "view": "bootstrap-edit",
+              "fieldClass": "padded-array"
             },
             "KATHGORIES_DAPANON_LIST": {
               "type": "table",
@@ -316,9 +307,19 @@
               },
               "items": {
                 "fields": {
+                  "AA": {
+                    "fieldClass": "minWidth50"
+                  },
+                  "title": {
+                    "fieldClass": "l-col"
+                  },
+                  "group": {
+                    "fieldClass": "minWidth100"
+                  },
                   "KATHGORIA_ENERGEIAS": {
                     "type": "select",
                     "hideNone": false,
+                    "fieldClass": "l-col",
                     "optionLabels": [
                       "Value1",
                       "Value2",
@@ -328,15 +329,51 @@
                     ]
                   },
                   "KATHGORIA_PERIFEREIAS": {
+                    "fieldClass": "l-col",
                     "type": "select",
                     "hideNone": false
                   },
                   "MONADA_METRHSHS": {
+                    "fieldClass": "l-col",
                     "type": "select",
                     "hideNone": false
                   },
-                  "ELAXISTO_POSOSTO_EPI_TOY_PROIPOLOGISMOY": {
+                  "ANOTERO_POSO": {
+                    "type": "currency",
+                    "centsSeparator": ",",
+                    "prefix": "",
+                    "suffix": "€",
+                    "thousandsSeparator": ".",
+                    "fieldClass": "l-col"
+                  },
+                  "ELAXISTO_POSO": {
+                    "type": "currency",
+                    "centsSeparator": ",",
+                    "thousandsSeparator": ".",
+                    "prefix": "",
+                    "suffix": "€",
+                    "fieldClass": "l-col"
+                  },
+                  "ANOTERO_POSOSTO_EPI_TOY_PROIPOLOGISMOY": {
+					"type": "currency",
+                    "centsSeparator": ",",
+                    "thousandsSeparator": ".",
+                    "prefix": "",
+                    "suffix": "%",
+                    "fieldClass": "l-col",
                     "size": "4"
+                  },
+                  "ELAXISTO_POSOSTO_EPI_TOY_PROIPOLOGISMOY": {
+					"type": "currency",
+                    "centsSeparator": ",",
+                    "thousandsSeparator": ".",
+                    "prefix": "",
+                    "suffix": "%",
+                    "fieldClass": "l-col",
+                    "size": "4"
+                  },
+                  "ENTASI_ENISXISIS": {
+                    "fieldClass": "l-col"
                   }
                 }
               }
@@ -344,26 +381,30 @@
           }
         }
       }
-    }, 
+    },
     "tab7": {
-        "fields": {
-            "businessType": {
-                "hideNone": true
-                , "emptySelectFirst": true
-                , "optionLabels": ["Υφιστάμενες", "Υπό Σύσταση", "Και τα δύο"]
-            }
-            , "attachmentInstruction": {
-                "type": "textarea"
-            }            
-            , "attachment": {
-                "type": "table"
-            }
+      "fields": {
+        "businessType": {
+          "hideNone": true,
+          "emptySelectFirst": true,
+          "optionLabels": [
+            "Υφιστάμενες",
+            "Υπό Σύσταση",
+            "Και τα δύο"
+          ]
+        },
+        "attachmentInstruction": {
+          "type": "textarea"
+        },
+        "attachment": {
+          "type": "table"
         }
-    }
-    , "compiled": {
-        "type": "editor"
-        , "aceHeight": "500px"
-        , "aceMode": "ace/mode/json"
+      }
+    },
+    "compiled": {
+      "type": "editor",
+      "aceHeight": "500px",
+      "aceMode": "ace/mode/json"
     }
   }
 }

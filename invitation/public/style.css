@@ -39,9 +39,31 @@ body {
 .xs-col {
   max-width: 20px;
 }
+.minWidth40 {
+  min-Width: 40px;
+}
+.minWidth50 {
+  min-Width: 50px;
+}
+.minWidth60 {
+  min-Width: 60px;
+}
+.minWidth70 {
+  min-Width: 70px;
+}
+.minWidth80 {
+  min-Width: 80px;
+}
+.minWidth90 {
+  min-Width: 90px;
+}
+.minWidth100 {
+  min-Width: 100px;
+}
 .l-col {
   min-Width: 250px;
 }
+
 #result {
   display: none;
 }
