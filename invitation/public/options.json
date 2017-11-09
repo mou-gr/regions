@@ -263,11 +263,26 @@
                     "fieldClass": "l-col"
                   },
                   "DHMOSIA_DAPANH": {
-                    "fieldClass": "l-col"
+                    "fieldClass": "l-col",
+                    "type": "currency",
+                    "centsSeparator": ",",
+                    "prefix": "",
+                    "suffix": "€",
+                    "thousandsSeparator": "."
                   }
                 }
               }
-            }
+            },
+			"DHMOSIA_DAPANH_TOTAL_OBJ": {
+			 "id": "DHMOSIA_DAPANH_TOTAL_OBJ",
+			 "fields": {
+			 "DHMOSIA_DAPANH_TOTAL": {
+			 }
+			 
+			 
+			 }
+			
+			}
           }
         }
       }
@@ -281,7 +296,47 @@
             "groups": {
               "type": "table",
               "view": "bootstrap-edit",
-              "fieldClass": "padded-array"
+              "fieldClass": "padded-array",
+			  "items": {
+				"fields": {
+				   "ANOTERO_POSO": {
+                    "type": "currency",
+                    "centsSeparator": ",",
+                    "prefix": "",
+                    "suffix": "€",
+                    "thousandsSeparator": "."
+                  },
+				  	"ELAXISTO_POSO": {
+                    "type": "currency",
+                    "centsSeparator": ",",
+                    "prefix": "",
+                    "suffix": "€",
+                    "thousandsSeparator": "."
+                  },
+				  "ANOTERO_POSOSTO_EPI_TOY_PROIPOLOGISMOY": {
+					"type": "currency",
+                    "centsSeparator": ",",
+                    "thousandsSeparator": ".",
+                    "prefix": "",
+                    "suffix": "%"
+                  },
+                  "ELAXISTO_POSOSTO_EPI_TOY_PROIPOLOGISMOY": {
+					"type": "currency",
+                    "centsSeparator": ",",
+                    "thousandsSeparator": ".",
+                    "prefix": "",
+                    "suffix": "%"
+                  },
+				  "ENTASI_ENISXISIS": {
+					"type": "currency",
+                    "centsSeparator": ",",
+                    "thousandsSeparator": ".",
+                    "prefix": "",
+                    "suffix": "%"
+                    }
+				}
+			  
+			  }
             },
             "KATHGORIES_DAPANON_LIST": {
               "type": "table",
@@ -373,6 +428,11 @@
                     "size": "4"
                   },
                   "ENTASI_ENISXISIS": {
+				  	"type": "currency",
+                    "centsSeparator": ",",
+                    "thousandsSeparator": ".",
+                    "prefix": "",
+                    "suffix": "%",
                     "fieldClass": "l-col"
                   }
                 }
