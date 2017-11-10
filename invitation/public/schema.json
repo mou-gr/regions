@@ -111,25 +111,11 @@
           },
           "AXONAS_PERIGRAFH": {
             "type": "string",
-            "title": "Άξονας Προτεραιότητας",
-            "enum": [
-              "1.",
-              "2.",
-              "3.",
-              "4.",
-              "5."
-            ]
+            "title": "Άξονας Προτεραιότητας"
           },
           "KATHGORIA_PER": {
             "type": "string",
-            "title": "Κατηγορία Περιφέρειας",
-            "enum": [
-              "1.",
-              "2.",
-              "3.",
-              "4.",
-              "5."
-            ]
+            "title": "Κατηγορία Περιφέρειας"
           },
           "KODIKOS_EKXORISIS": {
             "type": "string",
@@ -173,14 +159,7 @@
           },
           "AXONAS_PERIGRAFH": {
             "type": "string",
-            "title": "Άξονας Προτεραιότητας",
-            "enum": [
-              "1.",
-              "2.",
-              "3.",
-              "4.",
-              "5."
-            ]
+            "title": "Άξονας Προτεραιότητας"
           },
           "TAMEIO": {
             "type": "string",
@@ -203,43 +182,11 @@
           },
           "MONADA_METRHSHS": {
             "type": "string",
-            "title": "Μονάδα Μέτρησης",
-            "enum": [
-              "1.",
-              "2.",
-              "3.",
-              "4.",
-              "5."
-            ]
+            "title": "Μονάδα Μέτρησης"
           },
           "KATHGORIA_PER": {
             "type": "string",
-            "title": "Κατηγορία Περιφέρειας",
-            "enum": [
-              "1.",
-              "2.",
-              "3.",
-              "4.",
-              "5."
-            ]
-          },
-          "VALUEGOAL": {
-            "type": "object",
-            "title": "Τιμή Στόχος",
-            "properties": {
-              "TIMH_STOXOS_SUM": {
-                "type": "number",
-                "title": "Σύνολο"
-              },
-              "TIMH_STOXOS_MEN": {
-                "type": "number",
-                "title": "Άντρες"
-              },
-              "TIMH_STOXOS_WOMEN": {
-                "type": "number",
-                "title": "Γυναίκες"
-              }
-            }
+            "title": "Κατηγορία Περιφέρειας"
           }
         }
       }
@@ -365,25 +312,11 @@
                 "properties": {
                   "PEDIA_PAREMVASHS": {
                     "type": "string",
-                    "title": "Πεδία Παρέμβασης",
-                    "enum": [
-                      "1.",
-                      "2.",
-                      "3.",
-                      "4.",
-                      "5."
-                    ]
+                    "title": "Πεδία Παρέμβασης"
                   },
                   "KATHGORIA_PERIFEREIAS": {
                     "type": "string",
-                    "title": "Κατηγορία Περιφέρειας",
-                    "enum": [
-                      "1.",
-                      "2.",
-                      "3.",
-                      "4.",
-                      "5."
-                    ]
+                    "title": "Κατηγορία Περιφέρειας"
                   },
                   "DHMOSIA_DAPANH": {
                     "type": "number",
@@ -460,7 +393,7 @@
                     "minimum": 0,
                     "maximum": 100
                   },
-				  				   "ENTASI_ENISXISIS": {
+				  "ENTASI_ENISXISIS": {
                     "type": "number",
                     "title": "Ένταση Ενίσχυσης",
                     "minimum": 0,
@@ -478,7 +411,7 @@
                   "AA": {
                     "type": "number",
                     "title": "AA",
-                    "readonly": true
+                    "readonly": false
                   },
                   "title": {
                     "title": "Τίτλος"
@@ -499,32 +432,18 @@
                   },
                   "KATHGORIA_PERIFEREIAS": {
                     "type": "string",
-                    "title": "Κατηγορία Περιφέρειας",
-                    "enum": [
-                      "1.",
-                      "2.",
-                      "3.",
-                      "4.",
-                      "5."
-                    ]
+                    "title": "Κατηγορία Περιφέρειας"
                   },
                   "MONADA_METRHSHS": {
                     "type": "string",
-                    "title": "Μονάδα Μέτρησης",
-                    "enum": [
-                      "1.",
-                      "2.",
-                      "3.",
-                      "4.",
-                      "5."
-                    ]
+                    "title": "Μονάδα Μέτρησης"
                   },
                   "ANOTERO_POSO": {
-                    "type": "number",
+                    "type": "string",
                     "title": "Ανώτερο ποσό"
                   },
                   "ELAXISTO_POSO": {
-                    "type": "number",
+                    "type": "string",
                     "title": "Ελάχιστο ποσό"
                   },
                   "ANOTERO_POSOSTO_EPI_TOY_PROIPOLOGISMOY": {

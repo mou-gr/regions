@@ -25,6 +25,12 @@ $(document).ready(function() {
                   EP_PERIGRAFH: {
                     dataSource: '/epixeirisiakaProgrammata.json'
                   },
+				  AXONAS_PERIGRAFH: {
+					dataSource: '/axonesProteraiotitas.json'
+				  },
+				  KATHGORIA_PER: {
+					dataSource: '/katigoriesPerifereias.json'
+				  },
                   TAMEIO: {
                     dataSource: '/tameia.json'
                   },
@@ -49,6 +55,9 @@ $(document).ready(function() {
                   EP_PERIGRAFH: {
                     dataSource: '/epixeirisiakaProgrammata.json'
                   },
+				  AXONAS_PERIGRAFH: {
+					dataSource: '/axonesProteraiotitas.json'
+				  },
                   TAMEIO: {
                     dataSource: '/tameia.json'
                   },
@@ -57,7 +66,13 @@ $(document).ready(function() {
                   },
                   ONOMASIA_DEIKTH: {
                     dataSource: '/deiktes.json'
-                  }
+                  },
+				  MONADA_METRHSHS: {
+                    dataSource: '/monadesMetrisis.json'
+                  },
+				  KATHGORIA_PER: {
+					dataSource: '/katigoriesPerifereias.json'
+				  }
                 }
               }
             },
@@ -109,12 +124,15 @@ $(document).ready(function() {
                           PEDIA_PAREMVASHS: {
                             dataSource: '/pediaParemvasis.json'
                           },
+						  KATHGORIA_PERIFEREIAS: {
+                            dataSource: '/katigoriesPerifereias.json'
+                          },
                           DHMOSIA_DAPANH: {
                             events: {
                               'change': function(a) {
                                 const table = this.top().getControlByPath('tab5/PEDIA_PAREMVASHS_OBJ/PEDIA_PAREMVASHS_LIST').getValue()
                                 const sum = table.reduce((sum, value) => sum + value.DHMOSIA_DAPANH, 0);
-                                this.top().getControlByPath('tab5/PEDIA_PAREMVASHS_OBJ/DHMOSIA_DAPANH_TOTAL_OBJ/DHMOSIA_DAPANH_TOTAL').setValue(sum);
+                                this.top().getControlByPath('tab5/PEDIA_PAREMVASHS_OBJ/DHMOSIA_DAPANH_TOTAL_OBJ/DHMOSIA_DAPANH_TOTAL').setValue(sum.toString().replace('.', ','));
                               }
                             }
                           } 
@@ -128,8 +146,8 @@ $(document).ready(function() {
             tab6: {
               fields: {
                 KATHGORIES_DAPANON_OBJ: {
-                  // fields: {
-                    // KATHGORIES_DAPANON_LIST: {
+                   fields: {
+                     KATHGORIES_DAPANON_LIST: {
                       events: {
                         'add': function() {
                       console.log("The value of this was changed to:");
@@ -138,11 +156,18 @@ $(document).ready(function() {
                       // control.getControlByPath('tab6/KATHGORIES_DAPANON_OBJ/KATHGORIES_DAPANON_LIST['+ (data.length - 1) +']/AA').setValue(data.length);
                       // console.log("The value of this was changed to:");
                     }
-                  }
+                  },
                 // }
 
-                    //  items: {
-                    //     fields: {
+                      items: {
+                         fields: {
+						 MONADA_METRHSHS: {
+                      dataSource: '/monadesMetrisis.json'
+						 },
+						 KATHGORIA_PERIFEREIAS: {
+                      dataSource: '/katigoriesPerifereias.json'
+						 },
+						 
                     //     AA: {
                     //         events: {
                     //           'change': function() {
@@ -150,14 +175,14 @@ $(document).ready(function() {
                     //             //  this.top().getControlByPath('tab6/KATHGORIES_DAPANON_OBJ/KATHGORIES_DAPANON_LIST/ELAXISTO_POSOSTO_EPI_TOY_PROIPOLOGISMOY').setValue(sum);
                      //
                     //           }
-                    //         }
-                    //       }
-                    //     }
-                    //   }
+                             }
+                           }
+                         }
+                       }
 
 
-
-                }
+				
+				}
               }
             }
 
@@ -166,13 +191,13 @@ $(document).ready(function() {
         dataSource: "/invitation/" + invitationID,
         postRender: function (control) {
             $('body').css('cursor', 'default');
-            control.getControlByPath('tab6/KATHGORIES_DAPANON_OBJ/KATHGORIES_DAPANON_LIST').on('add', function() {
+            /*control.getControlByPath('tab6/KATHGORIES_DAPANON_OBJ/KATHGORIES_DAPANON_LIST').on('add', function() {
 
                 var my_object = control.getControlByPath('tab6/KATHGORIES_DAPANON_OBJ/KATHGORIES_DAPANON_LIST');
                 var data = my_object.getValue();
                 control.getControlByPath('tab6/KATHGORIES_DAPANON_OBJ/KATHGORIES_DAPANON_LIST['+ (data.length - 1) +']/AA').setValue(data.length);
                 console.log("The value of this was changed to:");
-            })
+            })*/
             var codeControl = control.getControlByPath('compiled')
             var code = codeControl.data;
             codeControl.setValue(JSON.stringify(JSON.parse(code), null, 4))

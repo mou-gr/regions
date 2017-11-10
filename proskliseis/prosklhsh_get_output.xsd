@@ -1,0 +1,350 @@
+<xsd:schema xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns="http://TargetNamespace.com/RestService_Prosklhsh_Operation1_response" xmlns:nxsd="http://xmlns.oracle.com/pcbpel/nxsd" targetNamespace="http://TargetNamespace.com/RestService_Prosklhsh_Operation1_response" elementFormDefault="qualified" nxsd:version="JSON" nxsd:encoding="UTF-8">
+<xsd:element name="Root-Element">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ERROR_CODE" type="xsd:integer"/>
+<xsd:element name="ERROR_MESSAGE" type="xsd:string"/>
+<xsd:element name="DATA">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="Kps5Prosklhseis">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="idProsklhshs" type="xsd:integer"/>
+<xsd:element name="ekdosh" type="xsd:integer"/>
+<xsd:element name="dateProtok" type="xsd:string"/>
+<xsd:element name="arithmosProtok" type="xsd:string"/>
+<xsd:element name="flagAksiologhsh" type="xsd:integer"/>
+<xsd:element name="dateFrom" type="xsd:string"/>
+<xsd:element name="dateTo" type="xsd:string"/>
+<xsd:element name="flagMicrodata" type="xsd:integer"/>
+<xsd:element name="kodikosProsklForea" type="xsd:integer"/>
+<xsd:element name="titlos" type="xsd:string"/>
+<xsd:element name="titlosEn" type="xsd:string"/>
+<xsd:element name="epixeirimatikotita" type="xsd:integer"/>
+<xsd:element name="kodikosProsklhshs" type="xsd:string"/>
+<xsd:element name="kodikosForea" type="xsd:integer"/>
+<xsd:element name="idMicrotemp" type="xsd:integer"/>
+<xsd:element name="ypoekdosh" type="xsd:integer"/>
+<xsd:element name="kathgoriaEkdoshs" type="xsd:integer"/>
+<xsd:element name="aplopCostosFlag" type="xsd:integer"/>
+<xsd:element name="dateLhkshEpil" type="xsd:string"/>
+<xsd:element name="eidikoteroiKanones" type="xsd:string"/>
+<xsd:element name="pyMin" type="xsd:double"/>
+<xsd:element name="pyMax" type="xsd:double"/>
+<xsd:element name="urlEggrafon" type="xsd:string"/>
+<xsd:element name="kodikosContactPerson" type="xsd:string"/>
+<xsd:element name="exontasYpopsh" type="xsd:string"/>
+<xsd:element name="content" type="xsd:string"/>
+<xsd:element name="tropComments" type="xsd:string"/>
+<xsd:element name="flagMegalaErga" type="xsd:integer"/>
+<xsd:element name="flagPhasing" type="xsd:integer"/>
+<xsd:element name="flagEmprosthovarh" type="xsd:integer"/>
+<xsd:element name="flagSxedioDrashs" type="xsd:integer"/>
+<xsd:element name="flagSdit" type="xsd:integer"/>
+<xsd:element name="flagXrimatodotisi" type="xsd:integer"/>
+<xsd:element name="flagXrimatodotikaMesa" type="xsd:integer"/>
+<xsd:element name="flagKainotomiaDiakratiki" type="xsd:integer"/>
+<xsd:element name="prothesmiaSympl" type="xsd:integer"/>
+<xsd:element name="flagDeiktesep" type="xsd:integer"/>
+<xsd:element name="posostoYperdesm" type="xsd:double"/>
+<xsd:element name="aitiologhshDeiktesep" type="xsd:string"/>
+<xsd:element name="prakseisEsoda" type="xsd:integer"/>
+<xsd:element name="posostoEsoda" type="xsd:double"/>
+<xsd:element name="analhpshNode" type="xsd:double"/>
+<xsd:element name="methodosAplopCostous" type="xsd:string"/>
+<xsd:element name="dateOrthhs" type="xsd:string"/>
+<xsd:element name="flagSynergasies" type="xsd:integer"/>
+<xsd:element name="flagDioikepal" type="xsd:integer"/>
+<xsd:element name="posostoProkatavolis" type="xsd:double"/>
+<xsd:element name="idiotikiSimmetoxi" type="xsd:double"/>
+<xsd:element name="arithmosEgkrisisepitr" type="xsd:string"/>
+<xsd:element name="dspEpixeirimatikotita" type="xsd:string"/>
+<xsd:element name="dspKodikosForea" type="xsd:string"/>
+<xsd:element name="dspKatastashDeltioy" type="xsd:string"/>
+<xsd:element name="dateSyxnothtaYpovolhs1" type="xsd:string"/>
+<xsd:element name="dateSyxnothtaYpovolhs2" type="xsd:string"/>
+<xsd:element name="dateSyxnothtaYpovolhs3" type="xsd:string"/>
+<xsd:element name="dateSyxnothtaYpovolhs4" type="xsd:string"/>
+<xsd:element name="dateSyxnothtaYpovolhs5" type="xsd:string"/>
+<xsd:element name="prothesmiaYpovolhs" type="xsd:integer"/>
+<xsd:element name="Kps5ProsklhseisAtp" minOccurs="0" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="idAtp" type="xsd:integer"/>
+<xsd:element name="isActive" type="xsd:integer"/>
+<xsd:element name="posoDd" type="xsd:double"/>
+<xsd:element name="idAxanHist" type="xsd:integer"/>
+<xsd:element name="Kps5ProsDeiktes" minOccurs="0" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="kodikosEpen" type="xsd:string"/>
+<xsd:element name="idAxeidst" type="xsd:integer"/>
+<xsd:element name="idDeikth" type="xsd:integer"/>
+<xsd:element name="flagFylo" type="xsd:integer"/>
+<xsd:element name="timhBashs" type="xsd:double"/>
+<xsd:element name="etosBashs" type="xsd:integer"/>
+<xsd:element name="mmBashs" type="xsd:integer"/>
+<xsd:element name="timhStoxos2018" type="xsd:double"/>
+<xsd:element name="timhStoxos" type="xsd:double"/>
+<xsd:element name="idDeikthEkrohs" type="xsd:integer"/>
+<xsd:element name="flagPlaisioEpidoshs" type="xsd:integer"/>
+<xsd:element name="flagProsthetos" type="xsd:integer"/>
+<xsd:element name="flagXorothetoumeno" type="xsd:integer"/>
+<xsd:element name="v5ProsDeiktesDenorm">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="idEp" type="xsd:integer"/>
+<xsd:element name="cci" type="xsd:string"/>
+<xsd:element name="idAxona" type="xsd:integer"/>
+<xsd:element name="kodikosAxona" type="xsd:string"/>
+<xsd:element name="idTam" type="xsd:integer"/>
+<xsd:element name="syntPerigrafh" type="xsd:string"/>
+<xsd:element name="idKatper" type="xsd:integer"/>
+<xsd:element name="perKatper" type="xsd:string"/>
+<xsd:element name="idEkx" type="xsd:integer"/>
+<xsd:element name="kodikosEkxorhshs" type="xsd:string"/>
+<xsd:element name="idAtp" type="xsd:integer"/>
+<xsd:element name="curAxan" type="xsd:integer"/>
+<xsd:element name="idAxan" type="xsd:integer"/>
+<xsd:element name="idProsklhshs" type="xsd:integer"/>
+<xsd:element name="kodikosProsklhshs" type="xsd:string"/>
+<xsd:element name="ekdosh" type="xsd:integer"/>
+<xsd:element name="titlos" type="xsd:string"/>
+<xsd:element name="ypoekdosh" type="xsd:integer"/>
+<xsd:element name="kodikosProsklForea" type="xsd:integer"/>
+<xsd:element name="kodikosForea" type="xsd:integer"/>
+<xsd:element name="idPratp" type="xsd:integer"/>
+<xsd:element name="idPrdei" type="xsd:integer"/>
+<xsd:element name="idDeikth" type="xsd:integer"/>
+<xsd:element name="kodikosDeikth" type="xsd:string"/>
+<xsd:element name="idMonadikos" type="xsd:integer"/>
+<xsd:element name="perigrafh" type="xsd:string"/>
+<xsd:element name="idMm" type="xsd:integer"/>
+<xsd:element name="syntm" type="xsd:string"/>
+<xsd:element name="perMm" type="xsd:string"/>
+<xsd:element name="idEidd" type="xsd:integer"/>
+<xsd:element name="perEidd" type="xsd:string"/>
+<xsd:element name="flagEkroh" type="xsd:integer"/>
+<xsd:element name="flagApotelesma" type="xsd:integer"/>
+<xsd:element name="kodikosThem" type="xsd:string"/>
+<xsd:element name="perThem" type="xsd:string"/>
+<xsd:element name="kodikosEpen" type="xsd:string"/>
+<xsd:element name="perEpen" type="xsd:string"/>
+<xsd:element name="idAxeidst" type="xsd:integer"/>
+<xsd:element name="kodikosEidikoyStoxoy" type="xsd:string"/>
+<xsd:element name="perAxeidst" type="xsd:string"/>
+<xsd:element name="apotelesma" type="xsd:string"/>
+<xsd:element name="flagFylo" type="xsd:integer"/>
+<xsd:element name="etosBashs" type="xsd:integer"/>
+<xsd:element name="mmBashs" type="xsd:integer"/>
+<xsd:element name="syntmBashs" type="xsd:string"/>
+<xsd:element name="perMmBashs" type="xsd:string"/>
+<xsd:element name="timhBashs" type="xsd:double"/>
+<xsd:element name="timhStoxos" type="xsd:double"/>
+<xsd:element name="idDeikthEkrohs" type="xsd:integer"/>
+<xsd:element name="flagProsthetos" type="xsd:integer"/>
+<xsd:element name="flagXorothetoumeno" type="xsd:integer"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="v5ProsFormAtpLines">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="idProsklhshs" type="xsd:integer"/>
+<xsd:element name="idPratp" type="xsd:integer"/>
+<xsd:element name="idAtp" type="xsd:integer"/>
+<xsd:element name="idEp" type="xsd:integer"/>
+<xsd:element name="kodikosAxona" type="xsd:string"/>
+<xsd:element name="descrTam" type="xsd:string"/>
+<xsd:element name="descrKatper" type="xsd:string"/>
+<xsd:element name="kodikosEkxorhshs" type="xsd:string"/>
+<xsd:element name="titlosEp" type="xsd:string"/>
+<xsd:element name="titlosAxona" type="xsd:string"/>
+<xsd:element name="idPrdia" type="xsd:integer"/>
+<xsd:element name="idDimkat" type="xsd:integer"/>
+<xsd:element name="kodikosKat" type="xsd:string"/>
+<xsd:element name="descrKat" type="xsd:string"/>
+<xsd:element name="idPrdra" type="xsd:integer"/>
+<xsd:element name="idDra" type="xsd:integer"/>
+<xsd:element name="kodikosDra" type="xsd:string"/>
+<xsd:element name="descrDra" type="xsd:string"/>
+<xsd:element name="poso" type="xsd:double"/>
+<xsd:element name="foreasEnt" type="xsd:integer"/>
+<xsd:element name="perigrafhForeaEnt" type="xsd:string"/>
+<xsd:element name="idTam" type="xsd:integer"/>
+<xsd:element name="idKatper" type="xsd:integer"/>
+<xsd:element name="idAxona" type="xsd:integer"/>
+<xsd:element name="flagTexnikhBohtheia" type="xsd:integer"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="Kps5ProsDapanes" minOccurs="0" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="idProsdap" type="xsd:integer"/>
+<xsd:element name="idKathgoriaDapanhs" type="xsd:integer"/>
+<xsd:element name="pososto" type="xsd:double"/>
+<xsd:element name="pyDd" type="xsd:double"/>
+<xsd:element name="kostosMonadas" type="xsd:double"/>
+<xsd:element name="monadaMetrhshs" type="xsd:string"/>
+<xsd:element name="perigrafhMonadas" type="xsd:string"/>
+<xsd:element name="typosPrakseon" type="xsd:string"/>
+<xsd:element name="eidosYpoergon" type="xsd:integer"/>
+<xsd:element name="idUnco" type="xsd:integer"/>
+<xsd:element name="perigrafhKathgoriaDapanhs" type="xsd:string"/>
+<xsd:element name="dspEidosYpoergon" type="xsd:string"/>
+<xsd:element name="dspEidosYpoergonAA" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="Kps5ProsDiastaseis" minOccurs="0" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="idDimkat" type="xsd:integer"/>
+<xsd:element name="poso" type="xsd:double"/>
+<xsd:element name="idPratp" type="xsd:integer"/>
+<xsd:element name="pososto" type="xsd:double"/>
+<xsd:element name="idProsOrAtpFlag" type="xsd:integer"/>
+<xsd:element name="idGeo" type="xsd:integer"/>
+<xsd:element name="geoFlag" type="xsd:integer"/>
+<xsd:element name="Kps5ProsDraseis" minOccurs="0" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="idPrdra" type="xsd:integer"/>
+<xsd:element name="idDra" type="xsd:integer"/>
+<xsd:element name="idPrdia" type="xsd:integer"/>
+<xsd:element name="poso" type="xsd:double"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="v6ProsDiastaseisInfo">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="idPrdia" type="xsd:integer"/>
+<xsd:element name="geoIdGeo" type="xsd:integer"/>
+<xsd:element name="geoPerigrafh" type="xsd:string"/>
+<xsd:element name="geoKodikosNuts" type="xsd:string"/>
+<xsd:element name="geoEpipedo" type="xsd:integer"/>
+<xsd:element name="geoDspEpipedo" type="xsd:string"/>
+<xsd:element name="katKodikosKat" type="xsd:string"/>
+<xsd:element name="katPerigrafh" type="xsd:string"/>
+<xsd:element name="katKodikosDim" type="xsd:string"/>
+<xsd:element name="katDescKat" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="Kps5ProsEgrafa" minOccurs="0" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="idProsegr" type="xsd:integer"/>
+<xsd:element name="kodikosEgrafoy" type="xsd:integer"/>
+<xsd:element name="apaiteitaiFlag" type="xsd:integer"/>
+<xsd:element name="parathrhseis" type="xsd:string"/>
+<xsd:element name="dspKodikosEggrafoy" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="Kps5ProsEidikoiStoxoi" minOccurs="0" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="idAxeidst" type="xsd:integer"/>
+<xsd:element name="v5ProsEidikoiStoxoiDenorm">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="idPreidst" type="xsd:integer"/>
+<xsd:element name="idProsklhshs" type="xsd:integer"/>
+<xsd:element name="idAxona" type="xsd:integer"/>
+<xsd:element name="idTam" type="xsd:integer"/>
+<xsd:element name="idEp" type="xsd:integer"/>
+<xsd:element name="titlosEp" type="xsd:string"/>
+<xsd:element name="kodikosAxona" type="xsd:string"/>
+<xsd:element name="titlosAxona" type="xsd:string"/>
+<xsd:element name="kodikosThem" type="xsd:string"/>
+<xsd:element name="perThem" type="xsd:string"/>
+<xsd:element name="kodikosEpen" type="xsd:string"/>
+<xsd:element name="perEpen" type="xsd:string"/>
+<xsd:element name="kodikosEidikoyStoxoy" type="xsd:string"/>
+<xsd:element name="perEidst" type="xsd:string"/>
+<xsd:element name="idAxeidst" type="xsd:integer"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="Kps5ProsEndeiktikoi" minOccurs="0" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="idPrend" type="xsd:integer"/>
+<xsd:element name="flagKatigoria" type="xsd:integer"/>
+<xsd:element name="idForeas" type="xsd:integer"/>
+<xsd:element name="idCategory" type="xsd:integer"/>
+<xsd:element name="flagEidoslistas" type="xsd:integer"/>
+<xsd:element name="parathrhseis" type="xsd:string"/>
+<xsd:element name="dpsCategory" type="xsd:string"/>
+<xsd:element name="dspCatForeas" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="Kps5ProsListes" minOccurs="0" maxOccurs="unbounded">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="idEidoslistas" type="xsd:integer"/>
+<xsd:element name="kodikosKad" type="xsd:string"/>
+<xsd:element name="idKaten" type="xsd:integer"/>
+<xsd:element name="idKath" type="xsd:string"/>
+<xsd:element name="eksairesiFlag" type="xsd:integer"/>
+<xsd:element name="v6ProsListesInfo">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="idPrlist" type="xsd:integer"/>
+<xsd:element name="descKaten" type="xsd:string"/>
+<xsd:element name="descKath" type="xsd:string"/>
+<xsd:element name="descKad" type="xsd:string"/>
+<xsd:element name="descNace" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="InputChangeStatus">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="actionUi" type="xsd:integer"/>
+<xsd:element name="commentsStatus" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:element name="OutputChangeStatus">
+<xsd:complexType>
+<xsd:sequence>
+<xsd:element name="ERRORCODE" type="xsd:integer"/>
+<xsd:element name="ERRORMESSAGE" type="xsd:string"/>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+</xsd:sequence>
+</xsd:complexType>
+</xsd:element>
+<xsd:annotation xmlns="">
+<xsd:appinfo>NXSDSAMPLE=</xsd:appinfo>
+<xsd:appinfo>USEHEADER=false</xsd:appinfo>
+</xsd:annotation>
+</xsd:schema>
