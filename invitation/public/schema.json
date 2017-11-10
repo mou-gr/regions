@@ -409,7 +409,7 @@
                 "type": "object",
                 "properties": {
                   "AA": {
-                    "type": "number",
+                    "type": "string",
                     "title": "AA",
                     "readonly": false
                   },

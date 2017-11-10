@@ -263,12 +263,7 @@
                     "fieldClass": "l-col"
                   },
                   "DHMOSIA_DAPANH": {
-                    "fieldClass": "l-col",
-                    "type": "currency",
-                    "centsSeparator": ",",
-                    "prefix": "",
-                    "suffix": "€",
-                    "thousandsSeparator": "."
+                    "fieldClass": "l-col"
                   }
                 }
               }
@@ -277,6 +272,7 @@
 			 "id": "DHMOSIA_DAPANH_TOTAL_OBJ",
 			 "fields": {
 			 "DHMOSIA_DAPANH_TOTAL": {
+				"fieldClass": "l-col"
 			 }
 			 
 			 
@@ -299,41 +295,16 @@
               "fieldClass": "padded-array",
 			  "items": {
 				"fields": {
-				   "ANOTERO_POSO": {
-                    "type": "currency",
-                    "centsSeparator": ",",
-                    "prefix": "",
-                    "suffix": "€",
-                    "thousandsSeparator": "."
+				   "ANOTERO_POSO": {                   
                   },
 				  	"ELAXISTO_POSO": {
-                    "type": "currency",
-                    "centsSeparator": ",",
-                    "prefix": "",
-                    "suffix": "€",
-                    "thousandsSeparator": "."
                   },
 				  "ANOTERO_POSOSTO_EPI_TOY_PROIPOLOGISMOY": {
-					"type": "currency",
-                    "centsSeparator": ",",
-                    "thousandsSeparator": ".",
-                    "prefix": "",
-                    "suffix": "%"
                   },
                   "ELAXISTO_POSOSTO_EPI_TOY_PROIPOLOGISMOY": {
-					"type": "currency",
-                    "centsSeparator": ",",
-                    "thousandsSeparator": ".",
-                    "prefix": "",
-                    "suffix": "%"
                   },
 				  "ENTASI_ENISXISIS": {
-					"type": "currency",
-                    "centsSeparator": ",",
-                    "thousandsSeparator": ".",
-                    "prefix": "",
-                    "suffix": "%"
-                    }
+                  }
 				}
 			  
 			  }
@@ -394,45 +365,18 @@
                     "hideNone": false
                   },
                   "ANOTERO_POSO": {
-                    "type": "currency",
-                    "centsSeparator": ",",
-                    "prefix": "",
-                    "suffix": "€",
-                    "thousandsSeparator": ".",
                     "fieldClass": "l-col"
                   },
                   "ELAXISTO_POSO": {
-                    "type": "currency",
-                    "centsSeparator": ",",
-                    "thousandsSeparator": ".",
-                    "prefix": "",
-                    "suffix": "€",
                     "fieldClass": "l-col"
                   },
                   "ANOTERO_POSOSTO_EPI_TOY_PROIPOLOGISMOY": {
-					"type": "currency",
-                    "centsSeparator": ",",
-                    "thousandsSeparator": ".",
-                    "prefix": "",
-                    "suffix": "%",
-                    "fieldClass": "l-col",
-                    "size": "4"
+                    "fieldClass": "l-col"
                   },
                   "ELAXISTO_POSOSTO_EPI_TOY_PROIPOLOGISMOY": {
-					"type": "currency",
-                    "centsSeparator": ",",
-                    "thousandsSeparator": ".",
-                    "prefix": "",
-                    "suffix": "%",
-                    "fieldClass": "l-col",
-                    "size": "4"
+                    "fieldClass": "l-col"
                   },
                   "ENTASI_ENISXISIS": {
-				  	"type": "currency",
-                    "centsSeparator": ",",
-                    "thousandsSeparator": ".",
-                    "prefix": "",
-                    "suffix": "%",
                     "fieldClass": "l-col"
                   }
                 }
