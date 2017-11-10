@@ -132,7 +132,7 @@ $(document).ready(function() {
                               'change': function(a) {
                                 const table = this.top().getControlByPath('tab5/PEDIA_PAREMVASHS_OBJ/PEDIA_PAREMVASHS_LIST').getValue()
                                 const sum = table.reduce((sum, value) => sum + value.DHMOSIA_DAPANH, 0);
-                                this.top().getControlByPath('tab5/PEDIA_PAREMVASHS_OBJ/DHMOSIA_DAPANH_TOTAL_OBJ/DHMOSIA_DAPANH_TOTAL').setValue(sum.toString().replace('.', ','));
+                                this.top().getControlByPath('tab5/PEDIA_PAREMVASHS_OBJ/DHMOSIA_DAPANH_TOTAL_OBJ/DHMOSIA_DAPANH_TOTAL').setValue(sum);
                               }
                             }
                           } 
