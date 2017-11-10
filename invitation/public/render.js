@@ -14,7 +14,7 @@ $(document).ready(function() {
             tab1: {
               fields: {
                 KODIKOS_FOREA_EGKRISHS: {
-                  dataSource: '/foreisProslisis.json'
+                  dataSource: '/foreisProslisis.json' 
                 }
 
               }
