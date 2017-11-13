@@ -195,6 +195,13 @@ $(document).ready(function () {
 			var codeControl = control.getControlByPath('compiled')
 				var code = codeControl.data;
 			codeControl.setValue(JSON.stringify(JSON.parse(code), null, 4))
+            
+            $('[data-alpaca-container-item-name="compiled"]').bind('keydown', function(event) {
+                if (event.ctrlKey && String.fromCharCode(event.which).toLowerCase() == 's') {
+                    $('#commit').click();
+                    event.preventDefault();
+                }
+            })
 		},
 		view: {
 			parent: "bootstrap-edit-horizontal",

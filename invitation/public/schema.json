@@ -352,12 +352,16 @@
 				"ENTASI_ENISXISIS_OBJ": {
 					"type": "object",
 					"properties": {
+                        "maxDD": {
+                            "type": "number",
+                            "title": "Μέγιστη Δημόσια Δαπάνη ανά Πρόταση €"
+                        },
 						"MAX_ENTASI_ENISXISIS": {
 							"type": "number",
-							"title": "Μέγιστη Προσαύξηση Έντασης Ενίσχυσης"
+							"title": "Μέγιστη Προσαύξηση Έντασης Ενίσχυσης %"
 						}
 					}
-				},
+				}, 
 				"KATHGORIES_DAPANON_OBJ": {
 					"type": "object",
 					"properties": {
