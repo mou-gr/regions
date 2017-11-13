@@ -352,10 +352,14 @@
 				"ENTASI_ENISXISIS_OBJ": {
 					"type": "object",
 					"properties": {
-                        "maxDD": {
+                        "min": {
                             "type": "number",
-                            "title": "Μέγιστη Δημόσια Δαπάνη ανά Πρόταση €"
+                            "title": "Ελάχιστος Επιλέξιμος Προϋπολογισμός ανά Πρόταση €"
                         },
+                        "max": {
+                            "type": "number",
+                            "title": "Μέγιστος Επιλέξιμος Προϋπολογισμός ανά Πρόταση €"
+                        },                        
 						"MAX_ENTASI_ENISXISIS": {
 							"type": "number",
 							"title": "Μέγιστη Προσαύξηση Έντασης Ενίσχυσης %"
@@ -390,12 +394,6 @@
 									"ELAXISTO_POSOSTO_EPI_TOY_PROIPOLOGISMOY": {
 										"type": "number",
 										"title": "Ελάχιστο ποσοστό επί του προυπολογισμού",
-										"minimum": 0,
-										"maximum": 100
-									},
-									"ENTASI_ENISXISIS": {
-										"type": "number",
-										"title": "Ένταση Ενίσχυσης",
 										"minimum": 0,
 										"maximum": 100
 									}
