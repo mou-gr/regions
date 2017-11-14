@@ -4,6 +4,7 @@ const moment = require('moment');
 const model = require('./model');
 const R = require('ramda');
 const app = express();
+const resquel = require('resquel');
 const config = require('./config');
 
 const exphbs = require('express-handlebars');
@@ -12,6 +13,8 @@ app.engine('handlebars', exphbs({defaultLayout: 'main'}));
 app.set('view engine', 'handlebars');
 
 app.use(bodyParser.json());       // to support JSON-encoded bodies
+console.log(model.resquel)
+app.use(resquel(model.resquel));
 
 // const roles = [
 //     {name: 'admin', value: 20, 'class': 'btn-danger'},

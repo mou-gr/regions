@@ -7,11 +7,48 @@ sql.Promise = Promise;
 
 const config = credentials.config;
 
+const resquel = {
+    db: config
+    , routes: [
+        {
+              "method": "get",
+              "endpoint": "/api/invitation",
+              "query": "select ID, Name, IsFinal from Invitation;"
+        }
+        , {
+              "method": "get",
+              "endpoint": "/api/invitation/:id",
+              "query": "select * from Invitation where ID={{ params.id }};" 
+        }
+        , {
+              "method": "put",
+              "endpoint": "/api/invitation/:id/rename",
+              "query": "update invitation set Name='{{ name }}' where ID= {{ params.id }}"       
+        }
+        , {
+              "method": "put",
+              "endpoint": "/api/invitation/:id/final",
+              "query": "update invitation set IsFinal='{{ IsFinal }}' where ID= {{ params.id }}"       
+        }
+        , {
+              "method": "post",
+              "endpoint": "/api/invitation/:id/clone",
+              "query": "insert into Invitation (IsFinal, InvitationGroup, JsonData, Name) select IsFinal, InvitationGroup, JsonData, concat(Name, '_copy') from Invitation where ID = {{ params.id }}"       
+        } 
+        , {
+              "method": "delete",
+              "endpoint": "/api/invitation/:id",
+              "query": "delete from Invitation where ID= {{ params.id }}"       
+        }
+
+    ]
+}
+
 const getConnection = function () {
     return sql.connect(config);
 }
 const closeConnection = function () {
-    return sql.close();
+    return sql.close(); 
 }
 
 const query = async function (str, pool) {
@@ -25,7 +62,7 @@ const query = async function (str, pool) {
 }
 
 const getList = function (pool) {
-    var q = `select ID, Name from Invitation`;
+    var q = `select ID, Name, IsFinal from Invitation`;
     return query(q, pool);
 }
 
@@ -82,5 +119,5 @@ const getUsers = pool => {
 
 module.exports = {getConnection, query, deleteInvitation, newInvitation,
      getInvitation, getList, closeConnection, updateInvitation, getInvitationUsers,
-     getUsers, addInvitationUsers, deleteInvitationUser
+     getUsers, addInvitationUsers, deleteInvitationUser, resquel
  }
