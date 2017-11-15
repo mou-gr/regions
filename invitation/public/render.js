@@ -14,6 +14,9 @@ $(document).ready(function () {
 					fields: {
 						KODIKOS_FOREA_EGKRISHS: {
 							dataSource: '/foreisProslisis.json'
+						},
+						KATHESTOS_ENISXYSHS: {
+							dataSource: '/kathestotaEnisxisis.json'
 						}
 
 					}
