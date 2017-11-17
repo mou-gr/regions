@@ -26,14 +26,7 @@
 					}
 				},
 				"EIDOS_AJIOLOGHSHS": {
-					"type": "select",
-					"optionLabels": [
-						"Value1",
-						"Value2",
-						"Value3",
-						"Value4",
-						"Value5"
-					]
+					"type": "select"
 				},
 				"KATHESTOS_ENISXYSHS": {
 					"type": "select"
@@ -149,7 +142,8 @@
 							"optionLabels": [
 								"1. Κοινωνική Καινοτομία",
 								"2. Διακρατική Συνεργασία",
-								"3. Και τα δύο"
+								"3. Και τα δύο",
+								"4. Δεν αφορά"
 							]
 						},
 						"MICRODATA": {

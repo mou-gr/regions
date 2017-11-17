@@ -12,7 +12,7 @@
 				},
 				"KODIKOS_PROSKLHSHS": {
 					"type": "string",
-					"title": "Κωδικός"
+					"title": "Κωδικός Πρόσκλησης ΟΠΣ"
 				},
 				"AA_PROSKLHSHS": {
 					"type": "number",
@@ -34,6 +34,10 @@
 					"type": "string",
 					"title": "Αριθμός Πρωτοκόλλου / ΦΕΚ Πρόσκλησης"
 				},
+				"ADA": {
+					"type": "string",
+					"title": "ΑΔΑ"
+				},
 				"DATE_ENARKSHS_ISXYOS": {
 					"type": "string",
 					"title": "Ημερομηνία Έναρξης Ισχύος"
@@ -48,14 +52,7 @@
 				},
 				"EIDOS_AJIOLOGHSHS": {
 					"type": "string",
-					"title": "Είδος Αξιολόγησης",
-					"enum": [
-						"1",
-						"2",
-						"3",
-						"4",
-						"5"
-					]
+					"title": "Είδος Αξιολόγησης"
 				},
 				"KATHESTOS_ENISXYSHS": {
 					"type": "string",
@@ -158,7 +155,7 @@
 					},
 					"ONOMASIA_DEIKTH": {
 						"type": "string",
-						"title": "Ονομασία Δείκτη Εκροών"
+						"title": "Ονομασία Δείκτη"
 					},
 					"MONADA_METRHSHS": {
 						"type": "string",
@@ -208,7 +205,8 @@
 							"enum": [
 								"0",
 								"1",
-								"2"
+								"2",
+								"3"
 							]
 						},
 						"MICRODATA": {

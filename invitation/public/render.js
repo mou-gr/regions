@@ -17,8 +17,10 @@ $(document).ready(function () {
 						},
 						KATHESTOS_ENISXYSHS: {
 							dataSource: '/kathestotaEnisxisis.json'
-						}
-
+						},
+						EIDOS_AJIOLOGHSHS: {
+							dataSource: '/eidiAksiologisis.json'
+						}			
 					}
 				},
 				tab2: {
