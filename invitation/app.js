@@ -6,8 +6,6 @@ const R = require('ramda')
 const app = express()
 const resquel = require('resquel')
 const config = require('./config')
-
-
 const exphbs = require('express-handlebars')
 
 app.engine('handlebars', exphbs({
@@ -24,6 +22,7 @@ const nocache = function nocache(req, res, next) {
     res.header('Pragma', 'no-cache')
     next()
 }
+
 app.get('/', function(req, res) {
     model.getList(app.locals.pool)
         .catch(err => console.error(err.stack))
