@@ -155,7 +155,8 @@
 					},
 					"ONOMASIA_DEIKTH": {
 						"type": "string",
-						"title": "Ονομασία Δείκτη"
+						"title": "Ονομασία Δείκτη",
+						"readonly": true
 					},
 					"MONADA_METRHSHS": {
 						"type": "string",

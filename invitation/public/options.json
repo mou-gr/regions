@@ -93,8 +93,7 @@
 						"hideNone": true
 					},
 					"ONOMASIA_DEIKTH": {
-						"type": "select",
-						"hideNone": true
+						"fieldClass": "onomasia-deikth"
 					},
 					"MONADA_METRHSHS": {
 						"type": "select",

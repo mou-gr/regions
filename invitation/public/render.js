@@ -13,13 +13,13 @@ $(document).ready(function () {
                 tab1: {
                     fields: {
                         KODIKOS_FOREA_EGKRISHS: {
-                            dataSource: '/foreisProslisis.json'
+                            dataSource: '/resources/foreisProslisis.json'
                         },
                         KATHESTOS_ENISXYSHS: {
-                            dataSource: '/kathestotaEnisxisis.json'
+                            dataSource: '/resources/kathestotaEnisxisis.json'
                         },
                         EIDOS_AJIOLOGHSHS: {
-                            dataSource: '/eidiAksiologisis.json'
+                            dataSource: '/resources/eidiAksiologisis.json'
                         }
                     }
                 },
@@ -27,25 +27,25 @@ $(document).ready(function () {
                     items: {
                         fields: {
                             EP_PERIGRAFH: {
-                                dataSource: '/epixeirisiakaProgrammata.json'
+                                dataSource: '/resources/epixeirisiakaProgrammata.json'
                             },
                             AXONAS_PERIGRAFH: {
-                                dataSource: '/axonesProteraiotitas.json'
+                                dataSource: '/resources/axonesProteraiotitas.json'
                             },
                             KATHGORIA_PER: {
-                                dataSource: '/katigoriesPerifereias.json'
+                                dataSource: '/resources/katigoriesPerifereias.json'
                             },
                             TAMEIO: {
-                                dataSource: '/tameia.json'
+                                dataSource: '/resources/tameia.json'
                             },
                             THEMATIKOI_STOXOI: {
-                                dataSource: '/thematikoiStoxoi.json'
+                                dataSource: '/resources/thematikoiStoxoi.json'
                             },
                             EIDIKOI_STOXOI: {
-                                dataSource: '/eidikoiStoxoi.json'
+                                dataSource: '/resources/eidikoiStoxoi.json'
                             },
                             EPENDYTIKES_PROTERAIOTHTES: {
-                                dataSource: '/ependytikesProteraiothtes.json'
+                                dataSource: '/resources/ependytikesProteraiothtes.json'
                             }
                         }
                     }
@@ -54,28 +54,28 @@ $(document).ready(function () {
                     items: {
                         fields: {
                             EIDOS_DEIKTH: {
-                                dataSource: '/eidiDeikton.json'
+                                dataSource: '/resources/eidiDeikton.json'
                             },
                             EP_PERIGRAFH: {
-                                dataSource: '/epixeirisiakaProgrammata.json'
+                                dataSource: '/resources/epixeirisiakaProgrammata.json'
                             },
                             AXONAS_PERIGRAFH: {
-                                dataSource: '/axonesProteraiotitas.json'
+                                dataSource: '/resources/axonesProteraiotitas.json'
                             },
                             TAMEIO: {
-                                dataSource: '/tameia.json'
+                                dataSource: '/resources/tameia.json'
                             },
                             EPENDYTIKES_PROTERAIOTHTES: {
-                                dataSource: '/ependytikesProteraiothtes.json'
+                                dataSource: '/resources/ependytikesProteraiothtes.json'
                             },
                             ONOMASIA_DEIKTH: {
-                                dataSource: '/deiktes.json'
+                                dataSource: '/resources/deiktes.json'
                             },
                             MONADA_METRHSHS: {
-                                dataSource: '/monadesMetrisis.json'
+                                dataSource: '/resources/monadesMetrisis.json'
                             },
                             KATHGORIA_PER: {
-                                dataSource: '/katigoriesPerifereias.json'
+                                dataSource: '/resources/katigoriesPerifereias.json'
                             }
                         }
                     }
@@ -85,34 +85,34 @@ $(document).ready(function () {
                         CODED_DATA_FOR_INVITATION: {
                             fields: {
                                 OPSMorfh_Xrhmatodothshs_ID: {
-                                    dataSource: '/morfesXrimatodotisis.json'
+                                    dataSource: '/resources/morfesXrimatodotisis.json'
                                 },
                                 OPSEdafikh_Diastash_Typos_ID: {
-                                    dataSource: '/edafikesDiastaseisTipoi.json'
+                                    dataSource: '/resources/edafikesDiastaseisTipoi.json'
                                 },
                                 OPSEdafikh_Diastash_Mhxanismos_id: {
-                                    dataSource: '/edafikesDiastaseisMixanismoi.json'
+                                    dataSource: '/resources/edafikesDiastaseisMixanismoi.json'
                                 },
                                 OPSDeytereyon_stoxos_EKT_ID: {
-                                    dataSource: '/deuteuontesStoxoiEKT.json'
+                                    dataSource: '/resources/deuteuontesStoxoiEKT.json'
                                 },
                                 OPSOikonomikh_Drasthriothta_id: {
-                                    dataSource: '/oikonomikesDrastiriotites.json'
+                                    dataSource: '/resources/oikonomikesDrastiriotites.json'
                                 },
                                 ID_GEO: {
-                                    dataSource: '/geografikesTheseis.json'
+                                    dataSource: '/resources/geografikesTheseis.json'
                                 },
                                 KAD_NACE_LIST: {
                                     items: {
                                         fields: {
                                             KAD_NACE: {
-                                                dataSource: '/kad.json'
+                                                dataSource: '/resources/kad.json'
                                             }
                                         }
                                     }
                                 },
                                 EIDOS_EPENDYSH_ID: {
-                                    dataSource: '/eidiEpendiseon.json'
+                                    dataSource: '/resources/eidiEpendiseon.json'
                                 }
                             }
                         }
@@ -126,10 +126,10 @@ $(document).ready(function () {
                                     items: {
                                         fields: {
                                             PEDIA_PAREMVASHS: {
-                                                dataSource: '/pediaParemvasis.json'
+                                                dataSource: '/resources/pediaParemvasis.json'
                                             },
                                             KATHGORIA_PERIFEREIAS: {
-                                                dataSource: '/katigoriesPerifereias.json'
+                                                dataSource: '/resources/katigoriesPerifereias.json'
                                             },
                                             DHMOSIA_DAPANH: {
                                                 events: {
@@ -155,27 +155,13 @@ $(document).ready(function () {
                                     events: {
                                         'add': function () {
                                             console.log('The value of this was changed to:')
-                                            // var my_object = control.getControlByPath('tab6/KATHGORIES_DAPANON_OBJ/KATHGORIES_DAPANON_LIST');
-                                            // var data = my_object.getValue();
-                                            // control.getControlByPath('tab6/KATHGORIES_DAPANON_OBJ/KATHGORIES_DAPANON_LIST['+ (data.length - 1) +']/AA').setValue(data.length);
-                                            // console.log("The value of this was changed to:");
                                         }
                                     },
-                                    // }
-
                                     items: {
                                         fields: {
                                             KATHGORIA_PERIFEREIAS: {
-                                                dataSource: '/katigoriesPerifereias.json'
+                                                dataSource: '/resources/katigoriesPerifereias.json'
                                             }
-
-                                            //     AA: {
-                                            //         events: {
-                                            //           'change': function() {
-                                            //             console.log("The value of this was changed to: ");
-                                            //             //  this.top().getControlByPath('tab6/KATHGORIES_DAPANON_OBJ/KATHGORIES_DAPANON_LIST/ELAXISTO_POSOSTO_EPI_TOY_PROIPOLOGISMOY').setValue(sum);
-                                            //
-                                            //           }
                                         }
                                     }
                                 }
@@ -184,7 +170,6 @@ $(document).ready(function () {
                         }
                     }
                 }
-
             }
         },
         dataSource: '/invitation/' + invitationID,
@@ -207,6 +192,15 @@ $(document).ready(function () {
                     event.preventDefault()
                 }
             })
+
+            $('.onomasia-deikth .col-sm-9')
+                .addClass('input-group')
+                .append([
+                    ' <span class="btn btn-default btn-md">',
+                    '<span class="glyphicon glyphicon-search" aria-hidden="true"></span> ',
+                    '</span>',
+                ].join(''))
+                .find('input').css('width', '70%')
         },
         view: {
             parent: 'bootstrap-edit-horizontal',
