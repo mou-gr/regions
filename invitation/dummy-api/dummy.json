@@ -1,0 +1,34 @@
+{
+  "Invitation": [
+    {
+      "ID": "1",
+      "IsFinal": true,
+      "Name": "Νέες Τουριστικές"
+    },
+    {
+      "ID": "2",
+      "Name": "wwewe",
+      "IsFinal": "true"
+    },
+    {
+      "Name": "σαδασδσδ σ δσ δσδ ",
+      "IsFinal": "true",
+      "ID": "3"
+    },
+    {
+      "Name": "σαδασδσδ σ δσ δσδ ",
+      "IsFinal": "true",
+      "ID": "4"
+    },
+    {
+      "Name": "σαδασδσδ σ δσ δσδ ",
+      "IsFinal": "true",
+      "ID": 6
+    },
+    {
+      "Name": "σαδασδσδ σ δσ δσδ ",
+      "IsFinal": "true",
+      "ID": 5
+    }
+  ]
+}
