@@ -465,6 +465,11 @@
 					],
 					"title": "Επιτρεπόμενες Επιχειρήσεις"
 				},
+				"numberOfLocations": {
+					"type": "number",
+					"title": "Αριθμός Τόπων Υλοποίησης ανά Φορέα"
+				},
+				
 				"attachmentInstruction": {
 					"title": "Γενικές Οδηγίες για Συνημμένα",
 					"type": "string"
