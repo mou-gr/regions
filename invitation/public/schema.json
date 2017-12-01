@@ -155,8 +155,7 @@
 					},
 					"ONOMASIA_DEIKTH": {
 						"type": "string",
-						"title": "Ονομασία Δείκτη",
-						"readonly": true
+						"title": "Ονομασία Δείκτη"
 					},
 					"MONADA_METRHSHS": {
 						"type": "string",
@@ -340,13 +339,13 @@
                         "max": {
                             "type": "number",
                             "title": "Μέγιστος Επιλέξιμος Προϋπολογισμός ανά Πρόταση €"
-                        },                        
+                        },
 						"MAX_ENTASI_ENISXISIS": {
 							"type": "number",
 							"title": "Μέγιστη Προσαύξηση Έντασης Ενίσχυσης %"
 						}
 					}
-				}, 
+				},
 				"KATHGORIES_DAPANON_OBJ": {
 					"type": "object",
 					"properties": {
@@ -469,7 +468,7 @@
 					"type": "number",
 					"title": "Αριθμός Τόπων Υλοποίησης ανά Φορέα"
 				},
-				
+
 				"attachmentInstruction": {
 					"title": "Γενικές Οδηγίες για Συνημμένα",
 					"type": "string"
