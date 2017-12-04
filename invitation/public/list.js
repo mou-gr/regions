@@ -58,6 +58,31 @@ $(document).ready(function() {
             }
         })
     })
+    $('.rename-mask-btn').on('click', function() {
+        const value = $(this).closest('tr').find('.rename-mask').val()
+        if (value === '') {
+            return
+        }
+        const id = $(this).closest('tr').find('.id').text()
+        $.ajax({
+            url: '/api/invitation/' + id + '/rename-mask',
+            type: 'PUT',
+            dataType: 'json',
+            data: JSON.stringify({
+                mask: value
+            }),
+            contentType: 'application/json',
+            cache: false,
+            timeout: 5000,
+            complete: function(resp, status, ) {
+                if (resp.responseJSON.data == 'OK') {
+                    location.reload()
+                } else {
+                    console.log(resp, status, 'process error')
+                }
+            }
+        })
+    })
     $('.final-checkbox').on('change', function() {
         const value = $(this).prop('checked')
         const sendVal = value ? 1 : 0

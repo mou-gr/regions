@@ -12,7 +12,7 @@ const resquel = {
         {
             'method': 'get',
             'endpoint': '/api/invitation',
-            'query': 'select ID, Name, IsFinal from Invitation;'
+            'query': 'select ID, Name, IsFinal, CN_Code_Mask from Invitation;'
         }
         , {
             'method': 'get',
@@ -20,9 +20,24 @@ const resquel = {
             'query': 'select * from Invitation where ID={{ params.id }};'
         }
         , {
+            'method': 'get',
+            'endpoint': '/api/invitation/:id/kad',
+            'query': 'select ID, Name, EligibleKad from Invitation where ID={{ params.id }};'
+        }
+        , {
+            'method': 'put',
+            'endpoint': '/api/invitation/:id/kad',
+            'query': 'update invitation set EligibleKad=\'{{ kad }}\' where ID= {{ params.id }}'
+        }
+        , {
             'method': 'put',
             'endpoint': '/api/invitation/:id/rename',
             'query': 'update invitation set Name=\'{{ name }}\' where ID= {{ params.id }}'
+        }
+        , {
+            'method': 'put',
+            'endpoint': '/api/invitation/:id/rename-mask',
+            'query': 'update invitation set CN_Code_Mask=\'{{ mask }}\' where ID= {{ params.id }}'
         }
         , {
             'method': 'put',
@@ -61,7 +76,7 @@ const query = async function (str, pool) {
 }
 
 const getList = function (pool) {
-    var q = 'select ID, Name, IsFinal from Invitation'
+    var q = 'select ID, Name, IsFinal, CN_Code_Mask from Invitation'
     return query(q, pool)
 }
 

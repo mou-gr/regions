@@ -50,6 +50,9 @@ app.get('/invitation/:id/users', function(req, res) {
             })
         })
 })
+app.get('/invitation/:id/kad', function (req, res) {
+    res.render('kad', { invitationId: req.params.id })
+})
 app.get('/invitation/:id', nocache, function(req, res) {
     model.getInvitation(req.params.id, app.locals.pool)
         .catch(err => console.error(err.stack))

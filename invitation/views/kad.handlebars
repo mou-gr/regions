@@ -1,0 +1,17 @@
+<header class="jumbotron">
+    <div class="container">
+        Διαχείριση KAD για τη δράση <h1 id="invitation-name"></h1>
+        <a href="/">index</a>
+    </div>
+</header>
+
+<input type=hidden id="invitation-id" value="{{invitationId}}">
+<div class="container">
+    <label>
+        Λίστα επιλέξιμων ΚΑΔ (χωρίζονται με κόμμα ",")
+        <textarea id="kad-area" rows=15 cols=80 class="form-control"></textarea>
+    </label>
+    </br></br>
+    <button type="button" id="update-kad" class="btn btn-primary">Ενημέρωση ΚΑΔ</button>
+</div>
+<script src="/kad.js"></script>
