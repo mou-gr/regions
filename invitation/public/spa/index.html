@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+
+<head>
+    <html lang="en">
+    <meta charset="UTF-8">
+    <title>Διαχείριση Προσκλήσεων</title>
+
+    <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
+
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.44/js/bootstrap-datetimepicker.min.js"></script>
+
+    <script src="/lib/jsgrid.min.js"></script>
+    <script src="/lib/navigo.min.js"></script>
+    <script async src="jsgrid-datetime.js"></script>
+    <script async src="index.js"></script>
+
+    <link href="/css/style.css" rel="stylesheet">
+    <link href="/css/jsgrid.min.css" rel="stylesheet">
+    <link href="/css/jsgrid-theme.min.css" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.44/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div id="content">
+        <div class="container">
+            <div id="invitation-grid" class="router-option jsgrid">inv</div>
+            <div id="invitation" class="router-option">invitation</div>
+            <div id="user-grid" class="router-option jsgrid">user</div>
+            <div id="date-grid" class="router-option jsgrid">date</div>
+            <div id="kad" class="router-option">
+                <div class="container">
+                    <label>
+                        Λίστα επιλέξιμων ΚΑΔ (χωρίζονται με κόμμα ",")
+                        <textarea id="kad-area" rows=15 cols=80 class="form-control"></textarea>
+                    </label>
+                    </br>
+                    </br>
+                    <button type="button" id="update-kad" class="btn btn-primary">Ενημέρωση ΚΑΔ</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>

@@ -139,3 +139,6 @@ body {
   outline: 0;
   background-color: #428bca;
 }
+.jsgrid {
+    overflow: visible!important;
+}

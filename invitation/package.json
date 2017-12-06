@@ -20,6 +20,7 @@
     "express-handlebars": "^3.0.0",
     "moment": "^2.18.1",
     "mssql": "^4.0.4",
+    "navigo": "^6.0.0",
     "ramda": "^0.24.1",
     "resquel": "^1.0.0"
   }

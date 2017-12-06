@@ -12,12 +12,17 @@ const resquel = {
         {
             'method': 'get',
             'endpoint': '/api/invitation',
-            'query': 'select ID, Name, IsFinal, CN_Code_Mask from Invitation;'
+            'query': 'select ID, Name, IsFinal, CN_Code_Mask, InvitationGroup from Invitation;'
         }
         , {
             'method': 'get',
             'endpoint': '/api/invitation/:id',
             'query': 'select * from Invitation where ID={{ params.id }};'
+        }
+        , {
+            'method': 'get',
+            'endpoint': '/api/invitation/:id/name',
+            'query': 'select Name from Invitation where ID={{ params.id }};'
         }
         , {
             'method': 'get',
@@ -28,6 +33,32 @@ const resquel = {
             'method': 'put',
             'endpoint': '/api/invitation/:id/kad',
             'query': 'update invitation set EligibleKad=\'{{ kad }}\' where ID= {{ params.id }}'
+        }
+        , {
+            'method': 'get',
+            'endpoint': '/api/invitation/:id/date',
+            'query': 'select * from Invitation_CallPhase_Date where InvitationID = {{ params.id }}'
+        }
+        , {
+            'method': 'POST',
+            'endpoint': '/api/invitation/:id/date',
+            'query': 'insert into Invitation_CallPhase_Date (InvitationID, CallPhaseID, isActive, StartDate, EndDate)' +
+                'values ({{ params.id }}, {{ CallPhaseID }}, {{ isActive }}, \'{{ StartDate }}\', \'{{ EndDate }}\') '
+        }
+        , {
+            'method': 'PUT',
+            'endpoint': '/api/invitation/:id/date',
+            'query': `update Invitation_CallPhase_Date set
+                    CallPhaseID = {{ CallPhaseID }}
+                    , isActive = {{ isActive }}
+                    , StartDate = \'{{ StartDate }}\'
+                    , EndDate = \'{{ EndDate }}\'
+                where ID = {{ ID }}`
+        }
+        , {
+            'method': 'DELETE',
+            'endpoint': '/api/invitation/:id/date',
+            'query': 'delete from Invitation_CallPhase_Date where ID = {{ ID }}'
         }
         , {
             'method': 'put',

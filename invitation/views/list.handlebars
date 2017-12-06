@@ -7,6 +7,7 @@
         <th>Οριστικοποίηση</th>
         <th>Αντιγραφή</th>
         <th>ΚΑΔ</th>
+        <th>Έναρξη / Λήξη</th>
         <th>Διαχείριση Χρηστών</th>
         <th>Διαγραφή</th>
         <th>Deploy</th>
@@ -21,6 +22,7 @@
             <td class="text-center"><input type="checkbox" class="final-checkbox" {{#if IsFinal}} checked{{/if}}></td>
             <td><button class="btn btn-info btn-sm clone-btn"><span class="glyphicon glyphicon-plus-sign" aria-hidden="true"></span> Κλωνοποίηση</a></td>
             <td><a href="invitation/{{ID}}/kad" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span> ΚΑΔ</a></td>
+            <td><a href="invitation/{{ID}}/date" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span> Ημερομηνίες</a></td>
             <td><a href="invitation/{{ID}}/users" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-user" aria-hidden="true"></span> Χρήστες</a></td>
             <td><button class="btn btn-danger btn-sm remove-btn" data-toggle="confirmation"><span class="glyphicon glyphicon-trash" aria-hidden="true"></span></a></td>
             <td><button class="btn btn-danger btn-sm" data-toggle="confirmation"><span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span> Παραγωγική</button></td>
