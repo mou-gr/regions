@@ -1,34 +1,21 @@
 {
-  "Invitation": [
-    {
-      "ID": "1",
-      "IsFinal": true,
-      "Name": "Νέες Τουριστικές"
-    },
-    {
-      "ID": "2",
-      "Name": "wwewe",
-      "IsFinal": "true"
-    },
-    {
-      "Name": "σαδασδσδ σ δσ δσδ ",
+  "Invitation": {
+    "rows": [{
+      "Name": "σδσδσδ",
+      "CN_Code_Mask": "σδσδ",
+      "InvitationGroup": "2",
       "IsFinal": "true",
-      "ID": "3"
-    },
-    {
-      "Name": "σαδασδσδ σ δσ δσδ ",
+      "": "",
+      "isActive": "0",
+      "isFinal": "0"
+    }, {
+      "Name": "σxcvxcxcxcδσδσδ",
+      "CN_Code_Mask": "σδxcxσδ",
+      "InvitationGroup": "4",
       "IsFinal": "true",
-      "ID": "4"
-    },
-    {
-      "Name": "σαδασδσδ σ δσ δσδ ",
-      "IsFinal": "true",
-      "ID": 6
-    },
-    {
-      "Name": "σαδασδσδ σ δσ δσδ ",
-      "IsFinal": "true",
-      "ID": 5
-    }
-  ]
+      "": "",
+      "isActive": "0",
+      "isFinal": "0"
+    }]
+  }
 }
