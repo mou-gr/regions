@@ -1,4 +1,4 @@
-/*global $ Bloodhound*/
+/*global $ */
 $(document).ready(function() {
     const invitationId = $('#invitation-id').val()
     $.ajax({
