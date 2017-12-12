@@ -27,7 +27,7 @@ var grid2db = function(row) {
     return row
 }
 var refresh = function(obj) {
-    obj.grid.render()
+    obj.grid.loadData()
 }
 
 var createGrid = function createDateGrid(div, controller, fields) {
