@@ -14,7 +14,7 @@ app.engine('handlebars', exphbs({
 app.set('view engine', 'handlebars')
 
 app.use(bodyParser.json()) // to support JSON-encoded bodies
-// app.use(resquel(model.resquel))
+app.use(resquel(model.resquel))
 
 const nocache = function nocache(req, res, next) {
     res.header('Cache-Control', 'private, no-cache, no-store, must-revalidate')
@@ -130,15 +130,15 @@ app.get('/users.json', nocache, function (req, res) {
 })
 
 app.use(express.static('public'))
-app.listen(config.serverPort, function () {
-    console.log('app listening on port: ' + config.serverPort)
-})
+// app.listen(config.serverPort, function () {
+//     console.log('app listening on port: ' + config.serverPort)
+// })
 
-// model.getConnection()
-//     .catch(err => console.error(err.stack))
-//     .then(pool => {
-//         app.locals.pool = pool
-//         app.listen(config.serverPort, function() {
-//             console.log('app listening on port: ' + config.serverPort)
-//         })
-//     })
+model.getConnection()
+    .catch(err => console.error(err.stack))
+    .then(pool => {
+        app.locals.pool = pool
+        app.listen(config.serverPort, function() {
+            console.log('app listening on port: ' + config.serverPort)
+        })
+    })
