@@ -1,13 +1,12 @@
 /*global Alpaca $ */
-$(document).ready(function () {
+window.renderForm = function renderForm(invitationId, data) {
     $('body').css('cursor', 'progress')
-    const invitationID = $('#invitation-id').val()
 
     Alpaca.defaultToolbarSticky = true
-
     $('#form1').alpaca({
         schemaSource: '/schema.json',
         optionsSource: '/options.json',
+        data: JSON.parse(data),
         options: {
             fields: {
                 tab1: {
@@ -172,7 +171,6 @@ $(document).ready(function () {
                 }
             }
         },
-        dataSource: '/invitation/' + invitationID,
         postRender: function (control) {
             $('body').css('cursor', 'default')
             /*control.getControlByPath('tab6/KATHGORIES_DAPANON_OBJ/KATHGORIES_DAPANON_LIST').on('add', function() {
@@ -192,15 +190,6 @@ $(document).ready(function () {
                     event.preventDefault()
                 }
             })
-
-            $('.onomasia-deikth .col-sm-9')
-                .addClass('input-group')
-                .append([
-                    ' <span class="btn btn-default btn-md">',
-                    '<span class="glyphicon glyphicon-search" aria-hidden="true"></span> ',
-                    '</span>',
-                ].join(''))
-                .find('input').css('width', '70%')
         },
         view: {
             parent: 'bootstrap-edit-horizontal',
@@ -220,31 +209,15 @@ $(document).ready(function () {
                     'tab7': 7,
                     'compiled': 8
                 },
-                steps: [{
-                    title: '1',
-                    description: 'Γενικά Στοιχεία Πρόσκλησης'
-                }, {
-                    title: '2',
-                    description: 'Θεματικοί Στόχοι, Επενδυτικές Προτεραιότητες, Ειδικοί Στόχοι'
-                }, {
-                    title: '3',
-                    description: 'Προβλεπόμενοι Δείκτες Παρακολούθησης'
-                }, {
-                    title: '4',
-                    description: 'Ενισχυόμενες Κατηγορίες - Επιπρόσθετα Στοιχεία Πρόσκλησης',
-                }, {
-                    title: '5',
-                    description: 'Οικονομικά Στοιχεία Πρόσκλησης'
-                }, {
-                    title: '6',
-                    description: 'Κατηγορίες Δαπανών'
-                }, {
-                    title: '7',
-                    description: 'Υποβολή'
-                }, {
-                    title: '8',
-                    description: 'Κώδικας'
-                }
+                steps: [
+                    {title: '1', description: 'Γενικά Στοιχεία Πρόσκλησης'},
+                    {title: '2', description: 'Θεματικοί Στόχοι, Επενδυτικές Προτεραιότητες, Ειδικοί Στόχοι'},
+                    {title: '3', description: 'Προβλεπόμενοι Δείκτες Παρακολούθησης'},
+                    {title: '4', description: 'Ενισχυόμενες Κατηγορίες - Επιπρόσθετα Στοιχεία Πρόσκλησης'},
+                    {title: '5', description: 'Οικονομικά Στοιχεία Πρόσκλησης'},
+                    {title: '6', description: 'Κατηγορίες Δαπανών'},
+                    {title: '7', description: 'Υποβολή'},
+                    {title: '8', description: 'Κώδικας'}
                 ]
             }
         }
@@ -265,8 +238,8 @@ $(document).ready(function () {
             return
         }
         $.ajax({
-            url: '/invitation/' + invitationID,
-            type: 'POST',
+            url: '/api/invitation/' + invitationId,
+            type: 'PUT',
             dataType: 'json',
             data: JSON.stringify(value, null, 0),
             contentType: 'application/json',
@@ -289,4 +262,4 @@ $(document).ready(function () {
         var value = $('#form1').alpaca('get').getValue()
         $('#submit-content').val(JSON.stringify(value))
     })
-})
+}

@@ -16,6 +16,11 @@
     <script src="/lib/jsgrid.min.js"></script>
     <script src="/lib/navigo.min.js"></script>
     <script async src="jsgrid-datetime.js"></script>
+
+    <script src="//code.cloudcms.com/alpaca/1.5.22/bootstrap/alpaca.min.js"></script>
+    <script src="/lib/ace.js"></script>
+
+    <script src="edit.js"></script>
     <script async src="index.js"></script>
 
     <link href="/css/style.css" rel="stylesheet">
@@ -23,6 +28,7 @@
     <link href="/css/jsgrid-theme.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
     <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.44/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
+    <link type="text/css" href="//code.cloudcms.com/alpaca/1.5.22/bootstrap/alpaca.min.css" rel="stylesheet" />
 
 </head>
 
@@ -38,8 +44,29 @@
     <div id="content">
         <div class="container">
             <div id="invitation-grid" class="router-option jsgrid">inv</div>
-            <div id="invitation" class="router-option">invitation</div>
-            <div id="user-grid" class="router-option jsgrid">user</div>
+            <div id="invitation" class="router-option">
+                <div class="row">
+                    <div class="col-md-1">
+                        <button type="button" id="commit" class="download-btn btn btn-info btn-sm">
+                        <span class="glyphicon glyphicon-open" aria-hidden="true"></span> Commit
+                    </button>
+                    </div>
+                    <div class="col-md-4" role="alert">
+                        <textarea type="text" class="form-control" rows="1" id="message-area"></textarea>
+                    </div>
+                </div>
+                <div id="form1"></div>
+            </div>
+            <div id="user-div" class="router-option">
+                <div id="user-grid" class="jsgrid"></div><br>
+
+                <fieldset class="form-group">
+                    <label class="radio-inline"><input type="radio" name="user-role" value="20">Διαχειριστής</label>
+                    <label class="radio-inline"><input type="radio" name="user-role" checked value="50">Αξιολογητής</label>
+                    <textarea id="new-user-list" class="form-control"></textarea>
+                    <button type="button" id="new-user" class="btn btn-primary btn-sm">Προσθήκη</button>
+                </fieldset>
+            </div>
             <div id="date-grid" class="router-option jsgrid">date</div>
             <div id="kad" class="router-option">
                 <div class="container">
