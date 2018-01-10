@@ -19,11 +19,13 @@ var updateName = function(id, str) {
 var db2grid = function(row) {
     row.isActive = row.isActive == 1
     row.isFinal = row.isFinal == 1
+    row.canFinalize = row.canFinalize == 1
     return row
 }
 var grid2db = function(row) {
     row.isActive = row.isActive ? 1 : 0
     row.isFinal = row.isFinal ? 1 : 0
+    row.canFinalize = row.canFinalize ? 1 : 0
     return row
 }
 const refresh = obj => obj.grid.loadData()
@@ -75,6 +77,7 @@ var createDateGrid = function createDateGrid(div) {
         { name: 'StartDate', type: 'solRiaDateTimeField', width: 200 },
         { name: 'EndDate', type: 'solRiaDateTimeField', width: 200 },
         { name: 'isActive', type: 'checkbox', title: 'Ενεργό', sorting: false },
+        { name: 'canFinalize', type: 'checkbox', title: 'Οριστικοποίηση', sorting: false },
         { type: 'control' }
     ]
     return createGrid(div, controller, fields)

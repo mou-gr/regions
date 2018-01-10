@@ -1,6 +1,7 @@
 /*global Alpaca $ */
 window.renderForm = function renderForm(invitationId, data) {
     $('body').css('cursor', 'progress')
+    $('#form1').alpaca('destroy')
 
     Alpaca.defaultToolbarSticky = true
     $('#form1').alpaca({
@@ -225,7 +226,7 @@ window.renderForm = function renderForm(invitationId, data) {
 
     var count = 0
 
-    $('#commit').on('click', function () {
+    $('#commit').off('click').on('click', function () {
         var value = $('#form1').alpaca('get').getValue()
         if (value === '') {
             return

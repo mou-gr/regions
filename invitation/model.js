@@ -63,6 +63,7 @@ const resquel = {
         query: `update Invitation_CallPhase_Date set
                 CallPhaseID = {{ CallPhaseID }}
                 , isActive = {{ isActive }}
+                , canFinalize = {{ canFinalize }}
                 , StartDate = '{{ StartDate }}'
                 , EndDate = '{{ EndDate }}'
             where ID = {{ ID }}`
