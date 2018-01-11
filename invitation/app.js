@@ -1,6 +1,7 @@
 const express = require('express')
 const bodyParser = require('body-parser')
 const model = require('./model')
+const nocache = require('nocache')
 // const R = require('ramda')
 
 const app = express()
@@ -9,6 +10,7 @@ const config = require('./config')
 
 
 app.use(bodyParser.json()) // to support JSON-encoded bodies
+app.use(nocache())
 app.use(resquel(model.resquel))
 
 app.locals.initPromise = model.getConnection()
