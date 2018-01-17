@@ -123,7 +123,7 @@ var createUserGrid = function(div) {
             sorting: false,
             headerTemplate: function() {
                 return $('<input class="jsgrid-button jsgrid-delete-button" title="Delete Selected" type="button">')
-                    .on('click', deleteSelectedItems)
+                    .off('click').on('click', deleteSelectedItems)
             },
             itemTemplate: function() {
                 return '<input type="checkbox" class="user-checkbox">'

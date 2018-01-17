@@ -185,7 +185,7 @@ window.renderForm = function renderForm(invitationId, data) {
             var code = codeControl.data
             codeControl.setValue(JSON.stringify(JSON.parse(code), null, 4))
 
-            $(window).bind('keydown', function(event) {
+            $(window).unbind('keydown').bind('keydown', function(event) {
                 if (event.ctrlKey && String.fromCharCode(event.which).toLowerCase() == 's') {
                     $('#commit').click()
                     event.preventDefault()
