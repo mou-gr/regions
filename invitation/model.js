@@ -17,7 +17,7 @@ const resquel = {
         endpoint: '/api/invitation',
         query: `update Invitation set
                 Name = '{{ Name }}'
-                , IsFinal = {{ isFinal }}
+                , IsFinal = {{ IsFinal }}
                 , CN_Code_Mask = '{{ CN_Code_Mask }}'
                 , InvitationGroup = {{ InvitationGroup }}
             where ID = {{ ID }}`

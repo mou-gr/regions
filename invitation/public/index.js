@@ -18,13 +18,13 @@ var updateName = function(id, str) {
 
 var db2grid = function(row) {
     row.isActive = row.isActive == 1
-    row.isFinal = row.isFinal == 1
+    row.IsFinal = row.IsFinal == 1
     row.canFinalize = row.canFinalize == 1
     return row
 }
 var grid2db = function(row) {
     row.isActive = row.isActive ? 1 : 0
-    row.isFinal = row.isFinal ? 1 : 0
+    row.IsFinal = row.IsFinal ? 1 : 0
     row.canFinalize = row.canFinalize ? 1 : 0
     return row
 }
