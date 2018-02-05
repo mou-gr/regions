@@ -368,6 +368,39 @@
 				}
 			}
 		},
+		"tab8": {
+			"fields": {
+				"onOff": {
+					"type": "table",
+					"view": "bootstrap-edit",
+					"fieldClass": "padded-array",
+					"toolbarSticky": true,
+					"hideToolbarWithChildren": false
+				},
+				"groupOnOff": {
+					"type": "table",
+					"view": "bootstrap-edit",
+					"fieldClass": "padded-array",
+					"toolbarSticky": true,
+					"hideToolbarWithChildren": false
+				},
+				"critiria": {
+					"type": "table",
+					"view": "bootstrap-edit",
+					"fieldClass": "padded-array",
+					"toolbarSticky": true,
+					"hideToolbarWithChildren": false
+				},
+				"group": {
+					"type": "table",
+					"view": "bootstrap-edit",
+					"fieldClass": "padded-array",
+					"toolbarSticky": true,
+					"hideToolbarWithChildren": false
+				}
+
+			}
+		},
 		"compiled": {
 			"type": "editor"
 			, "aceHeight": "500px"

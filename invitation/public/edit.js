@@ -174,13 +174,7 @@ window.renderForm = function renderForm(invitationId, data) {
         },
         postRender: function (control) {
             $('body').css('cursor', 'default')
-            /*control.getControlByPath('tab6/KATHGORIES_DAPANON_OBJ/KATHGORIES_DAPANON_LIST').on('add', function() {
 
-			var my_object = control.getControlByPath('tab6/KATHGORIES_DAPANON_OBJ/KATHGORIES_DAPANON_LIST');
-			var data = my_object.getValue();
-			control.getControlByPath('tab6/KATHGORIES_DAPANON_OBJ/KATHGORIES_DAPANON_LIST['+ (data.length - 1) +']/AA').setValue(data.length);
-			console.log("The value of this was changed to:");
-			})*/
             var codeControl = control.getControlByPath('compiled')
             var code = codeControl.data
             codeControl.setValue(JSON.stringify(JSON.parse(code), null, 4))
@@ -208,7 +202,8 @@ window.renderForm = function renderForm(invitationId, data) {
                     'tab5': 5,
                     'tab6': 6,
                     'tab7': 7,
-                    'compiled': 8
+                    'tab8': 8,
+                    'compiled': 9
                 },
                 steps: [
                     {title: '1', description: 'Γενικά Στοιχεία Πρόσκλησης'},
@@ -218,7 +213,8 @@ window.renderForm = function renderForm(invitationId, data) {
                     {title: '5', description: 'Οικονομικά Στοιχεία Πρόσκλησης'},
                     {title: '6', description: 'Κατηγορίες Δαπανών'},
                     {title: '7', description: 'Υποβολή'},
-                    {title: '8', description: 'Κώδικας'}
+                    {title: '8', description: 'Αξιολόγηση'},
+                    {title: '9', description: 'Κώδικας'}
                 ]
             }
         }
