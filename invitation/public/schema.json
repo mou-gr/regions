@@ -41,6 +41,10 @@
                     "type": "string",
                     "title": "Ημερομηνία Έναρξης Ισχύος"
                 },
+				"DIARKEIA_ISXYOS": {
+                    "type": "number",
+                    "title": "Διάρκεια Ισχύος (Σε Μήνες)"
+                },
                 "DATE_ENARKSHS_YPOV": {
                     "type": "string",
                     "title": "Ημερομηνία Έναρξης Υποβολής"
