@@ -78,6 +78,10 @@
                 "type": "object",
                 "title": "Θεματικοί Στόχοι, Επενδυτικές Προτεραιότητες, Ειδικοί Στόχοι",
                 "properties": {
+					"ID_ATP": {
+                        "type": "string",
+                        "title": " ID_ATP - Κωδικός Άξονας Ταμείο Περιφέρεια"
+                    },
                     "EP_PERIGRAFH": {
                         "type": "string",
                         "title": "Επιχειρησιακό Πρόγραμμα",
@@ -125,18 +129,6 @@
                         "type": "string",
                         "title": "Είδος Δείκτη"
                     },
-                    "EP_PERIGRAFH": {
-                        "type": "string",
-                        "title": "Επιχειρησιακό Πρόγραμμα"
-                    },
-                    "AXONAS_PERIGRAFH": {
-                        "type": "string",
-                        "title": "Άξονας Προτεραιότητας"
-                    },
-                    "TAMEIO": {
-                        "type": "string",
-                        "title": "Ταμείο"
-                    },
                     "EPENDYTIKES_PROTERAIOTHTES": {
                         "type": "string",
                         "title": "Επενδυτική Προτεραιότητα",
@@ -149,10 +141,6 @@
                     "MONADA_METRHSHS": {
                         "type": "string",
                         "title": "Μονάδα Μέτρησης"
-                    },
-                    "KATHGORIA_PER": {
-                        "type": "string",
-                        "title": "Κατηγορία Περιφέρειας"
                     }
                 }
             }

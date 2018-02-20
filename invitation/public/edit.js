@@ -56,15 +56,6 @@ window.renderForm = function renderForm(invitationId, data) {
                             EIDOS_DEIKTH: {
                                 dataSource: '/resources/eidiDeikton.json'
                             },
-                            EP_PERIGRAFH: {
-                                dataSource: '/resources/epixeirisiakaProgrammata.json'
-                            },
-                            AXONAS_PERIGRAFH: {
-                                dataSource: '/resources/axonesProteraiotitas.json'
-                            },
-                            TAMEIO: {
-                                dataSource: '/resources/tameia.json'
-                            },
                             EPENDYTIKES_PROTERAIOTHTES: {
                                 dataSource: '/resources/ependytikesProteraiothtes.json'
                             },
@@ -73,9 +64,6 @@ window.renderForm = function renderForm(invitationId, data) {
                             },
                             MONADA_METRHSHS: {
                                 dataSource: '/resources/monadesMetrisis.json'
-                            },
-                            KATHGORIA_PER: {
-                                dataSource: '/resources/katigoriesPerifereias.json'
                             }
                         }
                     }

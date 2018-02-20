@@ -76,18 +76,6 @@
 						"type": "select",
 						"hideNone": true
 					},
-					"EP_PERIGRAFH": {
-						"type": "select",
-						"hideNone": true
-					},
-					"AXONAS_PERIGRAFH": {
-						"type": "select",
-						"hideNone": false
-					},
-					"TAMEIO": {
-						"type": "select",
-						"hideNone": true
-					},
 					"EPENDYTIKES_PROTERAIOTHTES": {
 						"type": "select",
 						"hideNone": true
@@ -97,10 +85,6 @@
 						"hideNone": true
 					},
 					"MONADA_METRHSHS": {
-						"type": "select",
-						"hideNone": false
-					},
-					"KATHGORIA_PER": {
 						"type": "select",
 						"hideNone": false
 					}
