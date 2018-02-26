@@ -13,18 +13,6 @@
 						"format": "DD/MM/YYYY"
 					}
 				},
-				"DATE_ENARKSHS_YPOV": {
-					"type": "date",
-					"picker": {
-						"format": "DD/MM/YYYY"
-					}
-				},
-				"DATE_LHKSHS_YPOV": {
-					"type": "date",
-					"picker": {
-						"format": "DD/MM/YYYY"
-					}
-				},
 				"EIDOS_AJIOLOGHSHS": {
 					"type": "select"
 				},
@@ -165,19 +153,6 @@
 						"ID_GEO": {
 							"hideNone": true,
 							"type": "select"
-						},
-						"KAD_NACE_LIST": {
-							"type": "table",
-							"view": "bootstrap-edit",
-							"fieldClass": "padded-array",
-							"items": {
-								"fields": {
-									"KAD_NACE": {
-										"type": "select",
-										"hideNone": true
-									}
-								}
-							}
 						},
 						"EIDOS_EPENDYSH_ID": {
 							"hideNone": true,
@@ -333,17 +308,6 @@
 		},
 		"tab7": {
 			"fields": {
-				"businessType": {
-					"hideNone": true,
-					"emptySelectFirst": true,
-					"optionLabels": [
-						"Υφιστάμενες",
-						"Υπό Σύσταση",
-						"Υφιστάμενες και Υπό Σύσταση",
-						"Ερευνητικοί Φορείς",
-						"Υφιστάμενες, Υπό Σύσταση και Ερευνητικοί Φορείς"
-					]
-				},
 				"attachmentInstruction": {
 					"type": "textarea"
 				},

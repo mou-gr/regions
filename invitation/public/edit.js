@@ -90,15 +90,6 @@ window.renderForm = function renderForm(invitationId, data) {
                                 ID_GEO: {
                                     dataSource: '/resources/geografikesTheseis.json'
                                 },
-                                KAD_NACE_LIST: {
-                                    items: {
-                                        fields: {
-                                            KAD_NACE: {
-                                                dataSource: '/resources/kad.json'
-                                            }
-                                        }
-                                    }
-                                },
                                 EIDOS_EPENDYSH_ID: {
                                     dataSource: '/resources/eidiEpendiseon.json'
                                 }

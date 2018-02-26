@@ -45,14 +45,6 @@
                     "type": "number",
                     "title": "Διάρκεια Ισχύος (Σε Μήνες)"
                 },
-                "DATE_ENARKSHS_YPOV": {
-                    "type": "string",
-                    "title": "Ημερομηνία Έναρξης Υποβολής"
-                },
-                "DATE_LHKSHS_YPOV": {
-                    "type": "string",
-                    "title": "Ημερομηνία Λήξης Υποβολής"
-                },
                 "EIDOS_AJIOLOGHSHS": {
                     "type": "string",
                     "title": "Είδος Αξιολόγησης"
@@ -207,19 +199,6 @@
                         "ID_GEO": {
                             "type": "string",
                             "title": "Γεωγραφική Θέση (Περιφέρεια ή Νομός/ΟΤΑ) - (NUTS/LAU)"
-                        },
-                        "KAD_NACE_LIST": {
-                            "type": "array",
-                            "default": [{}],
-                            "items": {
-                                "type": "object",
-                                "properties": {
-                                    "KAD_NACE": {
-                                        "type": "string",
-                                        "title": "ΚΑΔ / NACE"
-                                    }
-                                }
-                            }
                         },
                         "EIDOS_EPENDYSH_ID": {
                             "type": "string",
@@ -398,11 +377,6 @@
         "tab7": {
             "type": "object",
             "properties": {
-                "businessType": {
-                    "type": "string",
-                    "enum": ["0", "1", "2", "3", "4"],
-                    "title": "Επιτρεπόμενες Επιχειρήσεις"
-                },
                 "numberOfLocations": {
                     "type": "number",
                     "title": "Αριθμός Τόπων Υλοποίησης ανά Φορέα"
