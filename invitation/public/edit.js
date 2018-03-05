@@ -14,13 +14,19 @@ window.renderForm = function renderForm(invitationId, data) {
                     fields: {
                         KODIKOS_FOREA_EGKRISHS: {
                             dataSource: '/resources/foreisProslisis.json'
-                        },
-                        KATHESTOS_ENISXYSHS: {
-                            dataSource: '/resources/kathestotaEnisxisis.json'
-                        },
+                        },												
                         EIDOS_AJIOLOGHSHS: {
                             dataSource: '/resources/eidiAksiologisis.json'
-                        }
+                        },
+												KATHESTOS_ENISXYSHS_LIST: {
+							items: {
+								fields: {
+									KATHESTOS_ENISXYSHS: {
+										dataSource: '/resources/kathestotaEnisxisis.json'
+										}
+								}
+							}
+						}
                     }
                 },
                 tab2: {
