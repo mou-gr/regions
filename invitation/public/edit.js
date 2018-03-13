@@ -14,19 +14,19 @@ window.renderForm = function renderForm(invitationId, data) {
                     fields: {
                         KODIKOS_FOREA_EGKRISHS: {
                             dataSource: '/resources/foreisProslisis.json'
-                        },												
+                        },
                         EIDOS_AJIOLOGHSHS: {
                             dataSource: '/resources/eidiAksiologisis.json'
                         },
-												KATHESTOS_ENISXYSHS_LIST: {
-							items: {
-								fields: {
-									KATHESTOS_ENISXYSHS: {
-										dataSource: '/resources/kathestotaEnisxisis.json'
-										}
-								}
-							}
-						}
+                        KATHESTOS_ENISXYSHS_LIST: {
+                            items: {
+                                fields: {
+                                    KATHESTOS_ENISXYSHS: {
+                                        dataSource: '/resources/kathestotaEnisxisis.json'
+                                    }
+                                }
+                            }
+                        }
                     }
                 },
                 tab2: {
@@ -62,9 +62,6 @@ window.renderForm = function renderForm(invitationId, data) {
                             EIDOS_DEIKTH: {
                                 dataSource: '/resources/eidiDeikton.json'
                             },
-                            EPENDYTIKES_PROTERAIOTHTES: {
-                                dataSource: '/resources/ependytikesProteraiothtes.json'
-                            },
                             ONOMASIA_DEIKTH: {
                                 dataSource: '/resources/deiktes.json'
                             },
@@ -78,26 +75,59 @@ window.renderForm = function renderForm(invitationId, data) {
                     fields: {
                         CODED_DATA_FOR_INVITATION: {
                             fields: {
-                                OPSMorfh_Xrhmatodothshs_ID: {
-                                    dataSource: '/resources/morfesXrimatodotisis.json'
+                                OPSMorfh_Xrhmatodothshs_ID_LIST: {
+                                    items: {
+                                        fields: {
+                                            OPSMorfh_Xrhmatodothshs_ID: {
+                                                dataSource: '/resources/morfesXrimatodotisis.json'
+                                            }
+                                        }
+                                    }
                                 },
-                                OPSEdafikh_Diastash_Typos_ID: {
-                                    dataSource: '/resources/edafikesDiastaseisTipoi.json'
+                                OPSEdafikh_Diastash_Typos_ID_LIST: {
+                                    items: {
+                                        fields: {
+                                            OPSEdafikh_Diastash_Typos_ID: {
+                                                dataSource: '/resources/edafikesDiastaseisTipoi.json'
+                                            }
+                                        }
+                                    }
                                 },
-                                OPSEdafikh_Diastash_Mhxanismos_id: {
-                                    dataSource: '/resources/edafikesDiastaseisMixanismoi.json'
+                                OPSEdafikh_Diastash_Mhxanismos_id_LIST: {
+                                    items: {
+                                        fields: {
+                                            OPSEdafikh_Diastash_Mhxanismos_id: {
+                                                dataSource: '/resources/edafikesDiastaseisMixanismoi.json'
+                                            }
+                                        }
+                                    }
                                 },
-                                OPSDeytereyon_stoxos_EKT_ID: {
-                                    dataSource: '/resources/deuteuontesStoxoiEKT.json'
+                                OPSDeytereyon_stoxos_EKT_ID_LIST: {
+                                    items: {
+                                        fields: {
+                                            OPSDeytereyon_stoxos_EKT_ID: {
+                                                dataSource: '/resources/deuteuontesStoxoiEKT.json'
+                                            }
+                                        }
+                                    }
                                 },
-                                OPSOikonomikh_Drasthriothta_id: {
-                                    dataSource: '/resources/oikonomikesDrastiriotites.json'
+                                OPSOikonomikh_Drasthriothta_id_LIST: {
+                                    items: {
+                                        fields: {
+                                            OPSOikonomikh_Drasthriothta_id: {
+                                                dataSource: '/resources/oikonomikesDrastiriotites.json'
+                                            }
+                                        }
+                                    }
                                 },
-                                ID_GEO: {
-                                    dataSource: '/resources/geografikesTheseis.json'
-                                },
-                                EIDOS_EPENDYSH_ID: {
-                                    dataSource: '/resources/eidiEpendiseon.json'
+                                ID_GEO_LIST: {
+                                    items: {
+                                        fields: {
+                                            ID_GEO: {
+                                                dataSource: '/resources/geografikesTheseis.json'
+                                            }
+                                        }
+                                    }
                                 }
                             }
                         }
@@ -118,7 +148,7 @@ window.renderForm = function renderForm(invitationId, data) {
                                             },
                                             DHMOSIA_DAPANH: {
                                                 events: {
-                                                    'change': function () {
+                                                    'change': function() {
                                                         const table = this.top().getControlByPath('tab5/PEDIA_PAREMVASHS_OBJ/PEDIA_PAREMVASHS_LIST').getValue()
                                                         const sum = table.reduce((sum, value) => sum + value.DHMOSIA_DAPANH, 0)
                                                         this.top().getControlByPath('tab5/PEDIA_PAREMVASHS_OBJ/DHMOSIA_DAPANH_TOTAL_OBJ/DHMOSIA_DAPANH_TOTAL').setValue(sum)
@@ -138,7 +168,7 @@ window.renderForm = function renderForm(invitationId, data) {
                             fields: {
                                 KATHGORIES_DAPANON_LIST: {
                                     events: {
-                                        'add': function () {
+                                        'add': function() {
                                             console.log('The value of this was changed to:')
                                         }
                                     },
@@ -157,7 +187,7 @@ window.renderForm = function renderForm(invitationId, data) {
                 }
             }
         },
-        postRender: function (control) {
+        postRender: function(control) {
             $('body').css('cursor', 'default')
 
             var codeControl = control.getControlByPath('compiled')
@@ -190,16 +220,42 @@ window.renderForm = function renderForm(invitationId, data) {
                     'tab8': 8,
                     'compiled': 9
                 },
-                steps: [
-                    {title: '1', description: 'Γενικά Στοιχεία Πρόσκλησης'},
-                    {title: '2', description: 'Θεματικοί Στόχοι, Επενδυτικές Προτεραιότητες, Ειδικοί Στόχοι'},
-                    {title: '3', description: 'Προβλεπόμενοι Δείκτες Παρακολούθησης'},
-                    {title: '4', description: 'Ενισχυόμενες Κατηγορίες - Επιπρόσθετα Στοιχεία Πρόσκλησης'},
-                    {title: '5', description: 'Οικονομικά Στοιχεία Πρόσκλησης'},
-                    {title: '6', description: 'Κατηγορίες Δαπανών'},
-                    {title: '7', description: 'Υποβολή'},
-                    {title: '8', description: 'Αξιολόγηση'},
-                    {title: '9', description: 'Κώδικας'}
+                steps: [{
+                        title: '1',
+                        description: 'Γενικά Στοιχεία Πρόσκλησης'
+                    },
+                    {
+                        title: '2',
+                        description: 'Θεματικοί Στόχοι, Επενδυτικές Προτεραιότητες, Ειδικοί Στόχοι'
+                    },
+                    {
+                        title: '3',
+                        description: 'Προβλεπόμενοι Δείκτες Παρακολούθησης'
+                    },
+                    {
+                        title: '4',
+                        description: 'Ενισχυόμενες Κατηγορίες - Επιπρόσθετα Στοιχεία Πρόσκλησης'
+                    },
+                    {
+                        title: '5',
+                        description: 'Οικονομικά Στοιχεία Πρόσκλησης'
+                    },
+                    {
+                        title: '6',
+                        description: 'Κατηγορίες Δαπανών'
+                    },
+                    {
+                        title: '7',
+                        description: 'Υποβολή'
+                    },
+                    {
+                        title: '8',
+                        description: 'Αξιολόγηση'
+                    },
+                    {
+                        title: '9',
+                        description: 'Κώδικας'
+                    }
                 ]
             }
         }
@@ -207,7 +263,7 @@ window.renderForm = function renderForm(invitationId, data) {
 
     var count = 0
 
-    $('#commit').off('click').on('click', function () {
+    $('#commit').off('click').on('click', function() {
         var value = $('#form1').alpaca('get').getValue()
         if (value === '') {
             return
@@ -227,20 +283,20 @@ window.renderForm = function renderForm(invitationId, data) {
             contentType: 'application/json',
             cache: false,
             timeout: 5000,
-            complete: function () {
+            complete: function() {
                 console.log('process complete')
             },
-            success: function () {
+            success: function() {
                 $('#message-area').prepend(++count + ': Η εγγραφή ενημερώθηκε\n')
                 console.log('succesfully updated invitation')
             },
-            error: function () {
+            error: function() {
                 console.log('process error')
             }
         })
     })
 
-    $('#advanced-download-link').on('click', function () {
+    $('#advanced-download-link').on('click', function() {
         var value = $('#form1').alpaca('get').getValue()
         $('#submit-content').val(JSON.stringify(value))
     })

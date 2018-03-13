@@ -93,10 +93,6 @@
             "type": "select",
             "hideNone": true
           },
-          "EPENDYTIKES_PROTERAIOTHTES": {
-            "type": "select",
-            "hideNone": true
-          },
           "ONOMASIA_DEIKTH": {
             "type": "select",
             "hideNone": true
@@ -159,34 +155,198 @@
         },
         "CODED_DATA_FOR_INVITATION": {
           "fields": {
-            "OPSMorfh_Xrhmatodothshs_ID": {
-              "type": "select",
-              "hideNone": true
-            },
-            "OPSEdafikh_Diastash_Typos_ID": {
-              "hideNone": true,
-              "type": "select"
-            },
-            "OPSEdafikh_Diastash_Mhxanismos_id": {
-              "hideNone": true,
-              "type": "select"
-            },
-            "OPSDeytereyon_stoxos_EKT_ID": {
-              "hideNone": true,
-              "type": "select"
-            },
-            "OPSOikonomikh_Drasthriothta_id": {
-              "hideNone": true,
-              "type": "select"
-            },
-            "ID_GEO": {
-              "hideNone": true,
-              "type": "select"
-            },
-            "EIDOS_EPENDYSH_ID": {
-              "hideNone": true,
-              "type": "select"
+		          "OPSMorfh_Xrhmatodothshs_ID_LIST": {
+          "type": "table",
+          "view": "bootstrap-edit",
+          "fieldClass": "padded-array",
+          "toolbarSticky": true,
+          "hideToolbarWithChildren": false,
+          "actionbar": {
+            "actions": [
+              {
+                "action": "add",
+                "enabled": false
+              },
+              {
+                "action": "up",
+                "enabled": true
+              },
+              {
+                "action": "down",
+                "enabled": true
+              }
+            ]
+          },
+          "items": {
+            "fields": {
+              "OPSMorfh_Xrhmatodothshs_ID": {
+                "fieldClass": "l-col",
+                "type": "select",
+                "hideNone": false
+              }
             }
+          }
+        },
+		"OPSEdafikh_Diastash_Typos_ID_LIST": {
+          "type": "table",
+          "view": "bootstrap-edit",
+          "fieldClass": "padded-array",
+          "toolbarSticky": true,
+          "hideToolbarWithChildren": false,
+          "actionbar": {
+            "actions": [
+              {
+                "action": "add",
+                "enabled": false
+              },
+              {
+                "action": "up",
+                "enabled": true
+              },
+              {
+                "action": "down",
+                "enabled": true
+              }
+            ]
+          },
+          "items": {
+            "fields": {
+              "OPSEdafikh_Diastash_Typos_ID": {
+                "fieldClass": "l-col",
+                "type": "select",
+                "hideNone": false
+              }
+            }
+          }
+        },
+				"OPSEdafikh_Diastash_Mhxanismos_id_LIST": {
+          "type": "table",
+          "view": "bootstrap-edit",
+          "fieldClass": "padded-array",
+          "toolbarSticky": true,
+          "hideToolbarWithChildren": false,
+          "actionbar": {
+            "actions": [
+              {
+                "action": "add",
+                "enabled": false
+              },
+              {
+                "action": "up",
+                "enabled": true
+              },
+              {
+                "action": "down",
+                "enabled": true
+              }
+            ]
+          },
+          "items": {
+            "fields": {
+              "OPSEdafikh_Diastash_Mhxanismos_id": {
+                "fieldClass": "l-col",
+                "type": "select",
+                "hideNone": false
+              }
+            }
+          }
+        },
+				"OPSDeytereyon_stoxos_EKT_ID_LIST": {
+          "type": "table",
+          "view": "bootstrap-edit",
+          "fieldClass": "padded-array",
+          "toolbarSticky": true,
+          "hideToolbarWithChildren": false,
+          "actionbar": {
+            "actions": [
+              {
+                "action": "add",
+                "enabled": false
+              },
+              {
+                "action": "up",
+                "enabled": true
+              },
+              {
+                "action": "down",
+                "enabled": true
+              }
+            ]
+          },
+          "items": {
+            "fields": {
+              "OPSDeytereyon_stoxos_EKT_ID": {
+                "fieldClass": "l-col",
+                "type": "select",
+                "hideNone": false
+              }
+            }
+          }
+        },
+				"OPSOikonomikh_Drasthriothta_id_LIST": {
+          "type": "table",
+          "view": "bootstrap-edit",
+          "fieldClass": "padded-array",
+          "toolbarSticky": true,
+          "hideToolbarWithChildren": false,
+          "actionbar": {
+            "actions": [
+              {
+                "action": "add",
+                "enabled": false
+              },
+              {
+                "action": "up",
+                "enabled": true
+              },
+              {
+                "action": "down",
+                "enabled": true
+              }
+            ]
+          },
+          "items": {
+            "fields": {
+              "OPSOikonomikh_Drasthriothta_id": {
+                "fieldClass": "l-col",
+                "type": "select",
+                "hideNone": false
+              }
+            }
+          }
+        },
+				"ID_GEO_LIST": {
+          "type": "table",
+          "view": "bootstrap-edit",
+          "fieldClass": "padded-array",
+          "toolbarSticky": true,
+          "hideToolbarWithChildren": false,
+          "actionbar": {
+            "actions": [
+              {
+                "action": "add",
+                "enabled": false
+              },
+              {
+                "action": "up",
+                "enabled": true
+              },
+              {
+                "action": "down",
+                "enabled": true
+              }
+            ]
+          },
+          "items": {
+            "fields": {
+              "ID_GEO": {
+                "fieldClass": "l-col",
+                "type": "select",
+                "hideNone": false
+              }
+            }
+          }
+        }
           }
         }
       }

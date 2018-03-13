@@ -49,7 +49,6 @@
           "type": "string",
           "title": "Είδος Αξιολόγησης"
         },
-
         "AR_KOINOP": {
           "type": "string",
           "title": "Αρ. Kοινοποίησης / Γνωστοποίησης"
@@ -58,7 +57,7 @@
           "type": "string",
           "title": "Αρ. Απόφασης Έγκρισης ΕΕ"
         },
-		"KATHESTOS_ENISXYSHS_LIST": {
+        "KATHESTOS_ENISXYSHS_LIST": {
           "type": "array",
           "title": "Εφαρμοστέοι Κανονισμοί / Καθεστώτα Ενίσχυσης",
           "items": {
@@ -141,17 +140,6 @@
             "type": "string",
             "title": "Είδος Δείκτη"
           },
-          "EPENDYTIKES_PROTERAIOTHTES": {
-            "type": "string",
-            "title": "Επενδυτική Προτεραιότητα",
-            "enum": [
-              "1.",
-              "2.",
-              "3.",
-              "4.",
-              "5."
-            ]
-          },
           "ONOMASIA_DEIKTH": {
             "type": "string",
             "title": "Ονομασία Δείκτη"
@@ -218,40 +206,90 @@
           "type": "object",
           "title": "Κωδικοποιημένα Στοιχεία Πρόσκλησης",
           "properties": {
-            "OPSMorfh_Xrhmatodothshs_ID": {
-              "type": "string",
-              "title": "Μορφή Χρηματοδότησης"
+            "OPSMorfh_Xrhmatodothshs_ID_LIST": {
+              "type": "array",
+              "title": "Μορφές Χρηματοδότησης",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "OPSMorfh_Xrhmatodothshs_ID": {
+                    "type": "string",
+                    "title": "Μορφή Χρηματοδότησης"
+                  }
+                }
+              }
             },
-            "OPSEdafikh_Diastash_Typos_ID": {
-              "type": "string",
-              "title": "Τύπος Εδαφικής Μονάδας"
+            "OPSEdafikh_Diastash_Typos_ID_LIST": {
+              "type": "array",
+              "title": "Τύποι Εδαφικής Μονάδας",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "OPSEdafikh_Diastash_Typos_ID": {
+                    "type": "string",
+                    "title": "Τύποι Εδαφικής Μονάδας"
+                  }
+                }
+              }
             },
-            "OPSEdafikh_Diastash_Mhxanismos_id": {
-              "type": "string",
-              "title": "Μηχανισμός Εδαφικής Διάστασης",
-              "enum": [
-                "1.",
-                "2.",
-                "3.",
-                "4.",
-                "5."
-              ]
+            "OPSEdafikh_Diastash_Mhxanismos_id_LIST": {
+              "type": "array",
+              "title": "Μηχανισμοί Εδαφικής Διάστασης",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "OPSEdafikh_Diastash_Mhxanismos_id": {
+                    "type": "string",
+                    "title": "Μηχανισμός Εδαφικής Διάστασης",
+                    "enum": [
+                      "1.",
+                      "2.",
+                      "3.",
+                      "4.",
+                      "5."
+                    ]
+                  }
+                }
+              }
             },
-            "OPSDeytereyon_stoxos_EKT_ID": {
-              "type": "string",
-              "title": "Δευτερέυων θεματικός στόχος ΕΚΤ"
+            "OPSDeytereyon_stoxos_EKT_ID_LIST": {
+              "type": "array",
+              "title": "Δευτερέυοντες θεματικοί στόχοι ΕΚΤ",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "OPSDeytereyon_stoxos_EKT_ID": {
+                    "type": "string",
+                    "title": "Δευτερέυων θεματικός στόχος ΕΚΤ"
+                  }
+                }
+              }
             },
-            "OPSOikonomikh_Drasthriothta_id": {
-              "type": "string",
-              "title": "Οικονομική Δραστηριότητα"
+            "OPSOikonomikh_Drasthriothta_id_LIST": {
+              "type": "array",
+              "title": "Οικονομικές Δραστηριότητες",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "OPSOikonomikh_Drasthriothta_id": {
+                    "type": "string",
+                    "title": "Οικονομική Δραστηριότητα"
+                  }
+                }
+              }
             },
-            "ID_GEO": {
-              "type": "string",
-              "title": "Γεωγραφική Θέση (Περιφέρεια ή Νομός/ΟΤΑ) - (NUTS/LAU)"
-            },
-            "EIDOS_EPENDYSH_ID": {
-              "type": "string",
-              "title": "Είδος Επένδυσης"
+            "ID_GEO_LIST": {
+              "type": "array",
+              "title": "Γεωγραφικές Θέσεις (Περιφέρειες ή Νομοί/ΟΤΑ) - (NUTS/LAU)",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "ID_GEO": {
+                    "type": "string",
+                    "title": "Γεωγραφική Θέση (Περιφέρεια ή Νομός/ΟΤΑ) - (NUTS/LAU)"
+                  }
+                }
+              }
             }
           }
         }
