@@ -489,6 +489,15 @@
                   },
                   "ENTASI_ENISXISIS": {
                     "fieldClass": "minWidth100"
+                  },
+				  "RITRA_EUELIKSIAS": {
+                    "type": "select",
+                    "hideNone": true,
+                    "fieldClass": "minWidth100",
+                    "optionLabels": [
+                      "OXI",
+                      "NAI"
+                    ]
                   }
                 }
               }

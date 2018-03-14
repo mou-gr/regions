@@ -457,6 +457,15 @@
                     "title": "Ένταση Ενίσχυσης",
                     "minimum": 0,
                     "maximum": 100
+                  },
+				  "RITRA_EUELIKSIAS": {
+				    "type": "string",
+                    "title": "Ρήτρα Ευελιξίας",
+					"default": "0",
+                    "enum": [
+                      "0",
+                      "1"
+                    ]
                   }
                 }
               },
