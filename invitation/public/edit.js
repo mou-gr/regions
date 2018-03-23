@@ -221,41 +221,41 @@ window.renderForm = function renderForm(invitationId, data) {
                     'compiled': 9
                 },
                 steps: [{
-                        title: '1',
-                        description: 'Γενικά Στοιχεία Πρόσκλησης'
-                    },
-                    {
-                        title: '2',
-                        description: 'Θεματικοί Στόχοι, Επενδυτικές Προτεραιότητες, Ειδικοί Στόχοι'
-                    },
-                    {
-                        title: '3',
-                        description: 'Προβλεπόμενοι Δείκτες Παρακολούθησης'
-                    },
-                    {
-                        title: '4',
-                        description: 'Ενισχυόμενες Κατηγορίες - Επιπρόσθετα Στοιχεία Πρόσκλησης'
-                    },
-                    {
-                        title: '5',
-                        description: 'Οικονομικά Στοιχεία Πρόσκλησης'
-                    },
-                    {
-                        title: '6',
-                        description: 'Κατηγορίες Δαπανών'
-                    },
-                    {
-                        title: '7',
-                        description: 'Υποβολή'
-                    },
-                    {
-                        title: '8',
-                        description: 'Αξιολόγηση'
-                    },
-                    {
-                        title: '9',
-                        description: 'Κώδικας'
-                    }
+                    title: '1',
+                    description: 'Γενικά Στοιχεία Πρόσκλησης'
+                },
+                {
+                    title: '2',
+                    description: 'Θεματικοί Στόχοι, Επενδυτικές Προτεραιότητες, Ειδικοί Στόχοι'
+                },
+                {
+                    title: '3',
+                    description: 'Προβλεπόμενοι Δείκτες Παρακολούθησης'
+                },
+                {
+                    title: '4',
+                    description: 'Ενισχυόμενες Κατηγορίες - Επιπρόσθετα Στοιχεία Πρόσκλησης'
+                },
+                {
+                    title: '5',
+                    description: 'Οικονομικά Στοιχεία Πρόσκλησης'
+                },
+                {
+                    title: '6',
+                    description: 'Κατηγορίες Δαπανών'
+                },
+                {
+                    title: '7',
+                    description: 'Υποβολή'
+                },
+                {
+                    title: '8',
+                    description: 'Αξιολόγηση'
+                },
+                {
+                    title: '9',
+                    description: 'Κώδικας'
+                }
                 ]
             }
         }

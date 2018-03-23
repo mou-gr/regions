@@ -6,12 +6,15 @@ sql.Promise = Promise
 
 const config = credentials.config
 
+const hideCnMask = 'HIDE'
+
 const resquel = {
     db: config,
     routes: [{
         method: 'GET',
         endpoint: '/api/invitation',
-        query: 'select ID, Name, IsFinal, CN_Code_Mask, InvitationGroup from Invitation;'
+        query: `select ID, Name, IsFinal, CN_Code_Mask, InvitationGroup from Invitation
+                where CN_Code_Mask != '${hideCnMask}'`
     }, {
         method: 'PUT',
         endpoint: '/api/invitation',
