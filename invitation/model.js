@@ -13,7 +13,7 @@ const resquel = {
     routes: [{
         method: 'GET',
         endpoint: '/api/invitation',
-        query: `select ID, Name, IsFinal, CN_Code_Mask, InvitationGroup from Invitation
+        query: `select ID, Name, IsFinal, CN_Code_Mask, InvitationGroup, RandomEvaluator from Invitation
                 where CN_Code_Mask != '${hideCnMask}'`
     }, {
         method: 'PUT',
@@ -23,6 +23,7 @@ const resquel = {
                 , IsFinal = {{ IsFinal }}
                 , CN_Code_Mask = '{{ CN_Code_Mask }}'
                 , InvitationGroup = {{ InvitationGroup }}
+                , RandomEvaluator = {{ RandomEvaluator }}
             where ID = {{ ID }}`
     }, {
         method: 'DELETE',

@@ -20,12 +20,14 @@ var db2grid = function(row) {
     row.isActive = row.isActive == 1
     row.IsFinal = row.IsFinal == 1
     row.canFinalize = row.canFinalize == 1
+    row.RandomEvaluator = row.RandomEvaluator == 1
     return row
 }
 var grid2db = function(row) {
     row.isActive = row.isActive ? 1 : 0
     row.IsFinal = row.IsFinal ? 1 : 0
     row.canFinalize = row.canFinalize ? 1 : 0
+    row.RandomEvaluator = row.RandomEvaluator ? 1 : 0
     return row
 }
 const refresh = obj => obj.grid.loadData()
@@ -86,11 +88,12 @@ var createDateGrid = function createDateGrid(div) {
 var createInvitationGrid = function createDateGrid(div) {
     var controller = createController(() => urlBase + 'invitation/' )
     var fields = [
-        { name: 'ID', type: 'number', editing: false, width: 50 },
+        { name: 'ID', type: 'number', editing: false, width: 20 },
         { name: 'Name', type: 'text', width: 170 },
         { name: 'CN_Code_Mask', type: 'text', width: 70 },
         { name: 'InvitationGroup', type: 'number', width: 70 },
-        { name: 'IsFinal', type: 'checkbox', title: 'Ενεργό', sorting: false },
+        { name: 'IsFinal', type: 'checkbox', title: 'Ενεργό', sorting: false, width: 60 },
+        { name: 'RandomEvaluator', type: 'checkbox', title: 'Κλήρωση αξιολογητών', sorting: false, width: 60 },
         { type: 'control' },
         {
             itemTemplate: function(value, item) {
