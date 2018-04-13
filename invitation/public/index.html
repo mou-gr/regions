@@ -61,9 +61,16 @@
                 <div id="user-grid" class="jsgrid"></div><br>
 
                 <fieldset class="form-group">
-                    <label class="radio-inline"><input type="radio" name="user-role" value="20">Διαχειριστής</label>
-                    <label class="radio-inline"><input type="radio" name="user-role" checked value="50">Αξιολογητής</label>
-                    <textarea id="new-user-list" class="form-control"></textarea>
+                    <div class="input-group col-lg-2">
+                        <span class="input-group-addon" id="basic-addon1">Ρόλος</span>
+                        <input type="number" id="user-role" class="form-control" aria-describedby="basic-addon1">
+                    </div>
+                    <div class="help-block"></div>
+                    <label>
+                        Χρήστες (comma seperated):
+                        <textarea id="new-user-list" class="form-control" rows=8 cols=50></textarea>
+                    </label>
+                    <div class="help-block"></div>
                     <button type="button" id="new-user" class="btn btn-primary btn-sm">Προσθήκη</button>
                 </fieldset>
             </div>

@@ -150,7 +150,7 @@ var createRoute = function(name, $grid, $div) {
 $(document).ready(createUserGrid('user-grid'))
 $(document).ready($('#new-user').on('click', function() {
     const userList = $('#new-user-list').val()
-    const role = $('input[name="user-role"]:checked').val()
+    const role = $('#user-role').val()
     $.post(`/api/userRoleType`, {id: invitationId, userList: userList, role: role})
         .then( reload($('#user-grid')) )
 }))
