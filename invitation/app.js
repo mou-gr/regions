@@ -57,7 +57,7 @@ app.use(express.static('public'))
 // })
 
 app.locals.initPromise.then(() => {
-    app.listen(config.serverPort, function() {
+    app.listen(config.serverPort, config.acceptIp, function() {
         console.log('app listening on port: ' + config.serverPort)
     })
 })
