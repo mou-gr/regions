@@ -148,7 +148,7 @@ var createRoute = function(name, $grid, $div) {
 }
 
 $(document).ready(createUserGrid('user-grid'))
-$(document).ready($('#new-user').on('click', function() {
+$(document).ready($('#new-user').off('click').on('click', function() {
     const userList = $('#new-user-list').val()
     const role = $('#user-role').val()
     $.post(`/api/userRoleType`, {id: invitationId, userList: userList, role: role})
@@ -179,7 +179,7 @@ $(document).ready(function() {
             invitationId = params.id
             updateName(params.id, ' - ΚΑΔ')
             $.get('/api/invitation/' + params.id + '/kad').then(data => $('#kad-area').text(data.rows[0].EligibleKad) )
-            $('#update-kad').on('click', function() {
+            $('#update-kad').off('click').on('click', function() {
                 var value = $('#kad-area').val()
                 $.ajax({
                     url: '/api/invitation/' + params.id + '/kad',
