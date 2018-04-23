@@ -91,7 +91,7 @@ var createInvitationGrid = function createDateGrid(div) {
         { name: 'ID', type: 'number', editing: false, width: 20 },
         { name: 'Name', type: 'text', width: 170 },
         { name: 'CN_Code_Mask', type: 'text', width: 70 },
-        { name: 'InvitationGroup', type: 'number', width: 70 },
+        { name: 'InvitationGroup', title: 'Group',type: 'number', width: 40 },
         { name: 'IsFinal', type: 'checkbox', title: 'Ενεργό', sorting: false, width: 60 },
         { name: 'RandomEvaluator', type: 'checkbox', title: 'Κλήρωση αξιολογητών', sorting: false, width: 60 },
         { type: 'control' },
@@ -102,9 +102,19 @@ var createInvitationGrid = function createDateGrid(div) {
                 var kadLink = '<a href="#!/invitation/' + item.ID + '/kad" title="ΚΑΔ" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a>'
                 var userLink = '<a href="#!/invitation/' + item.ID + '/user" title="Χρήστες" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>'
                 var editLink = '<a href="#!/invitation/' + item.ID + '" title="Επεξεργασία" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>'
-                var cloneLink = '<button title="Αντιγραφή" data-id="' + item.ID + '"class="btn btn-info btn-sm clone-btn"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span></a>'
+                var cloneLink = '<button title="Αντιγραφή" data-id="' + item.ID + '"class="btn btn-info btn-sm clone-btn"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>'
                 return $result.append(dateLink + kadLink + userLink + editLink + cloneLink)
-            }
+            },
+            width: 120
+        },
+        {
+            itemTemplate: function(value, item) {
+                var $result = $('<div class="btn-group" role="group">')
+                var logoStaging = '<a href="http://10.10.0.251:3001" target="_blank" title="Staging logos" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>'
+                var logoProduction = '<a href="http://10.10.0.251:1235" target="_blank" title="Production logos" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>'
+                return $result.append(logoStaging + logoProduction)
+            },
+            width: 50
         }
     ]
     return createGrid(div, controller, fields)
