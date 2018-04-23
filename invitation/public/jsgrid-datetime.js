@@ -1,6 +1,6 @@
 /* global $ jsGrid moment*/
-const viewFormat = 'D MMM Y, hh:mm'
-const storeFormat = 'Y-MM-DD hh:mm'
+const viewFormat = 'D MMM Y, HH:mm'
+const storeFormat = 'Y-MM-DD HH:mm'
 
 $(document).ready(function() {
     var SolRiaDateTimeField = function(config) {
