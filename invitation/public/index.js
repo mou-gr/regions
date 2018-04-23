@@ -205,3 +205,12 @@ $(document).ready(function() {
         })
         .resolve()
 })
+$(document).ready(function () {
+    var printServer = 'http://10.10.0.251'
+    $('#restart-staging').on('click', function () {
+        $.post(printServer + ':3000/close')
+    })
+    $('#restart-production').on('click', function () {
+        $.post(printServer + ':1234/close')
+    })
+})

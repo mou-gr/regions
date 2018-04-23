@@ -38,8 +38,14 @@
             <h2>
                 <a href="#!" title="Αρχική" ><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
                 <span id="invitation-name"> Διαχείριση Προσκλήσεων</span>
-                <a href="http://10.10.0.251:3001" target="_blank" title="Staging logos" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
-                <a href="http://10.10.0.251:1235" target="_blank" title="Production logos" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
+                <div class="btn-group" role="group">
+                    <a href="http://10.10.0.251:3001" title="Staging logos" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
+                    <a href="#" id="restart-staging" title="Επανεκκίνηση server εκτυπωτικών - staging" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span></a>
+                </div>
+                <div class="btn-group" role="group">
+                    <a href="http://10.10.0.251:1235" target="_blank" title="Production logos" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
+                    <a href="#" id="restart-production" title="Επανεκκίνηση server εκτυπωτικών - production" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span></a>
+                </div>
             </h2>
         </div>
     </header>
