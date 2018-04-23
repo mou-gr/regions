@@ -106,15 +106,6 @@ var createInvitationGrid = function createDateGrid(div) {
                 return $result.append(dateLink + kadLink + userLink + editLink + cloneLink)
             },
             width: 120
-        },
-        {
-            itemTemplate: function(value, item) {
-                var $result = $('<div class="btn-group" role="group">')
-                var logoStaging = '<a href="http://10.10.0.251:3001" target="_blank" title="Staging logos" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>'
-                var logoProduction = '<a href="http://10.10.0.251:1235" target="_blank" title="Production logos" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>'
-                return $result.append(logoStaging + logoProduction)
-            },
-            width: 50
         }
     ]
     return createGrid(div, controller, fields)
