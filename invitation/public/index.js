@@ -206,11 +206,10 @@ $(document).ready(function() {
         .resolve()
 })
 $(document).ready(function () {
-    var printServer = 'http://10.10.0.251'
     $('#restart-staging').on('click', function () {
-        $.post(printServer + ':3000/close')
+        $.post('/printServer/staging/shutDown')
     })
     $('#restart-production').on('click', function () {
-        $.post(printServer + ':1234/close')
+        $.post('/printServer/production/shutDown')
     })
 })
