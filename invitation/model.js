@@ -79,7 +79,7 @@ const resquel = {
         method: 'GET',
         endpoint: '/api/invitation/:id/user',
         query: `SELECT iur.*, u.U_LoginName, i.Name, urt.URT_Description
-      FROM [MIS_DB_DEV].[dbo].[Invitation_User_Role] iur join _User u on u.UserID = iur.U_UserID
+      FROM Invitation_User_Role iur join _User u on u.UserID = iur.U_UserID
       join invitation i on i.ID = iur.IN_InvitationID
       join UserRoleType urt on urt.UserRoleType_Code = iur.URT_UserRoleType_Code
       where i.ID = {{ params.id }}
