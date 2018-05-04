@@ -143,8 +143,8 @@ var createRoute = function(name, $grid, $div) {
         invitationId = params.id
         updateName(params.id, name)
         $('.router-option').hide()
-        reload($grid)()
         $div.show()
+        reload($grid)()
     }
 }
 
@@ -177,9 +177,12 @@ $(document).ready(function() {
         .on('/invitation/:id/date', createRoute(' - Έναρξη / Λήξη Ενεργειών', $('#date-grid')))
         .on('/invitation/:id/user', createRoute(' - Χρήστες', $('#user-grid'), $('#user-div')))
         .on('/invitation/:id/kad', function(params) {
+            $('.router-option').hide()
+            $('#kad').show()
             invitationId = params.id
             updateName(params.id, ' - ΚΑΔ')
-            $.get('/api/invitation/' + params.id + '/kad').then(data => $('#kad-area').text(data.rows[0].EligibleKad) )
+            $.get('/api/invitation/' + params.id + '/kad')
+                .then( data => $('#kad-area').text(data.rows[0].EligibleKad) )
             $('#update-kad').off('click').on('click', function() {
                 var value = $('#kad-area').val()
                 $.ajax({
@@ -200,8 +203,6 @@ $(document).ready(function() {
                     }
                 })
             })
-            $('.router-option').hide()
-            $('#kad').show()
         })
         .resolve()
 })
