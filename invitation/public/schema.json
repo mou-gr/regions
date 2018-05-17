@@ -475,12 +475,8 @@
                   },
 				  "RITRA_EUELIKSIAS": {
 				    "type": "string",
-                    "title": "Ρήτρα Ευελιξίας",
 					"default": "0",
-                    "enum": [
-                      "0",
-                      "1"
-                    ]
+                    "title": "Ρήτρα Ευελιξίας"
                   }
                 }
               },

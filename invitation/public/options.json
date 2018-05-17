@@ -493,11 +493,7 @@
 				  "RITRA_EUELIKSIAS": {
                     "type": "select",
                     "hideNone": true,
-                    "fieldClass": "minWidth100",
-                    "optionLabels": [
-                      "OXI",
-                      "NAI"
-                    ]
+                    "fieldClass": "minWidth100"
                   }
                 }
               }
