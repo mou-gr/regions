@@ -19,16 +19,16 @@ app.locals.initPromise = model.getConnection()
         app.locals.pool = pool
     })
 
-app.put('/api/invitation/:id', function(req, res) {
-    model.updateInvitation(req.params.id, JSON.stringify(req.body), app.locals.pool)
-        .catch(err => {
-            res.sendStatus(500)
-            console.error(err.stack)
-        })
-        .then(() => {
-            res.sendStatus(204)
-        })
-})
+// app.put('/api/invitation/:id', function(req, res) {
+//     model.updateInvitation(req.params.id, JSON.stringify(req.body), app.locals.pool)
+//         .catch(err => {
+//             res.sendStatus(500)
+//             console.error(err.stack)
+//         })
+//         .then(() => {
+//             res.sendStatus(204)
+//         })
+// })
 
 app.post('/api/userRoleType', function(req, res) {
     model.addInvitationUsers(req.body.id, req.body.userList, req.body.role, app.locals.pool)

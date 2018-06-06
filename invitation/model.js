@@ -15,67 +15,79 @@ const resquel = {
         endpoint: '/api/invitation',
         query: `select ID, Name, IsFinal, CN_Code_Mask, InvitationGroup, RandomEvaluator from Invitation
                 where CN_Code_Mask != '${hideCnMask}'`
-    }, {
-        method: 'PUT',
-        endpoint: '/api/invitation',
-        query: `update Invitation set
-                Name = '{{ Name }}'
-                , IsFinal = {{ IsFinal }}
-                , CN_Code_Mask = '{{ CN_Code_Mask }}'
-                , InvitationGroup = {{ InvitationGroup }}
-                , RandomEvaluator = {{ RandomEvaluator }}
-            where ID = {{ ID }}`
-    }, {
-        method: 'DELETE',
-        endpoint: '/api/invitation/',
-        query: 'delete from Invitation where ID= {{ ID }}'
-    }, {
+    },
+    // {
+    //     method: 'PUT',
+    //     endpoint: '/api/invitation',
+    //     query: `update Invitation set
+    //             Name = '{{ Name }}'
+    //             , IsFinal = {{ IsFinal }}
+    //             , CN_Code_Mask = '{{ CN_Code_Mask }}'
+    //             , InvitationGroup = {{ InvitationGroup }}
+    //             , RandomEvaluator = {{ RandomEvaluator }}
+    //         where ID = {{ ID }}`
+    // },
+    // {
+    //     method: 'DELETE',
+    //     endpoint: '/api/invitation/',
+    //     query: 'delete from Invitation where ID= {{ ID }}'
+    // },
+    {
         method: 'GET',
         endpoint: '/api/invitation/:id',
         query: 'select * from Invitation where ID={{ params.id }};'
-    }, {
-        method: 'POST',
-        endpoint: '/api/invitation/:id/clone',
-        query: `insert into Invitation
-            (IsFinal, InvitationGroup, JsonData, Name, CN_Code_Mask)
-                select IsFinal, InvitationGroup, JsonData, concat(Name, '_copy'), CN_Code_Mask
-                from Invitation where ID = {{ params.id }}`
-    }, {
+    },
+    // {
+    //     method: 'POST',
+    //     endpoint: '/api/invitation/:id/clone',
+    //     query: `insert into Invitation
+    //         (IsFinal, InvitationGroup, JsonData, Name, CN_Code_Mask)
+    //             select IsFinal, InvitationGroup, JsonData, concat(Name, '_copy'), CN_Code_Mask
+    //             from Invitation where ID = {{ params.id }}`
+    // },
+    {
         method: 'GET',
         endpoint: '/api/invitation/:id/name',
         query: 'select Name from Invitation where ID={{ params.id }};'
-    }, {
+    },
+    {
         method: 'GET',
         endpoint: '/api/invitation/:id/kad',
         query: 'select ID, Name, EligibleKad from Invitation where ID={{ params.id }};'
-    }, {
-        method: 'PUT',
-        endpoint: '/api/invitation/:id/kad',
-        query: `update invitation set EligibleKad='{{ kad }}' where ID= {{ params.id }}`
-    }, {
+    },
+    // {
+    //     method: 'PUT',
+    //     endpoint: '/api/invitation/:id/kad',
+    //     query: `update invitation set EligibleKad='{{ kad }}' where ID= {{ params.id }}`
+    // },
+    {
         method: 'GET',
         endpoint: '/api/invitation/:id/date',
         query: 'select * from Invitation_CallPhase_Date where InvitationID = {{ params.id }}'
-    }, {
-        method: 'POST',
-        endpoint: '/api/invitation/:id/date',
-        query: `insert into Invitation_CallPhase_Date (InvitationID, CallPhaseID, isActive, StartDate, EndDate)
-            values ({{ params.id }}, {{ CallPhaseID }}, {{ isActive }}, '{{ StartDate }}', '{{ EndDate }}') `
-    }, {
-        method: 'PUT',
-        endpoint: '/api/invitation/:id/date',
-        query: `update Invitation_CallPhase_Date set
-                CallPhaseID = {{ CallPhaseID }}
-                , isActive = {{ isActive }}
-                , canFinalize = {{ canFinalize }}
-                , StartDate = '{{ StartDate }}'
-                , EndDate = '{{ EndDate }}'
-            where ID = {{ ID }}`
-    }, {
-        method: 'DELETE',
-        endpoint: '/api/invitation/:id/date',
-        query: 'delete from Invitation_CallPhase_Date where ID = {{ ID }}'
-    }, {
+    },
+    // {
+    //     method: 'POST',
+    //     endpoint: '/api/invitation/:id/date',
+    //     query: `insert into Invitation_CallPhase_Date (InvitationID, CallPhaseID, isActive, StartDate, EndDate)
+    //         values ({{ params.id }}, {{ CallPhaseID }}, {{ isActive }}, '{{ StartDate }}', '{{ EndDate }}') `
+    // },
+    // {
+    //     method: 'PUT',
+    //     endpoint: '/api/invitation/:id/date',
+    //     query: `update Invitation_CallPhase_Date set
+    //             CallPhaseID = {{ CallPhaseID }}
+    //             , isActive = {{ isActive }}
+    //             , canFinalize = {{ canFinalize }}
+    //             , StartDate = '{{ StartDate }}'
+    //             , EndDate = '{{ EndDate }}'
+    //         where ID = {{ ID }}`
+    // },
+    // {
+    //     method: 'DELETE',
+    //     endpoint: '/api/invitation/:id/date',
+    //     query: 'delete from Invitation_CallPhase_Date where ID = {{ ID }}'
+    // },
+    {
         method: 'GET',
         endpoint: '/api/invitation/:id/user',
         query: `SELECT iur.*, u.U_LoginName, i.Name, urt.URT_Description
@@ -114,15 +126,15 @@ const query = async function(str, pool) {
         throw (e)
     }
 }
-const updateInvitation = function(id, jsonData, pool) {
-    const q = `update Invitation
-    set JsonData = @jsonData
-    where id = ${id}`
-
-    return pool.request()
-        .input('jsonData', sql.NVarChar, jsonData)
-        .query(q, pool)
-}
+// const updateInvitation = function(id, jsonData, pool) {
+//     const q = `update Invitation
+//     set JsonData = @jsonData
+//     where id = ${id}`
+//
+//     return pool.request()
+//         .input('jsonData', sql.NVarChar, jsonData)
+//         .query(q, pool)
+// }
 const addInvitationUsers = (invitationId, userList, role, pool) => {
     /**@userList: comma seperated list of usernames */
     const q = `insert into Invitation_User_Role
@@ -143,7 +155,7 @@ const deleteInvitationUser = (ids, pool) => {
 module.exports = {
     getConnection,
     closeConnection,
-    updateInvitation,
+    // updateInvitation,
     addInvitationUsers,
     deleteInvitationUser,
     resquel
