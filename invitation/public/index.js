@@ -10,7 +10,7 @@ var urlBase = '/api/'
 
 var updateName = function(id, str) {
     if (id) {
-        $.get(`/api/invitation/${id}/name`).then(res => $('#invitation-name').text(res.rows[0].Name + str))
+        $.get(`api/invitation/${id}/name`).then(res => $('#invitation-name').text(res.rows[0].Name + str))
     } else {
         $('#invitation-name').text(str)
     }
