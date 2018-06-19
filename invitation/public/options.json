@@ -16,6 +16,9 @@
         "EIDOS_AJIOLOGHSHS": {
           "type": "select"
         },
+        "uiLanguage": {
+            "hideNone": true
+        },
         "KATHESTOS_ENISXYSHS_LIST": {
           "type": "table",
           "view": "bootstrap-edit",
