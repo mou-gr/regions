@@ -453,7 +453,7 @@
               "items": {
                 "fields": {
                   "AA": {
-                    "fieldClass": "minWidth50"
+                    "fieldClass": "minWidth100"
                   },
                   "title": {
                     "fieldClass": "l-col"
