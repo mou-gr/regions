@@ -2,6 +2,9 @@
 const sql = require('mssql')
 const Promise = require('bluebird')
 const credentials = require('./config')
+const fs = Promise.promisifyAll(require('fs'))
+const git = require('simple-git/promise')('jsonBackup')
+
 sql.Promise = Promise
 
 const config = credentials.config
@@ -29,10 +32,6 @@ const resquel = {
         method: 'DELETE',
         endpoint: '/api/invitation/',
         query: 'delete from Invitation where ID= {{ ID }}'
-    }, {
-        method: 'GET',
-        endpoint: '/api/invitation/:id',
-        query: 'select * from Invitation where ID={{ params.id }};'
     }, {
         method: 'POST',
         endpoint: '/api/invitation/:id/clone',
@@ -98,14 +97,14 @@ const resquel = {
     ]
 }
 
-const getConnection = function() {
+const getConnection = function () {
     return sql.connect(config)
 }
-const closeConnection = function() {
+const closeConnection = function () {
     return sql.close()
 }
 
-const query = async function(str, pool) {
+const query = async function (str, pool) {
     try {
         const result = await pool.request().query(str)
         return result
@@ -114,7 +113,7 @@ const query = async function(str, pool) {
         throw (e)
     }
 }
-const updateInvitation = function(id, jsonData, pool) {
+const updateInvitationDb = function(id, jsonData, pool) {
     const q = `update Invitation
     set JsonData = @jsonData
     where id = ${id}`
@@ -122,6 +121,12 @@ const updateInvitation = function(id, jsonData, pool) {
     return pool.request()
         .input('jsonData', sql.NVarChar, jsonData)
         .query(q, pool)
+}
+const getInvitationDb = function (id, pool) {
+    const q = `select JsonData from Invitation where ID=${id};`
+    return query(q, pool)
+        .then(response => response.recordset[0].JsonData)
+        .catch(() => '{}')
 }
 const addInvitationUsers = (invitationId, userList, role, pool) => {
     /**@userList: comma seperated list of usernames */
@@ -138,12 +143,30 @@ const deleteInvitationUser = (ids, pool) => {
     const q = `delete from Invitation_User_Role where ID in ( ${ids.join()} )`
     return query(q, pool)
 }
+const gitCommit = function gitCommit(id, username, password, email) {
+    const REPO = 'github.com/mou-gr/invitationData'
 
-
+    return git.raw(['config', 'user.email', email])
+        .then(() => git.raw(['config', 'user.name', username]))
+        .then(() => git.raw(['remote', 'set-url', 'origin', `https://${encodeURIComponent(username)}:${encodeURIComponent(password)}@${REPO}`]))
+        .then(() => git.add(`${id}.json`))
+        .then(() => git.commit(`commited from web interface file: ${id}.json`))
+        .then(() => git.push())
+}
+const updateInvitationLocal = function (path, data) {
+    return fs.writeFileAsync(path, data)
+}
+const getInvitationLocal = function (path) {
+    return fs.readFileAsync(path)
+}
 module.exports = {
     getConnection,
     closeConnection,
-    updateInvitation,
+    getInvitationLocal,
+    getInvitationDb,
+    updateInvitationLocal,
+    updateInvitationDb,
+    gitCommit,
     addInvitationUsers,
     deleteInvitationUser,
     resquel

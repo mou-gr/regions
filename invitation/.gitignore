@@ -1,4 +1,5 @@
 node_modules
+jsonBackup/*
 config.js
 .codelite
 *.workspace

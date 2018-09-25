@@ -7,7 +7,8 @@
 
     <link rel="icon" type="image/png" sizes="32x32" href="/favicon.png">
 
-    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.2.1.min.js" integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
+        crossorigin="anonymous"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.0.6/handlebars.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.17.1/moment.min.js"></script>
@@ -17,7 +18,7 @@
     <script src="/lib/navigo.min.js"></script>
     <script async src="jsgrid-datetime.js"></script>
 
-    <script src="//code.cloudcms.com/alpaca/1.5.22/bootstrap/alpaca.min.js"></script>
+    <script src="//code.cloudcms.com/alpaca/1.5.24/bootstrap/alpaca.min.js"></script>
     <script src="/lib/ace.js"></script>
 
     <script src="edit.js"></script>
@@ -27,8 +28,9 @@
     <link href="/css/jsgrid.min.css" rel="stylesheet">
     <link href="/css/jsgrid-theme.min.css" rel="stylesheet">
     <link href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" rel="stylesheet">
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.44/css/bootstrap-datetimepicker.min.css" rel="stylesheet">
-    <link type="text/css" href="//code.cloudcms.com/alpaca/1.5.22/bootstrap/alpaca.min.css" rel="stylesheet" />
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-datetimepicker/4.17.44/css/bootstrap-datetimepicker.min.css"
+        rel="stylesheet">
+    <link type="text/css" href="//code.cloudcms.com/alpaca/1.5.24/bootstrap/alpaca.min.css" rel="stylesheet" />
 
 </head>
 
@@ -36,15 +38,19 @@
     <header class="jumbotron">
         <div class="container">
             <h2>
-                <a href="#!" title="Αρχική" ><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
+                <a href="#!" title="Αρχική"><span class="glyphicon glyphicon-home" aria-hidden="true"></span></a>
                 <span id="invitation-name"> Διαχείριση Προσκλήσεων</span>
                 <div class="btn-group" role="group">
-                    <a href="http://10.10.0.251:3001" target="_blank" title="Staging logos" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
-                    <a href="#" id="restart-staging" title="Επανεκκίνηση server εκτυπωτικών - staging" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span></a>
+                    <a href="http://10.10.0.251:3001" target="_blank" title="Staging logos" class="btn btn-info btn-sm"><span
+                            class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
+                    <a href="#" id="restart-staging" title="Επανεκκίνηση server εκτυπωτικών - staging" class="btn btn-info btn-sm"><span
+                            class="glyphicon glyphicon-repeat" aria-hidden="true"></span></a>
                 </div>
                 <div class="btn-group" role="group">
-                    <a href="http://10.10.0.251:1235" target="_blank" title="Production logos" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
-                    <a href="#" id="restart-production" title="Επανεκκίνηση server εκτυπωτικών - production" class="btn btn-danger btn-sm"><span class="glyphicon glyphicon-repeat" aria-hidden="true"></span></a>
+                    <a href="http://10.10.0.251:1235" target="_blank" title="Production logos" class="btn btn-danger btn-sm"><span
+                            class="glyphicon glyphicon-picture" aria-hidden="true"></span></a>
+                    <a href="#" id="restart-production" title="Επανεκκίνηση server εκτυπωτικών - production" class="btn btn-danger btn-sm"><span
+                            class="glyphicon glyphicon-repeat" aria-hidden="true"></span></a>
                 </div>
             </h2>
         </div>
@@ -54,13 +60,26 @@
             <div id="invitation-grid" class="router-option jsgrid">inv</div>
             <div id="invitation" class="router-option">
                 <div class="row">
-                    <div class="col-md-1">
-                        <button type="button" id="commit" class="download-btn btn btn-info btn-sm">
-                        <span class="glyphicon glyphicon-open" aria-hidden="true"></span> Commit
-                    </button>
+                    <div class="col-md-12">
+                        <button type="button" id="save" class="download-btn btn btn-success btn-sm">
+                            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save
+                        </button>
+                        <button type="button" id="commit-staging" class="download-btn btn btn-warning btn-sm">
+                            <span class="glyphicon glyphicon-open" aria-hidden="true"></span> Staging Commit
+                        </button>
+                        <button type="button" id="commit-production" class="download-btn btn btn-danger btn-sm" disabled="disabled">
+                            <span class="glyphicon glyphicon-open" aria-hidden="true"></span> Production Commit
+                        </button>
+                        <button type="button" id="fetch-staging" class="download-btn btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Fetch Staging
+                        </button>
+                        <button type="button" id="fetch-production" class="download-btn btn btn-info btn-sm" disabled="disabled">
+                            <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Fetch Production
+                        </button>
                     </div>
-                    <div class="col-md-4" role="alert">
-                        <textarea type="text" class="form-control" rows="1" id="message-area"></textarea>
+                    <br> <br>
+                    <div class="col-md-12" role="alert">
+                        <textarea type="text" class="form-control" rows="3" id="message-area"></textarea>
                     </div>
                 </div>
                 <div id="form1"></div>
@@ -89,13 +108,47 @@
                         Λίστα επιλέξιμων ΚΑΔ (χωρίζονται με κόμμα ",")
                         <textarea id="kad-area" rows=15 cols=80 class="form-control" autocomplete="off"></textarea>
                     </label>
-                    </br>
-                    </br>
+                    <br>
+                    <br>
                     <button type="button" id="update-kad" class="btn btn-primary">Ενημέρωση ΚΑΔ</button>
                 </div>
             </div>
         </div>
     </div>
+
+    <div class="modal fade" id="staging-commit-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Ενημέρωση Staging</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body">
+                    <form>
+                        <div class="form-group">
+                            <label for="email" class="col-form-label">email:</label>
+                            <input input="email" class="form-control" name="email"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="username" class="col-form-label">username:</label>
+                            <input type="text" class="form-control" name="username">
+                        </div>
+                        <div class="form-group">
+                            <label for="password" class="col-form-label">password:</label>
+                            <input type="password" class="form-control" name="password"></textarea>
+                        </div>
+                    </form>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                    <button type="button" class="btn btn-primary submit" data-dismiss="modal">Send message</button>
+                </div>
+            </div>
+        </div>
+    </div>
+
 </body>
 
 </html>
