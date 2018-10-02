@@ -6,11 +6,11 @@ var router = new Navigo(root, useHash, hash)
 var invitationId
 
 // var urlBase = 'http://localhost:4000/'
-var urlBase = '/api/'
+var urlBase = 'api/'
 
 var updateName = function (id, str) {
     if (id) {
-        $.get(`/api/invitation/${id}/name`).then(res => $('#invitation-name').text(res.rows[0].Name + str))
+        $.get(`${urlBase}invitation/${id}/name`).then(res => $('#invitation-name').text(res.rows[0].Name + str))
     } else {
         $('#invitation-name').text(str)
     }
@@ -152,13 +152,13 @@ $(document).ready(createUserGrid('user-grid'))
 $(document).ready($('#new-user').off('click').on('click', function () {
     const userList = $('#new-user-list').val()
     const role = $('#user-role').val()
-    $.post(`/api/userRoleType`, { id: invitationId, userList: userList, role: role })
+    $.post(`${urlBase}userRoleType`, { id: invitationId, userList: userList, role: role })
         .then(reload($('#user-grid')))
 }))
 $(document).ready(createDateGrid('date-grid'))
 $(document).ready(createInvitationGrid('invitation-grid'))
 $(document).ready($('#invitation-grid').on('click', '.clone-btn', function () {
-    $.post(`/api/invitation/${this.dataset.id}/clone`).then(reload($('#invitation-grid')))
+    $.post(`${urlBase}invitation/${this.dataset.id}/clone`).then(reload($('#invitation-grid')))
 }))
 $(document).ready(function () {
     router
@@ -168,7 +168,7 @@ $(document).ready(function () {
             updateName(params.id, '')
             $('.router-option').hide()
             $('#invitation').show()
-            $.get(`/api/invitation/${invitationId}?location=local`)
+            $.get(`${urlBase}invitation/${invitationId}?location=local`)
                 .then(resp => {
                     window.renderForm(invitationId, resp)
                 })
@@ -183,12 +183,12 @@ $(document).ready(function () {
             $('#kad').show()
             invitationId = params.id
             updateName(params.id, ' - ΚΑΔ')
-            $.get('/api/invitation/' + params.id + '/kad')
+            $.get(`${urlBase}/invitation/params.id/kad`)
                 .then(data => $('#kad-area').text(data.rows[0].EligibleKad))
             $('#update-kad').off('click').on('click', function () {
                 var value = $('#kad-area').val()
                 $.ajax({
-                    url: '/api/invitation/' + params.id + '/kad',
+                    url: `${urlBase}invitation/params.id/kad`,
                     type: 'PUT',
                     dataType: 'json',
                     data: JSON.stringify({

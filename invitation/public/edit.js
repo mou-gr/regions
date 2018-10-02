@@ -1,4 +1,4 @@
-/*global Alpaca $ */
+/*global Alpaca $ urlBase*/
 window.renderForm = function renderForm(invitationId, data) {
     $('body').css('cursor', 'progress')
     $('#form1').alpaca('destroy')
@@ -279,7 +279,7 @@ window.renderForm = function renderForm(invitationId, data) {
             return
         }
         $.ajax({
-            url: `/api/invitation/${invitationId}?location=local`,
+            url: `${urlBase}invitation/${invitationId}?location=local`,
             type: 'PUT',
             dataType: 'json',
             data: JSON.stringify(value, null, 0),
@@ -320,7 +320,7 @@ window.renderForm = function renderForm(invitationId, data) {
                 req.password = $(e.currentTarget).closest('.modal-content').find('[name=password]').val()
                 req.email = $(e.currentTarget).closest('.modal-content').find('[name=email]').val()
                 $.ajax({
-                    url: `/api/invitation/${invitationId}?location=staging`,
+                    url: `${urlBase}invitation/${invitationId}?location=staging`,
                     type: 'PUT',
                     dataType: 'json',
                     data: JSON.stringify(req, null, 0),
@@ -351,7 +351,7 @@ window.renderForm = function renderForm(invitationId, data) {
             return
         }
         $.ajax({
-            url: `/api/invitation/${invitationId}?location=production`,
+            url: `${urlBase}invitation/${invitationId}?location=production`,
             type: 'PUT',
             dataType: 'json',
             data: JSON.stringify(value, null, 0),
@@ -371,7 +371,7 @@ window.renderForm = function renderForm(invitationId, data) {
 
     $('#fetch-staging').off('click').on('click', function () {
         $.ajax({
-            url: `/api/invitation/${invitationId}?location=staging`,
+            url: `${urlBase}invitation/${invitationId}?location=staging`,
             type: 'GET',
             dataType: 'json',
             contentType: 'application/json',
@@ -393,7 +393,7 @@ window.renderForm = function renderForm(invitationId, data) {
 
     $('#fetch-production').off('click').on('click', function () {
         $.ajax({
-            url: `/api/invitation/${invitationId}?location=production`,
+            url: `${urlBase}invitation/${invitationId}?location=production`,
             type: 'GET',
             dataType: 'json',
             contentType: 'application/json',
