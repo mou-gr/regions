@@ -1,4 +1,4 @@
-/*global Alpaca $ */
+/*global Alpaca $ urlBase*/
 window.renderForm = function renderForm(invitationId, data) {
     $('body').css('cursor', 'progress')
     $('#form1').alpaca('destroy')
@@ -279,7 +279,7 @@ window.renderForm = function renderForm(invitationId, data) {
             return
         }
         $.ajax({
-            url: '/api/invitation/' + invitationId,
+            url: `${urlBase}invitation/${invitationId}?location=local`,
             type: 'PUT',
             dataType: 'json',
             data: JSON.stringify(value, null, 0),
