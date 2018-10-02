@@ -199,7 +199,7 @@ window.renderForm = function renderForm(invitationId, data) {
 
             $(window).unbind('keydown').bind('keydown', function (event) {
                 if (event.ctrlKey && String.fromCharCode(event.which).toLowerCase() == 's') {
-                    $('#save').click()
+                    $('#commit-staging').click()
                     event.preventDefault()
                 }
             })
@@ -314,7 +314,8 @@ window.renderForm = function renderForm(invitationId, data) {
             .modal()
             .find('button.submit')
             .off('click').on('click', function (e) {
-                const req = {value: value}
+                $('body').css('cursor', 'progress')
+                const req = { value: value }
                 req.username = $(e.currentTarget).closest('.modal-content').find('[name=username]').val()
                 req.password = $(e.currentTarget).closest('.modal-content').find('[name=password]').val()
                 req.email = $(e.currentTarget).closest('.modal-content').find('[name=email]').val()
@@ -325,24 +326,16 @@ window.renderForm = function renderForm(invitationId, data) {
                     data: JSON.stringify(req, null, 0),
                     contentType: 'application/json',
                     cache: false,
-                    timeout: 5000,
-                    success: function () {
-                        $('#message-area').prepend(++count + ': Αποθήκευση δεδομένων (staging)\n')
-                        console.log('succesfully updated invitation')
-                    },
-                    error: function () {
-                        $('#message-area').prepend(++count + ': Αποτυχία εγγραφής\n')
-                        console.log('process error')
-                    }
+                    timeout: 5000
                 })
+                    .done(() => $('#message-area').prepend(++count + ': Αποθήκευση δεδομένων (staging)\n'))
+                    .fail((resp) => {
+                        $('#message-area').prepend(++count + ': Αποτυχία εγγραφής\n')
+                        console.error(resp && resp.responseJSON ? resp.responseJSON.error : resp)
+
+                    })
+                    .always(() => $('body').css('cursor', 'auto'))
             })
-
-
-        value.username = 'galanosel'
-        value.password = 'Pske0101*'
-        value.email = 'galanosel@gmail.com'
-
-
     })
 
     $('#commit-production').off('click').on('click', function () {
