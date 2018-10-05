@@ -297,88 +297,72 @@ window.renderForm = function renderForm(invitationId, data) {
         })
     })
 
-    $('#commit-staging').off('click').on('click', function () {
-        var value = $('#form1').alpaca('get').getValue()
-        if (value === '') {
-            return
-        }
-        try {
-            var val = JSON.parse(value.compiled)
-            value.compiled = JSON.stringify(val, null, 0)
-            if (value.compiled == '{}') throw ('no data')
-        } catch (e) {
-            $('#message-area').prepend(++count + ': Invalid json in last tab')
-            return
-        }
-        $('#staging-commit-form')
-            .modal()
-            .find('button.submit')
-            .off('click').on('click', function (e) {
-                $('body').css('cursor', 'progress')
-                const req = { value: value }
-                req.username = $(e.currentTarget).closest('.modal-content').find('[name=username]').val()
-                req.password = $(e.currentTarget).closest('.modal-content').find('[name=password]').val()
-                req.email = $(e.currentTarget).closest('.modal-content').find('[name=email]').val()
-                $.ajax({
-                    url: `${urlBase}invitation/${invitationId}?location=staging`,
-                    type: 'PUT',
-                    dataType: 'json',
-                    data: JSON.stringify(req, null, 0),
-                    contentType: 'application/json',
-                    cache: false,
-                    timeout: 5000
-                })
-                    .done(() => $('#message-area').prepend(++count + ': Αποθήκευση δεδομένων (staging)\n'))
-                    .fail((resp) => {
-                        $('#message-area').prepend(++count + ': Αποτυχία εγγραφής\n')
-                        console.error(resp && resp.responseJSON ? resp.responseJSON.error : resp)
-
-                    })
-                    .always(() => $('body').css('cursor', 'auto'))
-            })
-    })
-
-    $('#commit-production').off('click').on('click', function () {
-        var value = $('#form1').alpaca('get').getValue()
-        if (value === '') {
-            return
-        }
-        try {
-            var val = JSON.parse(value.compiled)
-            value.compiled = JSON.stringify(val, null, 0)
-        } catch (e) {
-            alert('Invalid json in last tab\nWill not save!')
-            return
-        }
-        $.ajax({
-            url: `${urlBase}invitation/${invitationId}?location=production`,
-            type: 'PUT',
-            dataType: 'json',
-            data: JSON.stringify(value, null, 0),
-            contentType: 'application/json',
-            cache: false,
-            timeout: 5000,
-            success: function () {
-                $('#message-area').prepend(++count + ': Αποθήκευση δεδομένων (production)\n')
-                console.log('succesfully updated invitation')
-            },
-            error: function () {
-                $('#message-area').prepend(++count + ': Αποτυχία εγγραφής\n')
-                console.log('process error')
+    const commit = function commit (location) {
+        return function () {
+            var value = $('#form1').alpaca('get').getValue()
+            if (value === '') {
+                return
             }
-        })
-    })
+            try {
+                var val = JSON.parse(value.compiled)
+                value.compiled = JSON.stringify(val, null, 0)
+                if (value.compiled == '{}') throw ('no data')
+            } catch (e) {
+                $('#message-area').prepend(++count + ': Invalid json in last tab')
+                return
+            }
+            const background = {
+                staging: '#ababab',
+                production: '#ff6161'
+            }
 
-    $('#fetch-staging').off('click').on('click', function () {
+            $('#commit-form .modal-content').css('background', background[location])
+            $('#commit-form h5.modal-title').text(`Ενημέρωση ${location}`)
+            $('#commit-form').find('.alert').hide()
+            $('#commit-form .submit').prop( 'disabled', false )
+    
+            $('#commit-form')
+                .modal()
+                .find('button.submit')
+                .off('click').on('click', function (e) {
+                    $('body').css('cursor', 'progress')
+                    const req = { value: value }
+                    req.username = $(e.currentTarget).closest('.modal-content').find('[name=username]').val()
+                    req.password = $(e.currentTarget).closest('.modal-content').find('[name=password]').val()
+                    req.email = $(e.currentTarget).closest('.modal-content').find('[name=email]').val()
+                    $.ajax({
+                        url: `${urlBase}invitation/${invitationId}?location=${location}`,
+                        type: 'PUT',
+                        dataType: 'json',
+                        data: JSON.stringify(req, null, 0),
+                        contentType: 'application/json',
+                        cache: false,
+                        timeout: 5000
+                    })
+                        .done(() => {
+                            $('#message-area').prepend(++count + ': Αποθήκευση δεδομένων (staging)\n')
+                            $('#commit-form .alert-success').show()  
+                            $('#commit-form .submit').prop( 'disabled', true )
+                        })
+                        .fail((resp) => {
+                            $('#message-area').prepend(++count + ': Αποτυχία εγγραφής\n')
+                            $('#commit-form .alert-danger').show()    
+                            console.error(resp && resp.responseJSON ? resp.responseJSON.error : resp)    
+                        })
+                        .always(() => $('body').css('cursor', 'auto'))
+                })
+        }
+    }
+    const fetch = function () {
         $.ajax({
-            url: `${urlBase}invitation/${invitationId}?location=staging`,
+            url: `${urlBase}invitation/${invitationId}?location=${location}`,
             type: 'GET',
             dataType: 'json',
             contentType: 'application/json',
             cache: false,
             timeout: 5000,
             success: function (data) {
-                $('#message-area').prepend(++count + ': Λήψη δεδομένων (staging)\n')
+                $('#message-area').prepend(++count + `: Λήψη δεδομένων (${location})\n`)
                 data.compiled = JSON.stringify(JSON.parse(data.compiled), null, 4)
 
                 $('#form1').alpaca('get').setValue(data)
@@ -389,29 +373,12 @@ window.renderForm = function renderForm(invitationId, data) {
                 console.log('process error')
             }
         })
-    })
+    }
 
-    $('#fetch-production').off('click').on('click', function () {
-        $.ajax({
-            url: `${urlBase}invitation/${invitationId}?location=production`,
-            type: 'GET',
-            dataType: 'json',
-            contentType: 'application/json',
-            cache: false,
-            timeout: 5000,
-            success: function () {
-                $('#message-area').prepend(++count + ': Λήψη δεδομένων (production)\n')
-                console.log('succesfully updated invitation')
-            },
-            error: function () {
-                $('#message-area').prepend(++count + ': Αποτυχία εγγραφής\n')
-                console.log('process error')
-            }
-        })
-    })
+    $('#commit-staging').off('click').on('click', commit ('staging'))
+    $('#commit-production').off('click').on('click', commit('production'))
+    $('#fetch-staging').off('click').on('click', fetch('staging'))
+    $('#fetch-production').off('click').on('click', fetch('production'))
 
-    // $('#advanced-download-link').on('click', function () {
-    //     var value = $('#form1').alpaca('get').getValue()
-    //     $('#submit-content').val(JSON.stringify(value))
-    // })
 }
+

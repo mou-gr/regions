@@ -23,7 +23,7 @@ const actions = {
     write: {
         local: req => model.updateInvitationLocal(`${path}/${req.params.id}.json`, JSON.stringify(req.body)),
         staging: req =>
-            model.updateInvitationLocal(`${path}/${req.params.id}.json`, JSON.stringify(req.body.value))
+            model.updateInvitationLocal(`${path}/${req.params.id}.json`, JSON.stringify(req.body.value, null, 2))
                 .then(() => model.gitCommit(req.params.id, req.body.username, req.body.password, req.body.email))
                 .then(() => model.updateInvitationDb(req.params.id, JSON.stringify(req.body.value), app.locals.pool))
         ,

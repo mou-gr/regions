@@ -151,6 +151,7 @@ const gitCommit = function gitCommit(id, username, password, email) {
         .then(() => git.raw(['remote', 'set-url', 'origin', `https://${encodeURIComponent(username)}:${encodeURIComponent(password)}@${REPO}`]))
         .then(() => git.add(`${id}.json`))
         .then(() => git.commit(`commited from web interface file: ${id}.json`))
+        .then(() => git.pull())
         .then(() => git.push())
 }
 const updateInvitationLocal = function (path, data) {
