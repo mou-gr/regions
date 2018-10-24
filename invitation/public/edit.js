@@ -148,7 +148,7 @@ window.renderForm = function renderForm(invitationId, data) {
                                             },
                                             DHMOSIA_DAPANH: {
                                                 events: {
-                                                    'change': function () {
+                                                    'change': function() {
                                                         const table = this.top().getControlByPath('tab5/PEDIA_PAREMVASHS_OBJ/PEDIA_PAREMVASHS_LIST').getValue()
                                                         const sum = table.reduce((sum, value) => sum + value.DHMOSIA_DAPANH, 0)
                                                         this.top().getControlByPath('tab5/PEDIA_PAREMVASHS_OBJ/DHMOSIA_DAPANH_TOTAL_OBJ/DHMOSIA_DAPANH_TOTAL').setValue(sum)
@@ -168,7 +168,7 @@ window.renderForm = function renderForm(invitationId, data) {
                             fields: {
                                 KATHGORIES_DAPANON_LIST: {
                                     events: {
-                                        'add': function () {
+                                        'add': function() {
                                             console.log('The value of this was changed to:')
                                         }
                                     },
@@ -190,16 +190,16 @@ window.renderForm = function renderForm(invitationId, data) {
                 }
             }
         },
-        postRender: function (control) {
+        postRender: function(control) {
             $('body').css('cursor', 'default')
 
             var codeControl = control.getControlByPath('compiled')
             var code = codeControl.data
             codeControl.setValue(JSON.stringify(JSON.parse(code), null, 4))
 
-            $(window).unbind('keydown').bind('keydown', function (event) {
+            $(window).unbind('keydown').bind('keydown', function(event) {
                 if (event.ctrlKey && String.fromCharCode(event.which).toLowerCase() == 's') {
-                    $('#commit-staging').click()
+                    $('#commit').click()
                     event.preventDefault()
                 }
             })
@@ -266,7 +266,7 @@ window.renderForm = function renderForm(invitationId, data) {
 
     var count = 0
 
-    $('#save').off('click').on('click', function () {
+    $('#commit').off('click').on('click', function() {
         var value = $('#form1').alpaca('get').getValue()
         if (value === '') {
             return
@@ -286,99 +286,21 @@ window.renderForm = function renderForm(invitationId, data) {
             contentType: 'application/json',
             cache: false,
             timeout: 5000,
-            success: function () {
-                $('#message-area').prepend(++count + ': Αποθήκευση δεδομένων (local)\n')
+            complete: function() {
+                console.log('process complete')
+            },
+            success: function() {
+                $('#message-area').prepend(++count + ': Η εγγραφή ενημερώθηκε\n')
                 console.log('succesfully updated invitation')
             },
-            error: function () {
-                $('#message-area').prepend(++count + ': Αποτυχία εγγραφής\n')
+            error: function() {
                 console.log('process error')
             }
         })
     })
 
-    const commit = function commit (location) {
-        return function () {
-            var value = $('#form1').alpaca('get').getValue()
-            if (value === '') {
-                return
-            }
-            try {
-                var val = JSON.parse(value.compiled)
-                value.compiled = JSON.stringify(val, null, 0)
-                if (value.compiled == '{}') throw ('no data')
-            } catch (e) {
-                $('#message-area').prepend(++count + ': Invalid json in last tab')
-                return
-            }
-            const background = {
-                staging: '#ababab',
-                production: '#ff6161'
-            }
-
-            $('#commit-form .modal-content').css('background', background[location])
-            $('#commit-form h5.modal-title').text(`Ενημέρωση ${location}`)
-            $('#commit-form').find('.alert').hide()
-            $('#commit-form .submit').prop( 'disabled', false )
-    
-            $('#commit-form')
-                .modal()
-                .find('button.submit')
-                .off('click').on('click', function (e) {
-                    $('body').css('cursor', 'progress')
-                    const req = { value: value }
-                    req.username = $(e.currentTarget).closest('.modal-content').find('[name=username]').val()
-                    req.password = $(e.currentTarget).closest('.modal-content').find('[name=password]').val()
-                    req.email = $(e.currentTarget).closest('.modal-content').find('[name=email]').val()
-                    $.ajax({
-                        url: `${urlBase}invitation/${invitationId}?location=${location}`,
-                        type: 'PUT',
-                        dataType: 'json',
-                        data: JSON.stringify(req, null, 0),
-                        contentType: 'application/json',
-                        cache: false,
-                        timeout: 5000
-                    })
-                        .done(() => {
-                            $('#message-area').prepend(++count + ': Αποθήκευση δεδομένων (staging)\n')
-                            $('#commit-form .alert-success').show()  
-                            $('#commit-form .submit').prop( 'disabled', true )
-                        })
-                        .fail((resp) => {
-                            $('#message-area').prepend(++count + ': Αποτυχία εγγραφής\n')
-                            $('#commit-form .alert-danger').show()    
-                            console.error(resp && resp.responseJSON ? resp.responseJSON.error : resp)    
-                        })
-                        .always(() => $('body').css('cursor', 'auto'))
-                })
-        }
-    }
-    const fetch = function () {
-        $.ajax({
-            url: `${urlBase}invitation/${invitationId}?location=${location}`,
-            type: 'GET',
-            dataType: 'json',
-            contentType: 'application/json',
-            cache: false,
-            timeout: 5000,
-            success: function (data) {
-                $('#message-area').prepend(++count + `: Λήψη δεδομένων (${location})\n`)
-                data.compiled = JSON.stringify(JSON.parse(data.compiled), null, 4)
-
-                $('#form1').alpaca('get').setValue(data)
-                console.log('succesfully updated invitation')
-            },
-            error: function () {
-                $('#message-area').prepend(++count + ': Αποτυχία εγγραφής\n')
-                console.log('process error')
-            }
-        })
-    }
-
-    $('#commit-staging').off('click').on('click', commit ('staging'))
-    $('#commit-production').off('click').on('click', commit('production'))
-    $('#fetch-staging').off('click').on('click', fetch('staging'))
-    $('#fetch-production').off('click').on('click', fetch('production'))
-
+    $('#advanced-download-link').on('click', function() {
+        var value = $('#form1').alpaca('get').getValue()
+        $('#submit-content').val(JSON.stringify(value))
+    })
 }
-

@@ -8,7 +8,7 @@ var invitationId
 // var urlBase = 'http://localhost:4000/'
 var urlBase = 'api/'
 
-var updateName = function (id, str) {
+var updateName = function(id, str) {
     if (id) {
         $.get(`${urlBase}invitation/${id}/name`).then(res => $('#invitation-name').text(res.rows[0].Name + str))
     } else {
@@ -16,14 +16,14 @@ var updateName = function (id, str) {
     }
 }
 
-var db2grid = function (row) {
+var db2grid = function(row) {
     row.isActive = row.isActive == 1
     row.IsFinal = row.IsFinal == 1
     row.canFinalize = row.canFinalize == 1
     row.RandomEvaluator = row.RandomEvaluator == 1
     return row
 }
-var grid2db = function (row) {
+var grid2db = function(row) {
     row.isActive = row.isActive ? 1 : 0
     row.IsFinal = row.IsFinal ? 1 : 0
     row.canFinalize = row.canFinalize ? 1 : 0
@@ -37,7 +37,7 @@ const reload = function ($grid) {
 }
 
 var createGrid = function createDateGrid(div, controller, fields, options) {
-    return function () {
+    return function() {
         $('#' + div).jsGrid({
             width: '100%',
             filtering: false,
@@ -55,24 +55,24 @@ var createGrid = function createDateGrid(div, controller, fields, options) {
         })
     }
 }
-var createController = function (getUrl) {
+var createController = function(getUrl) {
     return {
-        loadData: function () {
+        loadData: function() {
             return $.get(getUrl()).then(res => res.rows.map(db2grid))
         },
-        insertItem: function (item) {
+        insertItem: function(item) {
             return $.post(getUrl(), grid2db(item))
         },
-        updateItem: function (item) {
+        updateItem: function(item) {
             return $.ajax({ type: 'PUT', url: getUrl(), data: grid2db(item) })
         },
-        deleteItem: function (item) {
+        deleteItem: function(item) {
             return $.ajax({ type: 'DELETE', url: getUrl(), data: item })
         }
     }
 }
 var createDateGrid = function createDateGrid(div) {
-    var controller = createController(() => urlBase + 'invitation/' + invitationId + '/date')
+    var controller = createController( () => urlBase + 'invitation/' + invitationId + '/date' )
     var fields = [
         { name: 'ID', type: 'number', editing: false, width: 50 },
         { name: 'CallPhaseID', type: 'number', width: 70 },
@@ -86,18 +86,18 @@ var createDateGrid = function createDateGrid(div) {
 }
 
 var createInvitationGrid = function createDateGrid(div) {
-    var controller = createController(() => urlBase + 'invitation/')
+    var controller = createController(() => urlBase + 'invitation/' )
     var fields = [
         { name: 'ID', type: 'number', editing: false, width: 20 },
         { name: 'Name', type: 'text', width: 170 },
         { name: 'CN_Code_Mask', type: 'text', width: 70 },
-        { name: 'InvitationGroup', title: 'Group', type: 'number', width: 40 },
+        { name: 'InvitationGroup', title: 'Group',type: 'number', width: 40 },
         { name: 'IsFinal', type: 'checkbox', title: 'Ενεργό', sorting: false, width: 60 },
         { name: 'RandomEvaluator', type: 'checkbox', title: 'Κλήρωση αξιολογητών', sorting: false, width: 60 },
-		{ name: 'StoreProcedureToRandomise', type: 'text', width: 100 },
+        { name: 'StoreProcedureToRandomise', type: 'text', width: 100 },
         { type: 'control' },
         {
-            itemTemplate: function (value, item) {
+            itemTemplate: function(value, item) {
                 var $result = $('<div class="btn-group" role="group">')
                 var dateLink = '<a href="#!/invitation/' + item.ID + '/date" title="Έναρξη / Λήξη" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></a>'
                 var kadLink = '<a href="#!/invitation/' + item.ID + '/kad" title="ΚΑΔ" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a>'
@@ -111,12 +111,12 @@ var createInvitationGrid = function createDateGrid(div) {
     ]
     return createGrid(div, controller, fields)
 }
-var createUserGrid = function (div) {
-    var controller = createController(() => urlBase + 'invitation/' + invitationId + '/user')
-    var deleteSelectedItems = function () {
+var createUserGrid = function(div) {
+    var controller = createController(() => urlBase + 'invitation/' + invitationId + '/user' )
+    var deleteSelectedItems = function() {
         const $div = $('#' + div)
         var ids = $div.find('tr:has(.user-checkbox:checked)').find('.id-cell').toArray().map(el => el.textContent)
-        $.ajax({ type: 'DELETE', url: urlBase + 'userRoleType', data: { id: ids } }).then(reload($div))
+        $.ajax({ type: 'DELETE', url: urlBase + 'userRoleType', data: { id: ids } }).then( reload($div) )
     }
 
     var fields = [
@@ -126,11 +126,11 @@ var createUserGrid = function (div) {
         {
             align: 'center',
             sorting: false,
-            headerTemplate: function () {
+            headerTemplate: function() {
                 return $('<input class="jsgrid-button jsgrid-delete-button" title="Delete Selected" type="button">')
                     .off('click').on('click', deleteSelectedItems)
             },
-            itemTemplate: function () {
+            itemTemplate: function() {
                 return '<input type="checkbox" class="user-checkbox">'
             },
             width: '20px'
@@ -138,9 +138,9 @@ var createUserGrid = function (div) {
     ]
     return createGrid(div, controller, fields, { inserting: false, editing: false })
 }
-var createRoute = function (name, $grid, $div) {
+var createRoute = function(name, $grid, $div) {
     $div = $div === undefined ? $grid : $div
-    return function (params) {
+    return function(params) {
         invitationId = params.id
         updateName(params.id, name)
         $('.router-option').hide()
@@ -150,7 +150,7 @@ var createRoute = function (name, $grid, $div) {
 }
 
 $(document).ready(createUserGrid('user-grid'))
-$(document).ready($('#new-user').off('click').on('click', function () {
+$(document).ready($('#new-user').off('click').on('click', function() {
     const userList = $('#new-user-list').val()
     const role = $('#user-role').val()
     $.post(`${urlBase}userRoleType`, { id: invitationId, userList: userList, role: role })
@@ -161,7 +161,7 @@ $(document).ready(createInvitationGrid('invitation-grid'))
 $(document).ready($('#invitation-grid').on('click', '.clone-btn', function () {
     $.post(`${urlBase}invitation/${this.dataset.id}/clone`).then(reload($('#invitation-grid')))
 }))
-$(document).ready(function () {
+$(document).ready(function() {
     router
         .on('/', createRoute('Διαχείριση Προσκλήσεων', $('#invitation-grid')))
         .on('/invitation/:id', function (params) {
@@ -171,25 +171,23 @@ $(document).ready(function () {
             $('#invitation').show()
             $.get(`${urlBase}invitation/${invitationId}?location=local`)
                 .then(resp => {
-                    window.renderForm(invitationId, resp)
-                })
-                .catch(error => {
-                    window.renderForm(invitationId, '{}')
+                    const data = (resp.status == 200 && resp.rows && resp.rows[0]) ? resp.rows[0].JsonData : '{}'
+                    window.renderForm(invitationId, data)
                 })
         })
         .on('/invitation/:id/date', createRoute(' - Έναρξη / Λήξη Ενεργειών', $('#date-grid')))
         .on('/invitation/:id/user', createRoute(' - Χρήστες', $('#user-grid'), $('#user-div')))
-        .on('/invitation/:id/kad', function (params) {
+        .on('/invitation/:id/kad', function(params) {
             $('.router-option').hide()
             $('#kad').show()
             invitationId = params.id
             updateName(params.id, ' - ΚΑΔ')
-            $.get(`${urlBase}/invitation/params.id/kad`)
+            $.get(`${urlBase}invitation/${params.id}/kad`)
                 .then(data => $('#kad-area').text(data.rows[0].EligibleKad))
             $('#update-kad').off('click').on('click', function () {
                 var value = $('#kad-area').val()
                 $.ajax({
-                    url: `${urlBase}invitation/params.id/kad`,
+                    url: `${urlBase}invitation/${params.id}/kad`,
                     type: 'PUT',
                     dataType: 'json',
                     data: JSON.stringify({
@@ -197,7 +195,7 @@ $(document).ready(function () {
                     }),
                     contentType: 'application/json',
                     timeout: 5000,
-                    complete: function (resp, status, ) {
+                    complete: function(resp, status, ) {
                         if (resp.responseJSON.data == 'OK') {
                             console.log('updated')
                         } else {
