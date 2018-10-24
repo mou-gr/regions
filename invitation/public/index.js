@@ -94,6 +94,7 @@ var createInvitationGrid = function createDateGrid(div) {
         { name: 'InvitationGroup', title: 'Group',type: 'number', width: 40 },
         { name: 'IsFinal', type: 'checkbox', title: 'Ενεργό', sorting: false, width: 60 },
         { name: 'RandomEvaluator', type: 'checkbox', title: 'Κλήρωση αξιολογητών', sorting: false, width: 60 },
+		{ name: 'StoreProcedureToRandomise', type: 'text', width: 100 },
         { type: 'control' },
         {
             itemTemplate: function(value, item) {
