@@ -16,7 +16,7 @@ const resquel = {
     routes: [{
         method: 'GET',
         endpoint: '/api/invitation',
-        query: `select ID, Name, IsFinal, CN_Code_Mask, InvitationGroup, RandomEvaluator from Invitation
+        query: `select ID, Name, IsFinal, CN_Code_Mask, InvitationGroup, RandomEvaluator, StoreProcedureToRandomise  from Invitation
                 where CN_Code_Mask != '${hideCnMask}'`
     }, {
         method: 'PUT',
@@ -27,6 +27,7 @@ const resquel = {
                 , CN_Code_Mask = '{{ CN_Code_Mask }}'
                 , InvitationGroup = {{ InvitationGroup }}
                 , RandomEvaluator = {{ RandomEvaluator }}
+				, StoreProcedureToRandomise = '{{ StoreProcedureToRandomise }}'
             where ID = {{ ID }}`
     }, {
         method: 'DELETE',
@@ -36,8 +37,8 @@ const resquel = {
         method: 'POST',
         endpoint: '/api/invitation/:id/clone',
         query: `insert into Invitation
-            (IsFinal, InvitationGroup, JsonData, Name, CN_Code_Mask)
-                select IsFinal, InvitationGroup, JsonData, concat(Name, '_copy'), CN_Code_Mask
+            (IsFinal, InvitationGroup, JsonData, Name, CN_Code_Mask, RandomEvaluator, StoreProcedureToRandomise)
+                select IsFinal, InvitationGroup, JsonData, concat(Name, '_copy'), CN_Code_Mask, RandomEvaluator, StoreProcedureToRandomise
                 from Invitation where ID = {{ params.id }}`
     }, {
         method: 'GET',
@@ -151,6 +152,7 @@ const gitCommit = function gitCommit(id, username, password, email) {
         .then(() => git.raw(['remote', 'set-url', 'origin', `https://${encodeURIComponent(username)}:${encodeURIComponent(password)}@${REPO}`]))
         .then(() => git.add(`${id}.json`))
         .then(() => git.commit(`commited from web interface file: ${id}.json`))
+        .then(() => git.pull())
         .then(() => git.push())
 }
 const updateInvitationLocal = function (path, data) {

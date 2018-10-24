@@ -56,25 +56,13 @@
         </div>
     </header>
     <div id="content">
-        <div class="container">
+        <div class="no-container">
             <div id="invitation-grid" class="router-option jsgrid">inv</div>
             <div id="invitation" class="router-option">
                 <div class="row">
-                    <div class="col-md-12">
-                        <button type="button" id="save" class="download-btn btn btn-success btn-sm">
-                            <span class="glyphicon glyphicon-floppy-disk" aria-hidden="true"></span> Save
-                        </button>
-                        <button type="button" id="commit-staging" class="download-btn btn btn-warning btn-sm">
-                            <span class="glyphicon glyphicon-open" aria-hidden="true"></span> Staging Commit
-                        </button>
-                        <button type="button" id="commit-production" class="download-btn btn btn-danger btn-sm" disabled="disabled">
-                            <span class="glyphicon glyphicon-open" aria-hidden="true"></span> Production Commit
-                        </button>
-                        <button type="button" id="fetch-staging" class="download-btn btn btn-info btn-sm">
-                            <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Fetch Staging
-                        </button>
-                        <button type="button" id="fetch-production" class="download-btn btn btn-info btn-sm" disabled="disabled">
-                            <span class="glyphicon glyphicon-save" aria-hidden="true"></span> Fetch Production
+                    <div class="col-md-1">
+                        <button type="button" id="commit" class="download-btn btn btn-info btn-sm">
+                            <span class="glyphicon glyphicon-open" aria-hidden="true"></span> Commit
                         </button>
                     </div>
                     <br> <br>
@@ -85,21 +73,24 @@
                 <div id="form1"></div>
             </div>
             <div id="user-div" class="router-option">
-                <div id="user-grid" class="jsgrid"></div><br>
+                <div class="container">
 
-                <fieldset class="form-group">
-                    <div class="input-group col-lg-2">
-                        <span class="input-group-addon" id="basic-addon1">Ρόλος</span>
-                        <input type="number" id="user-role" class="form-control" aria-describedby="basic-addon1">
-                    </div>
-                    <div class="help-block"></div>
-                    <label>
-                        Χρήστες (comma seperated):
-                        <textarea id="new-user-list" class="form-control" rows=8 cols=50></textarea>
-                    </label>
-                    <div class="help-block"></div>
-                    <button type="button" id="new-user" class="btn btn-primary btn-sm">Προσθήκη</button>
-                </fieldset>
+                    <div id="user-grid" class="jsgrid"></div><br>
+
+                    <fieldset class="form-group">
+                        <div class="input-group col-lg-2">
+                            <span class="input-group-addon" id="basic-addon1">Ρόλος</span>
+                            <input type="number" id="user-role" class="form-control" aria-describedby="basic-addon1">
+                        </div>
+                        <div class="help-block"></div>
+                        <label>
+                            Χρήστες (comma seperated):
+                            <textarea id="new-user-list" class="form-control" rows=8 cols=50></textarea>
+                        </label>
+                        <div class="help-block"></div>
+                        <button type="button" id="new-user" class="btn btn-primary btn-sm">Προσθήκη</button>
+                    </fieldset>
+                </div>
             </div>
             <div id="date-grid" class="router-option jsgrid">date</div>
             <div id="kad" class="router-option">
@@ -116,16 +107,26 @@
         </div>
     </div>
 
-    <div class="modal fade" id="staging-commit-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal fade" id="commit-form" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
         <div class="modal-dialog" role="document">
             <div class="modal-content">
                 <div class="modal-header">
-                    <h5 class="modal-title" id="exampleModalLabel">Ενημέρωση Staging</h5>
+                    <h5 class="modal-title"></h5>
                     <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                         <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
                 <div class="modal-body">
+                    <div class="alert alert-danger" role="alert">
+                        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+                        <span class="sr-only">Error:</span>
+                        Αποτυχία εγγραφής
+                    </div>
+                    <div class="alert alert-success" role="alert">
+                        <span class="glyphicon glyphicon-ok" aria-hidden="true"></span>
+                        <span class="sr-only">Error:</span>
+                        Επιτυχής αποθήκευση
+                    </div>
                     <form>
                         <div class="form-group">
                             <label for="email" class="col-form-label">email:</label>
@@ -143,7 +144,7 @@
                 </div>
                 <div class="modal-footer">
                     <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                    <button type="button" class="btn btn-primary submit" data-dismiss="modal">Send message</button>
+                    <button type="button" class="btn btn-primary submit" >OK</button>
                 </div>
             </div>
         </div>

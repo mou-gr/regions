@@ -23,7 +23,7 @@ const actions = {
     write: {
         local: req => model.updateInvitationLocal(`${path}/${req.params.id}.json`, JSON.stringify(req.body)),
         staging: req =>
-            model.updateInvitationLocal(`${path}/${req.params.id}.json`, JSON.stringify(req.body.value))
+            model.updateInvitationLocal(`${path}/${req.params.id}.json`, JSON.stringify(req.body.value, null, 2))
                 .then(() => model.gitCommit(req.params.id, req.body.username, req.body.password, req.body.email))
                 .then(() => model.updateInvitationDb(req.params.id, JSON.stringify(req.body.value), app.locals.pool))
         ,
@@ -38,22 +38,18 @@ const actions = {
 
 app.put('/api/invitation/:id', function (req, res) {
     actions.write[req.query.location](req)
-        .then(() => {
-            res.sendStatus(204)
-        })
+        .then( () => res.sendStatus(204) )
         .catch(err => {
-            res.sendStatus(500)
+            res.status(500).send({error: err.message})
             console.error(err.stack)
         })
 
 })
 app.get('/api/invitation/:id', function (req, res) {
     actions.read[req.query.location](req)
-        .then((data) => {
-            res.send(data)
-        })
+        .then( (data) => res.send(data) )
         .catch(err => {
-            res.sendStatus(500)
+            res.status(500).send({error: err.message})
             console.error(err.stack)
         })
 })
@@ -61,7 +57,7 @@ app.get('/api/invitation/:id', function (req, res) {
 app.post('/api/userRoleType', function (req, res) {
     model.addInvitationUsers(req.body.id, req.body.userList, req.body.role, app.locals.pool)
         .catch(err => {
-            res.sendStatus(500)
+            res.status(500).send({error: err.message})
             console.error(err.stack)
         })
         .then(() => {
@@ -71,7 +67,7 @@ app.post('/api/userRoleType', function (req, res) {
 app.delete('/api/userRoleType', function (req, res) {
     model.deleteInvitationUser(req.body.id, app.locals.pool)
         .catch(err => {
-            res.sendStatus(500)
+            res.status(500).send({error: err.message})
             console.error(err.stack)
         })
         .then(() => {
@@ -80,9 +76,6 @@ app.delete('/api/userRoleType', function (req, res) {
 })
 
 app.use(express.static('public'))
-// app.listen(config.serverPort, function () {
-//     console.log('app listening on port: ' + config.serverPort)
-// })
 
 app.locals.initPromise.then(() => {
     app.listen(config.serverPort, config.acceptIp, function () {
