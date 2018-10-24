@@ -177,7 +177,7 @@ window.renderForm = function renderForm(invitationId, data) {
                                             KATHGORIA_PERIFEREIAS: {
                                                 dataSource: '/resources/katigoriesPerifereias.json'
                                             },
-											RITRA_EUELIKSIAS: {
+                                            RITRA_EUELIKSIAS: {
                                                 dataSource: '/resources/trueFalse.json'
                                             }
                                         }

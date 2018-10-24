@@ -94,7 +94,7 @@ var createInvitationGrid = function createDateGrid(div) {
         { name: 'InvitationGroup', title: 'Group',type: 'number', width: 40 },
         { name: 'IsFinal', type: 'checkbox', title: 'Ενεργό', sorting: false, width: 60 },
         { name: 'RandomEvaluator', type: 'checkbox', title: 'Κλήρωση αξιολογητών', sorting: false, width: 60 },
-		{ name: 'StoreProcedureToRandomise', type: 'text', width: 100 },
+        { name: 'StoreProcedureToRandomise', type: 'text', width: 100 },
         { type: 'control' },
         {
             itemTemplate: function(value, item) {
@@ -182,12 +182,12 @@ $(document).ready(function() {
             $('#kad').show()
             invitationId = params.id
             updateName(params.id, ' - ΚΑΔ')
-            $.get(`${urlBase}/invitation/params.id/kad`)
+            $.get(`${urlBase}invitation/${params.id}/kad`)
                 .then(data => $('#kad-area').text(data.rows[0].EligibleKad))
             $('#update-kad').off('click').on('click', function () {
                 var value = $('#kad-area').val()
                 $.ajax({
-                    url: `${urlBase}invitation/params.id/kad`,
+                    url: `${urlBase}invitation/${params.id}/kad`,
                     type: 'PUT',
                     dataType: 'json',
                     data: JSON.stringify({
