@@ -196,6 +196,14 @@ window.renderForm = function renderForm(invitationId, data) {
             var codeControl = control.getControlByPath('compiled')
             var code = codeControl.data
             codeControl.setValue(JSON.stringify(JSON.parse(code), null, 4))
+            window.setTimeout(function () {
+                codeControl.editor.getSession().foldAll()
+                codeControl.editor.getSession().unfold(1, false)
+            }, 500)
+            codeControl.editor.setOptions({
+                maxLines: 200,
+                autoScrollEditorIntoView: true
+            })
 
             $(window).unbind('keydown').bind('keydown', function(event) {
                 if (event.ctrlKey && String.fromCharCode(event.which).toLowerCase() == 's') {
