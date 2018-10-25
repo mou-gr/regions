@@ -382,6 +382,10 @@
             "MAX_ENTASI_ENISXISIS": {
               "type": "number",
               "title": "Μέγιστη Προσαύξηση Έντασης Ενίσχυσης %"
+            },			
+			"MAX_POSOSTO_KALIPSIS_APO_PROKATAVOLES": {
+              "type": "number",
+              "title": "Μέγιστo Ποσοστό Κάλυψης Εγκεκριμένης Δημόσιας Δαπάνης από Προκαταβολές %"
             }
           }
         },
