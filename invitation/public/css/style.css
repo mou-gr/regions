@@ -145,3 +145,6 @@ body {
 .router-option {
     display: none;
 }
+.ace_search{
+     position: fixed;
+}
