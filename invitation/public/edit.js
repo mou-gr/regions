@@ -148,7 +148,7 @@ window.renderForm = function renderForm(invitationId, data) {
                                             },
                                             DHMOSIA_DAPANH: {
                                                 events: {
-                                                    'change': function() {
+                                                    'change': function () {
                                                         const table = this.top().getControlByPath('tab5/PEDIA_PAREMVASHS_OBJ/PEDIA_PAREMVASHS_LIST').getValue()
                                                         const sum = table.reduce((sum, value) => sum + value.DHMOSIA_DAPANH, 0)
                                                         this.top().getControlByPath('tab5/PEDIA_PAREMVASHS_OBJ/DHMOSIA_DAPANH_TOTAL_OBJ/DHMOSIA_DAPANH_TOTAL').setValue(sum)
@@ -168,7 +168,7 @@ window.renderForm = function renderForm(invitationId, data) {
                             fields: {
                                 KATHGORIES_DAPANON_LIST: {
                                     events: {
-                                        'add': function() {
+                                        'add': function () {
                                             console.log('The value of this was changed to:')
                                         }
                                     },
@@ -190,27 +190,23 @@ window.renderForm = function renderForm(invitationId, data) {
                 }
             }
         },
-        postRender: function(control) {
+        postRender: function (control) {
             $('body').css('cursor', 'default')
 
             var codeControl = control.getControlByPath('compiled')
             var code = codeControl.data
             codeControl.setValue(JSON.stringify(JSON.parse(code), null, 4))
-//            window.setTimeout(function () {
- //               codeControl.editor.getSession().foldAll()
-  //              codeControl.editor.getSession().unfold(1, false)
-    //        }, 500)
             codeControl.editor.setOptions({
                 maxLines: 200,
                 autoScrollEditorIntoView: true
             })
 
-      //      $(window).unbind('keydown').bind('keydown', function(event) {
-       //         if (event.ctrlKey && String.fromCharCode(event.which).toLowerCase() == 's') {
-        //            $('#commit').click()
-         //           event.preventDefault()
-          //      }
-   //         })
+            $(window).unbind('keydown').bind('keydown', function (event) {
+                if (event.ctrlKey && String.fromCharCode(event.which).toLowerCase() == 's') {
+                    $('#commit').click()
+                    event.preventDefault()
+                }
+            })
         },
         view: {
             parent: 'bootstrap-edit-horizontal',
@@ -274,7 +270,7 @@ window.renderForm = function renderForm(invitationId, data) {
 
     var count = 0
 
-    $('#commit').off('click').on('click', function() {
+    $('#commit').off('click').on('click', function () {
         var value = $('#form1').alpaca('get').getValue()
         if (value === '') {
             return
@@ -294,20 +290,20 @@ window.renderForm = function renderForm(invitationId, data) {
             contentType: 'application/json',
             cache: false,
             timeout: 5000,
-            complete: function() {
+            complete: function () {
                 console.log('process complete')
             },
-            success: function() {
+            success: function () {
                 $('#message-area').prepend(++count + ': Η εγγραφή ενημερώθηκε\n')
                 console.log('succesfully updated invitation')
             },
-            error: function() {
+            error: function () {
                 console.log('process error')
             }
         })
     })
 
-    $('#advanced-download-link').on('click', function() {
+    $('#advanced-download-link').on('click', function () {
         var value = $('#form1').alpaca('get').getValue()
         $('#submit-content').val(JSON.stringify(value))
     })
