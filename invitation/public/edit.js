@@ -199,8 +199,9 @@ window.renderForm = function renderForm(invitationId, data) {
             codeControl.setValue(stringify(JSON.parse(code), {
                 shouldExpand : function(object, level, key) {
                     if (object.val != undefined && object.lab != undefined ) return false
+                    if (object.edit == '' && object.view == '') return false
                     if (key == 'items') return true
-                    if (Array.isArray(object)) return false
+                    if (Array.isArray(object) && typeof object[0] != 'object') return false
                     return true
                 }
             }))//, null, 4))
