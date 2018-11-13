@@ -1,4 +1,4 @@
-/*global Alpaca $ urlBase*/
+/*global Alpaca $ urlBase stringify*/
 window.renderForm = function renderForm(invitationId, data) {
     $('body').css('cursor', 'progress')
     $('#form1').alpaca('destroy')
@@ -195,7 +195,15 @@ window.renderForm = function renderForm(invitationId, data) {
 
             var codeControl = control.getControlByPath('compiled')
             var code = codeControl.data
-            codeControl.setValue(JSON.stringify(JSON.parse(code), null, 4))
+            // codeControl.setValue(JSON.stringify(JSON.parse(code)))//, null, 4))
+            codeControl.setValue(stringify(JSON.parse(code), {
+                shouldExpand : function(object, level, key) {
+                    if (object.val != undefined && object.lab != undefined ) return false
+                    if (key == 'items') return true
+                    if (Array.isArray(object)) return false
+                    return true
+                }
+            }))//, null, 4))
             codeControl.editor.setOptions({
                 maxLines: 200,
                 autoScrollEditorIntoView: true
