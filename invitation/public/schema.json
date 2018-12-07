@@ -386,6 +386,10 @@
 			"MAX_POSOSTO_KALIPSIS_APO_PROKATAVOLES": {
               "type": "number",
               "title": "Μέγιστo Ποσοστό Κάλυψης Εγκεκριμένης Δημόσιας Δαπάνης από Προκαταβολές %"
+            },
+			"KODIKOI_EPIXEIRISEON_XORIS_EGGIITIKES": {
+              "type": "string",
+              "title": "Κωδικοί Δικαιούχων που δεν υποχρεούνται να καταθέσουν εγγγυητικές επιστολές (comma seperated)"
             }
           }
         },
