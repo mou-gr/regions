@@ -390,6 +390,10 @@
 			"KODIKOI_EPIXEIRISEON_XORIS_EGGIITIKES": {
               "type": "string",
               "title": "Κωδικοί Δικαιούχων που δεν υποχρεούνται να καταθέσουν εγγγυητικές επιστολές (comma seperated)"
+            },
+			"MIN_POSOSTO_YLOPOIISIS_GIA_AITIMA_ELEGXOU": {
+              "type": "number",
+              "title": "Ελάχιστο Ποσοστό Υλοποίησης Επιχορηγούμενου Π/Υ για Αίτημα Ενδιάμεσου Ελέγχου %"
             }
           }
         },
