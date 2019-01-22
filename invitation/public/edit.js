@@ -1,4 +1,5 @@
-/*global Alpaca $ urlBase stringify*/
+/*global Alpaca $ urlBase stringify jsonParser*/
+
 window.renderForm = function renderForm(invitationId, data) {
     $('body').css('cursor', 'progress')
     $('#form1').alpaca('destroy')
@@ -296,10 +297,11 @@ window.renderForm = function renderForm(invitationId, data) {
             return
         }
         try {
-            var val = JSON.parse(value.compiled)
+            jsonParser.parse(value.compiled, false)
+            const val = JSON.parse(value.compiled)
             value.compiled = JSON.stringify(val, null, 0)
         } catch (e) {
-            message('Αποτυχία ενημέρωσης (Invalid json in last tab)', 'danger')
+            message('Αποτυχία ενημέρωσης (Invalid json in last tab)<br>' + e, 'danger')
             return
         }
         $.ajax({
