@@ -197,8 +197,8 @@ window.renderForm = function renderForm(invitationId, data) {
             var code = codeControl.data
             // codeControl.setValue(JSON.stringify(JSON.parse(code)))//, null, 4))
             codeControl.setValue(stringify(JSON.parse(code), {
-                shouldExpand : function(object, level, key) {
-                    if (object.val != undefined && object.lab != undefined ) return false
+                shouldExpand: function (object, level, key) {
+                    if (object.val != undefined && object.lab != undefined) return false
                     if (object.edit == '' && object.view == '') return false
                     if (key == 'items') return true
                     if (Array.isArray(object) && typeof object[0] != 'object') return false
@@ -278,7 +278,18 @@ window.renderForm = function renderForm(invitationId, data) {
     })
 
     var count = 0
-
+    const message = function (text, type, extra) {
+        $.notify({
+            message: text
+        }, extra || {
+            type: type,
+            placement: {
+                align: 'center'
+            }
+        })
+        $('#message-area').prepend(++count + ': ' + text + '\n')
+        console.log(text)
+    }
     $('#commit').off('click').on('click', function () {
         var value = $('#form1').alpaca('get').getValue()
         if (value === '') {
@@ -288,7 +299,7 @@ window.renderForm = function renderForm(invitationId, data) {
             var val = JSON.parse(value.compiled)
             value.compiled = JSON.stringify(val, null, 0)
         } catch (e) {
-            alert('Invalid json in last tab\nWill not save!')
+            message('Αποτυχία ενημέρωσης (Invalid json in last tab)', 'danger')
             return
         }
         $.ajax({
@@ -299,16 +310,8 @@ window.renderForm = function renderForm(invitationId, data) {
             contentType: 'application/json',
             cache: false,
             timeout: 5000,
-            complete: function () {
-                console.log('process complete')
-            },
-            success: function () {
-                $('#message-area').prepend(++count + ': Η εγγραφή ενημερώθηκε\n')
-                console.log('succesfully updated invitation')
-            },
-            error: function () {
-                console.log('process error')
-            }
+            success: () => message('Η εγγραφή ενημερώθηκε', 'success'),
+            error: () => message('Αποτυχία εγγραφής', 'danger')
         })
     })
 
