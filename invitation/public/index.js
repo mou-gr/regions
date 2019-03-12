@@ -123,6 +123,7 @@ var createUserGrid = function(div) {
         { name: 'ID', type: 'number', editing: false, width: 50, css: 'id-cell' },
         { name: 'U_LoginName', type: 'text', title: 'Χρήστης', editing: false, width: 70 },
         { name: 'URT_Description', type: 'text', title: 'Ρόλος', editing: false, width: 200 },
+        { name: 'regions', type: 'text', title: 'Περιφέρειες', editing: false, width: 180},
         {
             align: 'center',
             sorting: false,
@@ -206,12 +207,4 @@ $(document).ready(function() {
             })
         })
         .resolve()
-})
-$(document).ready(function () {
-    $('#restart-staging').on('click', function () {
-        $.post('/printServer/staging/shutDown')
-    })
-    $('#restart-production').on('click', function () {
-        $.post('/printServer/production/shutDown')
-    })
 })
