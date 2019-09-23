@@ -9,6 +9,8 @@ const resquel = require('resquel')
 const config = require('./config')
 
 
+console.log('Operation mode: ' + process.env.NODE_ENV)
+
 app.use(bodyParser.json({limit: '2mb'})) // to support JSON-encoded bodies
 app.use(nocache())
 app.use(resquel(model.resquel))
