@@ -1,0 +1,154 @@
+html {
+  position: relative;
+  min-height: 100%;
+}
+body {
+  /* Margin bottom by footer height */
+  margin-bottom: 60px;
+  padding-bottom: 40px;
+  background-color: rgba(162, 14, 14, 0.68)!important;
+}
+#content {
+  margin: 0 50px;
+}
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  /* Set the fixed height of the footer here */
+  height: 60px;
+  background-color: #f5f5f5;
+  padding-top: 15px;
+}
+.download-btn {
+  margin-left: 10px;
+}
+.padded-array tbody td {
+  padding-left: 30px !important;
+  padding-right: 20px !important;
+}
+.padded-array textarea {
+  min-width: 300px;
+}
+.checkbox-array .col-sm-9 {
+  width: 25%;
+}
+.checkbox-array .col-sm-3 {
+  width: 65%;
+}
+.strong-helper .alpaca-helper {
+  background: #a0debf;
+  padding: 10px;
+}
+.xs-col {
+  max-width: 20px;
+}
+.minWidth40 {
+  min-Width: 40px;
+}
+.minWidth50 {
+  min-Width: 50px;
+}
+.minWidth60 {
+  min-Width: 60px;
+}
+.minWidth70 {
+  min-Width: 70px;
+}
+.minWidth80 {
+  min-Width: 80px;
+}
+.minWidth90 {
+  min-Width: 90px;
+}
+.minWidth100 {
+  min-Width: 100px;
+}
+.l-col {
+  min-Width: 250px;
+}
+
+#result {
+  display: none;
+}
+.zero-margin .alpaca-field {
+	margin-left: 0px !important;
+}
+
+
+.icon-github {
+    background: no-repeat url('../img/github-16px.png');
+    width: 16px;
+    height: 16px;
+}
+
+.bootstrap-tagsinput {
+    width: 100%;
+}
+
+.accordion {
+    margin-bottom:-3px;
+}
+
+.accordion-group {
+    border: none;
+}
+
+.twitter-typeahead .tt-query,
+.twitter-typeahead .tt-hint {
+    margin-bottom: 0;
+}
+
+.twitter-typeahead .tt-hint
+{
+    display: none;
+}
+
+.tt-menu {
+    position: absolute;
+    top: 100%;
+    left: 0;
+    z-index: 1000;
+    display: none;
+    float: left;
+    min-width: 160px;
+    padding: 5px 0;
+    margin: 2px 0 0;
+    list-style: none;
+    font-size: 14px;
+    background-color: #ffffff;
+    border: 1px solid #cccccc;
+    border: 1px solid rgba(0, 0, 0, 0.15);
+    border-radius: 4px;
+    -webkit-box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.175);
+    background-clip: padding-box;
+    cursor: pointer;
+}
+
+.tt-suggestion {
+    display: block;
+    padding: 3px 20px;
+    clear: both;
+    font-weight: normal;
+    line-height: 1.428571429;
+    color: #333333;
+    white-space: nowrap;
+}
+
+.tt-suggestion:hover,
+.tt-suggestion:focus {
+  color: #ffffff;
+  text-decoration: none;
+  outline: 0;
+  background-color: #428bca;
+}
+.jsgrid {
+    overflow: visible!important;
+}
+.router-option {
+    display: none;
+}
+.ace_search{
+     position: fixed;
+}

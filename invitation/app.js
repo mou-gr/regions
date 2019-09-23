@@ -9,7 +9,22 @@ const resquel = require('resquel')
 const config = require('./config')
 
 
-console.log('Operation mode: ' + process.env.NODE_ENV)
+console.log('DB: ' + config.operation)
+
+app.post('/api/invitation/:id/clone', function (req, res, next) {
+    if (config.operation == 'production') {
+        res.status(403).send('Cloning forbidden in production!')
+    } else {
+        next()
+    }
+})
+app.get('/css/style.css', function (req, res, next) {
+    if (config.operation == 'production') {
+        res.sendFile('public/css/style-production.css', {root: __dirname})
+    } else {
+        next()
+    }
+})
 
 app.use(bodyParser.json({limit: '2mb'})) // to support JSON-encoded bodies
 app.use(nocache())

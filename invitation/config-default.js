@@ -6,5 +6,6 @@ module.exports = {
         database: 'MIS_DB_DEV',
         debug: true
     },
-    serverPort:3000
+    serverPort:3000,
+    operation: 'Staging'
 }

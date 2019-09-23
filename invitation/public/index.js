@@ -166,7 +166,18 @@ $(document).ready($('#new-user').off('click').on('click', function () {
 $(document).ready(createDateGrid('date-grid'))
 $(document).ready(createInvitationGrid('invitation-grid'))
 $(document).ready($('#invitation-grid').on('click', '.clone-btn', function () {
-    $.post(`${urlBase}invitation/${this.dataset.id}/clone`).then(reload($('#invitation-grid')))
+    $.post(`${urlBase}invitation/${this.dataset.id}/clone`)
+        .then(reload($('#invitation-grid')))
+        .catch(function (error) {
+            $.notify({
+                message: error.responseText
+            }, {
+                type: 'danger',
+                placement: {
+                    align: 'center'
+                }
+            })
+        })
 }))
 $(document).ready(function () {
     router
