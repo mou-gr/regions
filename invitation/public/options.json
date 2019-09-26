@@ -439,15 +439,7 @@
                   {
                     "action": "add",
                     "enabled": false
-                  },
-                  {
-                    "action": "up",
-                    "enabled": false
-                  },
-                  {
-                    "action": "down",
-                    "enabled": false
-                  }
+                  }                  
                 ]
               },
               "items": {
