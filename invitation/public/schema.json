@@ -394,6 +394,10 @@
 			"MIN_POSOSTO_YLOPOIISIS_GIA_AITIMA_ELEGXOU": {
               "type": "number",
               "title": "Ελάχιστο Ποσοστό Υλοποίησης Επιχορηγούμενου Π/Υ για Αίτημα Ενδιάμεσου Ελέγχου %"
+            },
+			"MAX_PLITHOS_ENDIAMESON_ELEGXON": {
+              "type": "number",
+              "title": "Μέγιστο πλήθος εγκεκριμένων Αιτημάτων Ενδιάμεσων Ελέγχων"
             }
           }
         },
