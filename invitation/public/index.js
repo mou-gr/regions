@@ -1,4 +1,4 @@
-/*global Navigo $ */
+/*global Navigo $ ace*/
 var root = null
 var useHash = true // Defaults to: false
 var hash = '#!' // Defaults to: '#'
@@ -60,7 +60,7 @@ var createController = function (getUrl) {
         loadData: function (filter) {
             return $.get(getUrl())
                 .then(result => result.rows.map(db2grid))
-                .then(result => result.filter(row => Object.keys(filter).every(col => 
+                .then(result => result.filter(row => Object.keys(filter).every(col =>
                     filter[col] === undefined
                     || ('' + filter[col]).trim() === ''
                     || ('' + row[col]).toLowerCase().includes(('' + filter[col]).trim().toLowerCase())
@@ -110,9 +110,16 @@ var createInvitationGrid = function createDateGrid(div) {
                 var userLink = '<a href="#!/invitation/' + item.ID + '/user" title="Χρήστες" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>'
                 var editLink = '<a href="#!/invitation/' + item.ID + '" title="Επεξεργασία" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>'
                 var cloneLink = '<button title="Αντιγραφή" data-id="' + item.ID + '"class="btn btn-info btn-sm clone-btn"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>'
-                return $result.append(dateLink + kadLink + userLink + editLink + cloneLink)
+                var compareLink = '<button title="Σύγκριση" data-id="' + item.ID + '"class="btn btn-success btn-sm diff-btn"><span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span>'
+                return $result.append(dateLink + kadLink + userLink + editLink + cloneLink + compareLink)
             },
             width: 120
+        },
+        {
+            itemTemplate: function () {
+                return $('<div class="compareResult"></div>')
+            },
+            width: 80
         }
     ]
     return createGrid(div, controller, fields)
@@ -179,6 +186,67 @@ $(document).ready($('#invitation-grid').on('click', '.clone-btn', function () {
             })
         })
 }))
+const compareRow = function (showModal, $btn) {
+    const id = $btn.data('id')
+    $.get(`${urlBase}compare/${id}`)
+        .then(resp => {
+            console.log(resp)
+            const print = resp.length <= 5 ? resp : resp.slice(0, 5).concat(['...'])
+            $btn.closest('tr')
+                .find('.compareResult')
+                .html(`<ul class="list-unstyled" style="line-height: 85%;font-size:80%">${print.map(el => '<li>' + JSON.stringify(el) + '</li>').join('')}</ul>`)
+            if (showModal) {
+                $('#difference-details').modal('show')
+                const editor = ace.edit('diff-preview')
+                editor.setOptions({
+                    maxLines: 50,
+                    autoScrollEditorIntoView: true
+                })
+                editor.setTheme('ace/theme/chrome')
+                editor.session.setMode('ace/mode/json')
+                editor.setValue(JSON.stringify(resp, null, 2))
+            }
+        })
+}
+$(document).ready(() => {
+    const invitationGrid = document.getElementById('invitation-grid')
+    invitationGrid.addEventListener('click', (e) => {
+        const $btn = $(e.target).closest('button')
+        if (!$btn.hasClass('diff-btn')) { return }
+        compareRow(true, $btn)
+        e.stopPropagation()
+    }, true)
+})
+
+const markDifferent = function (diff) {
+    const $rows = $('#invitation-grid table.jsgrid-table .jsgrid-row,.jsgrid-alt-row')
+    $rows.each((i, el) => {
+        const id = $(el).find('td:first').text()
+        const result = diff.filter(el => el[0] == id)[0]
+        if (result && result[1] == 'not in production') {
+            $(el).find('td').css('opacity', '0.4')
+        } else {
+            $(el).find('.difference-details-button').show()
+        }
+        $(el).find('.compareResult').html(result && result[1])
+    })
+}
+
+$(document).ready($('#compare-button').on('click', function () {
+    $.get(`${urlBase}compare`)
+        .then(markDifferent)
+        .catch(error => {
+            $.notify({
+                message: error.responseText
+            }, {
+                type: 'danger',
+                placement: {
+                    align: 'center'
+                }
+            })
+        })
+}))
+
 $(document).ready(function () {
     router
         .on('/', createRoute('Διαχείριση Προσκλήσεων', $('#invitation-grid')))

@@ -99,12 +99,12 @@ const resquel = {
     ]
 }
 
-const getConnection = function() {
-    return sql.connect(config)
+const getConnection = function(config) {
+    return new sql.ConnectionPool(config).connect()
 }
-const closeConnection = function() {
-    return sql.close()
-}
+// const closeConnection = function() {
+//     return sql.close()
+// }
 
 const query = async function(str, pool) {
     try {
@@ -140,12 +140,25 @@ const deleteInvitationUser = (ids, pool) => {
     return query(q, pool)
 }
 
+const getAllIds = (pool) => {
+    const q = 'select top 10 id from Invitation'
+    return query(q, pool)
+        .then(resp => resp.recordset.map(i => i.id))
+}
+const getJsonData = (pool, id) => {
+    const q = `select id, jsonData from Invitation where id = ${id}`
+    return query(q, pool)
+        .then(res => res.recordset)
+}
+
 
 module.exports = {
     getConnection,
-    closeConnection,
+    // closeConnection,
     updateInvitation,
     addInvitationUsers,
     deleteInvitationUser,
+    getAllIds,
+    getJsonData,
     resquel
 }
