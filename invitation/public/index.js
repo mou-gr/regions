@@ -190,7 +190,6 @@ const compareRow = function (showModal, $btn) {
     const id = $btn.data('id')
     $.get(`${urlBase}compare/${id}`)
         .then(resp => {
-            console.log(resp)
             const print = resp.length <= 5 ? resp : resp.slice(0, 5).concat(['...'])
             $btn.closest('tr')
                 .find('.compareResult')
@@ -204,7 +203,7 @@ const compareRow = function (showModal, $btn) {
                 })
                 editor.setTheme('ace/theme/chrome')
                 editor.session.setMode('ace/mode/json')
-                editor.setValue(JSON.stringify(resp, null, 2))
+                editor.setValue(JSON.stringify(resp, null, 2), -1)
             }
         })
 }
@@ -218,33 +217,8 @@ $(document).ready(() => {
     }, true)
 })
 
-const markDifferent = function (diff) {
-    const $rows = $('#invitation-grid table.jsgrid-table .jsgrid-row,.jsgrid-alt-row')
-    $rows.each((i, el) => {
-        const id = $(el).find('td:first').text()
-        const result = diff.filter(el => el[0] == id)[0]
-        if (result && result[1] == 'not in production') {
-            $(el).find('td').css('opacity', '0.4')
-        } else {
-            $(el).find('.difference-details-button').show()
-        }
-        $(el).find('.compareResult').html(result && result[1])
-    })
-}
-
 $(document).ready($('#compare-button').on('click', function () {
-    $.get(`${urlBase}compare`)
-        .then(markDifferent)
-        .catch(error => {
-            $.notify({
-                message: error.responseText
-            }, {
-                type: 'danger',
-                placement: {
-                    align: 'center'
-                }
-            })
-        })
+    $('#invitation-grid').find('.diff-btn').each((index, el) => compareRow(false, $(el)))
 }))
 
 $(document).ready(function () {

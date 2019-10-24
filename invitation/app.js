@@ -80,14 +80,6 @@ app.get('/api/compare/:id', function (req, res) {
             return res.send(diff)
         })
 })
-app.get('/api/compare', function (req, res) {
-    compare.compareAll(app.locals.pool, app.locals.productionPool)
-        .then(diff => {
-            return res.send(diff)
-        })
-    // model.getJsonData(app.locals.pool, 2)
-    //     .then(result => res.send(result))
-})
 
 app.use(express.static('public'))
 

@@ -1,23 +1,11 @@
 const model = require('./model')
 const isEqual = require('lodash.isequal')
-// const rDiff = require('recursive-diff')
-
-const compareAll = function (staging, production) {
-    const diff = model.getAllIds(staging)
-        .then(ids => {
-            return Promise.all(ids.map(id => {
-                const stagingDataP = model.getJsonData(staging, id)
-                const productionDataP = model.getJsonData(production, id)
-                console.log('getting id ' + id)
-                return Promise.all([stagingDataP, productionDataP])
-                    .then(resp => compare(resp[0], resp[1]))
-            }))
-        })
-
-    return diff
-}
 
 const compareColumns = function (stagingColumns, productionColumns) {
+    if (!Array.isArray(stagingColumns || !Array.isArray(productionColumns))) { 
+        return !isEqual(stagingColumns, productionColumns) ? ['All Columns'] : []
+    }
+
     const notInStaging = productionColumns.filter(col => stagingColumns.findIndex(el => el.name == col.name) > -1)
     if (notInStaging.length > 0) { return false }
     const notInProduction = stagingColumns.filter(col => productionColumns.findIndex(el => el.name == col.name) > -1)
@@ -73,6 +61,5 @@ const compare = function (stagingPool, productionPool, stagingId, productionId) 
         })
 }
 module.exports = {
-    compareAll,
     compare
 }
