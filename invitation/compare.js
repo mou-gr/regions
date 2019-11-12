@@ -6,16 +6,16 @@ const compareColumns = function (stagingColumns, productionColumns) {
         return !isEqual(stagingColumns, productionColumns) ? ['All Columns'] : []
     }
 
-    const notInStaging = productionColumns.filter(col => stagingColumns.findIndex(el => el.name == col.name) > -1)
+    const notInStaging = productionColumns.filter(col => stagingColumns.findIndex(el => el.name == col.name) == -1)
     if (notInStaging.length > 0) { return notInStaging.map(col => col.name) }
-    const notInProduction = stagingColumns.filter(col => productionColumns.findIndex(el => el.name == col.name) > -1)
+    const notInProduction = stagingColumns.filter(col => productionColumns.findIndex(el => el.name == col.name) == -1)
     if (notInProduction.length > 0) { return notInProduction.map(col => col.name) }    
 
     const different = stagingColumns.filter(col => {
         const pColIndex = productionColumns.findIndex(pCol => col.name == pCol.name)
         if (pColIndex < 0) return true
 
-        return isEqual(col, productionColumns[pColIndex])
+        return !isEqual(col, productionColumns[pColIndex])
     })
 
     return different.map(col => col.name)
