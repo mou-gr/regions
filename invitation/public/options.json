@@ -13,6 +13,20 @@
             "format": "DD/MM/YYYY"
           }
         },
+		"FLAG_DAPANES_PRIN_YPOVOLI": {
+              "type": "select",
+              "hideNone": true,
+              "optionLabels": [
+                "Όχι",
+                "Ναι"
+              ]
+        },
+		"DATE_ENARKSHS_EPILEKSIMOTITAS_DAPANON": {
+          "type": "date",
+          "picker": {
+            "format": "DD/MM/YYYY"
+          }
+        },
         "EIDOS_AJIOLOGHSHS": {
           "type": "select"
         },

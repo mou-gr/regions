@@ -45,6 +45,18 @@
           "type": "number",
           "title": "Διάρκεια Ισχύος (Σε Μήνες)"
         },
+		"FLAG_DAPANES_PRIN_YPOVOLI": {
+              "type": "string",
+              "title": "Απαγορεύεται η Υποβολή Δαπανών Πριν την Hμερομηνία Υποβολής του Επενδυτικού Σχεδίου",
+              "enum": [
+                "0",
+                "1"
+              ]
+        },
+		"DATE_ENARKSHS_EPILEKSIMOTITAS_DAPANON": {
+          "type": "string",
+          "title": "Ημερομηνία Έναρξης Επιλεξιμότητας Δαπανών"
+        },
         "EIDOS_AJIOLOGHSHS": {
           "type": "string",
           "title": "Είδος Αξιολόγησης"
