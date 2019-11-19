@@ -13,7 +13,7 @@ const resquel = {
     routes: [{
         method: 'GET',
         endpoint: '/api/invitation',
-        query: `select ID, Name, IsFinal, CN_Code_Mask, InvitationGroup, RandomEvaluator, StoreProcedureToRandomise  from Invitation
+        query: `select ID, Name, IsFinal, CN_Code_Mask, InvitationGroup, RandomEvaluator, StoreProcedureToRandomise, tags  from Invitation
                 where CN_Code_Mask != '${hideCnMask}'`
     }, {
         method: 'PUT',
@@ -24,7 +24,8 @@ const resquel = {
                 , CN_Code_Mask = '{{ CN_Code_Mask }}'
                 , InvitationGroup = {{ InvitationGroup }}
                 , RandomEvaluator = {{ RandomEvaluator }}
-				, StoreProcedureToRandomise = '{{ StoreProcedureToRandomise }}'
+                , StoreProcedureToRandomise = '{{ StoreProcedureToRandomise }}'
+                , tags = '{{ tags }}'
             where ID = {{ ID }}`
     }, {
         method: 'DELETE',
@@ -39,7 +40,7 @@ const resquel = {
         endpoint: '/api/invitation/:id/clone',
         query: `insert into Invitation
             (IsFinal, InvitationGroup, JsonData, Name, CN_Code_Mask, RandomEvaluator, StoreProcedureToRandomise)
-                select IsFinal, InvitationGroup, JsonData, concat(Name, '_copy'), CN_Code_Mask, RandomEvaluator, StoreProcedureToRandomise
+                select IsFinal, InvitationGroup, JsonData, concat(Name, '_copy'), CN_Code_Mask, RandomEvaluator, StoreProcedureToRandomise, tags
                 from Invitation where ID = {{ params.id }}`
     }, {
         method: 'GET',

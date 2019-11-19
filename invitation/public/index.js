@@ -101,6 +101,7 @@ var createInvitationGrid = function createDateGrid(div) {
         { name: 'IsFinal', type: 'checkbox', title: 'Ενεργό', sorting: false, width: 60 },
         { name: 'RandomEvaluator', type: 'checkbox', title: 'Κλήρωση αξιολογητών', sorting: false, width: 60 },
         { name: 'StoreProcedureToRandomise', type: 'text', width: 100 },
+        { name: 'tags', type: 'text', width: 60 },
         { type: 'control' },
         {
             itemTemplate: function (value, item) {
