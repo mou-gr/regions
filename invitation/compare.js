@@ -1,6 +1,12 @@
 const model = require('./model')
 const isEqual = require('lodash.isequal')
 
+const getUniqueDuplicates = function (arr) {
+    const duplicates = arr.filter((item, index) => arr.indexOf(item) != index)
+
+    return [...new Set(duplicates)]
+}
+
 const compareColumns = function (stagingColumns, productionColumns) {
     if (!Array.isArray(stagingColumns || !Array.isArray(productionColumns))) { 
         return !isEqual(stagingColumns, productionColumns) ? ['All Columns'] : []
@@ -18,7 +24,9 @@ const compareColumns = function (stagingColumns, productionColumns) {
         return !isEqual(col, productionColumns[pColIndex])
     })
 
-    return different.map(col => col.name)
+    const duplicates = getUniqueDuplicates(stagingColumns.map(col => col.name))
+
+    return different.map(col => col.name).concat(duplicates.map(col => col + ' - duplicate'))
 }
 
 const compare = function (stagingPool, productionPool, stagingId, productionId) {
