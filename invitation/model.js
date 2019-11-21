@@ -39,7 +39,7 @@ const resquel = {
         method: 'POST',
         endpoint: '/api/invitation/:id/clone',
         query: `insert into Invitation
-            (IsFinal, InvitationGroup, JsonData, Name, CN_Code_Mask, RandomEvaluator, StoreProcedureToRandomise)
+            (IsFinal, InvitationGroup, JsonData, Name, CN_Code_Mask, RandomEvaluator, StoreProcedureToRandomise, tags)
                 select IsFinal, InvitationGroup, JsonData, concat(Name, '_copy'), CN_Code_Mask, RandomEvaluator, StoreProcedureToRandomise, tags
                 from Invitation where ID = {{ params.id }}`
     }, {
