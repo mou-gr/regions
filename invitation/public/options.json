@@ -33,6 +33,9 @@
         "uiLanguage": {
             "hideNone": true
         },
+        "escrowText": {
+          "type": "textarea"
+        },
         "KATHESTOS_ENISXYSHS_LIST": {
           "type": "table",
           "view": "bootstrap-edit",
