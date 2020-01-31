@@ -7,6 +7,14 @@
           "type": "select",
           "hideNone": true
         },
+		"AUTOMATIC_SEND_DDD": {
+          "type": "select",
+          "hideNone": true,
+          "optionLabels": [
+            "Όχι",
+            "Ναι"
+          ]
+        },
         "DATE_ENARKSHS_ISXYOS": {
           "type": "date",
           "picker": {
