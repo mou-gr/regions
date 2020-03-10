@@ -16,6 +16,9 @@ window.renderForm = function renderForm(invitationId, data) {
                         KODIKOS_FOREA_EGKRISHS: {
                             dataSource: '/resources/foreisProslisis.json'
                         },
+						FOREAS_PLIROMIS: {
+                            dataSource: '/resources/foreisProslisis.json'
+                        },
                         EIDOS_AJIOLOGHSHS: {
                             dataSource: '/resources/eidiAksiologisis.json'
                         },

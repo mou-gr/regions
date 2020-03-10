@@ -15,6 +15,18 @@
             "Ναι"
           ]
         },
+		"FOREAS_PLIROMIS": {
+          "type": "select",
+          "hideNone": true
+        },
+	    "KATASTASI_DELTIOY_DILOSIS_DAPANON": {
+          "type": "select",
+          "hideNone": true,
+          "optionLabels": [
+            "Σε επεξεργασία (302)",
+            "Αποδεκτό (304)"
+          ]
+        },
         "DATE_ENARKSHS_ISXYOS": {
           "type": "date",
           "picker": {
