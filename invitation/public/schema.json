@@ -25,30 +25,6 @@
           "type": "string",
           "title": "Φορέας Πρόσκλησης"
         },
-		"AUTOMATIC_SEND_DDD": {
-			"type": "string",
-			"title": "Αυτόματη Αποστολή Δελτίων Δήλωσης Δαπανών",
-			"enum": [
-                "0",
-                "1"
-              ]
-		},
-		"FOREAS_PLIROMIS": {
-          "type": "string",
-          "title": "Φορέας Πληρωμής"
-        },	
-		"ONOMATEPONYMO_SYNTAKTA": {
-          "type": "string",
-          "title": "Ονοματεπώνυμο Συντάκτα"
-        },
-		"KATASTASI_DELTIOY_DILOSIS_DAPANON": {
-          "type": "string",
-          "title": "Κατάσταση Δελτίου Δήλωσης Δαπανών",
-          "enum": [
-               "302",
-               "304"
-             ]
-        },		
         "ID_XEIRISTHS_PRAXHS_USERNAME": {
           "type": "string",
           "title": "Αρμόδιος Επικοινωνίας Πρόσκλησης"
@@ -93,6 +69,31 @@
           "type": "string",
           "title": "Αρ. Απόφασης Έγκρισης ΕΕ"
         },
+				"AUTOMATIC_SEND_DDD": {
+			"type": "string",
+			"title": "Αυτόματη Αποστολή Δελτίων Δήλωσης Δαπανών",
+			"enum": [
+                "0",
+                "1"
+              ]
+		},
+		"FOREAS_PLIROMIS": {
+          "type": "string",
+          "title": "Φορέας Πληρωμής"
+        },	
+		"ONOMATEPONYMO_SYNTAKTA": {
+          "type": "string",
+          "title": "Ονοματεπώνυμο Συντάκτα"
+        },
+		"KATASTASI_DELTIOY_DILOSIS_DAPANON": {
+          "type": "string",
+          "title": "Κατάσταση Δελτίου Δήλωσης Δαπανών",
+          "enum": [
+               "302",
+               "304"
+             ]
+        },		
+
         "title1": {
             "title": "Εξώφυλλο εκτυπωτικών γραμμή 1"
         },

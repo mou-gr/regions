@@ -7,26 +7,6 @@
           "type": "select",
           "hideNone": true
         },
-		"AUTOMATIC_SEND_DDD": {
-          "type": "select",
-          "hideNone": true,
-          "optionLabels": [
-            "Όχι",
-            "Ναι"
-          ]
-        },
-		"FOREAS_PLIROMIS": {
-          "type": "select",
-          "hideNone": true
-        },
-	    "KATASTASI_DELTIOY_DILOSIS_DAPANON": {
-          "type": "select",
-          "hideNone": true,
-          "optionLabels": [
-            "Σε επεξεργασία (302)",
-            "Αποδεκτό (304)"
-          ]
-        },
         "DATE_ENARKSHS_ISXYOS": {
           "type": "date",
           "picker": {
@@ -87,6 +67,26 @@
               }
             }
           }
+        },
+	    "AUTOMATIC_SEND_DDD": {
+          "type": "select",
+          "hideNone": true,
+          "optionLabels": [
+            "Όχι",
+            "Ναι"
+          ]
+        },
+		"FOREAS_PLIROMIS": {
+          "type": "select",
+          "hideNone": true
+        },
+	    "KATASTASI_DELTIOY_DILOSIS_DAPANON": {
+          "type": "select",
+          "hideNone": true,
+          "optionLabels": [
+            "1. Σε επεξεργασία (302)",
+            "2. Αποδεκτό (304)"
+          ]
         }
       }
     },
