@@ -446,6 +446,11 @@
 			"MAX_POSOSTO_YLOPOIISIS_GIA_AITIMA_ELEGXOU_EREUNITIKOI_FOREIS": {
               "type": "number",
               "title": "Μέγιστo Ποσοστό Υλοποίησης Επιχορηγούμενου Π/Υ για Αίτημα Ενδιάμεσου Ελέγχου % (Ερευνητικοί Φορείς)"
+            },
+			"ARSH_ELEGXOU_ORTHOTITAS_GIA_DIMOSIA_DAPANI": {
+			  "type": "string",
+			  "default": "0",
+              "title": "Άρση ελέγχου ορθότητας σχετικά με την υπέρβαση της δημόσιας δαπάνης (LEADER)"
             }
           }
         },

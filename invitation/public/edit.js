@@ -168,8 +168,15 @@ window.renderForm = function renderForm(invitationId, data) {
                 },
                 tab6: {
                     fields: {
+						ENTASI_ENISXISIS_OBJ: {
+							fields: {
+								ARSH_ELEGXOU_ORTHOTITAS_GIA_DIMOSIA_DAPANI: {
+									dataSource: '/resources/trueFalse.json'
+									}
+							}						
+						},
                         KATHGORIES_DAPANON_OBJ: {
-                            fields: {
+							fields: {
                                 KATHGORIES_DAPANON_LIST: {
                                     events: {
                                         'add': function () {

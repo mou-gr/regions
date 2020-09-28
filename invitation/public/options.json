@@ -448,6 +448,15 @@
     "tab6": {
       "id": "tab6",
       "fields": {
+		"ENTASI_ENISXISIS_OBJ": {
+			"id": "ENTASI_ENISXISIS_OBJ",
+			"fields": {
+				"ARSH_ELEGXOU_ORTHOTITAS_GIA_DIMOSIA_DAPANI": {
+				"type": "select",
+				"hideNone": true
+				}
+			}		  
+	  },
         "KATHGORIES_DAPANON_OBJ": {
           "id": "KATHGORIES_DAPANON_OBJ",
           "fields": {
