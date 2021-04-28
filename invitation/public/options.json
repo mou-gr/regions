@@ -548,6 +548,9 @@
         "attachmentInstruction": {
           "type": "textarea"
         },
+		"excludedCnCodes": {
+          "type": "textarea"
+        },
         "attachment": {
           "type": "table"
         }

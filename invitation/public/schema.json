@@ -574,6 +574,10 @@
           "title": "Γενικές Οδηγίες για Συνημμένα",
           "type": "string"
         },
+		"excludedCnCodes": {
+          "title": "Κωδικοί προτάσεων που εξαιρούνται απο το όριο για το συνολικό μέγεθος συνημμένων (comma seperated)",
+          "type": "string"
+        },
         "attachment": {
           "type": "array",
           "title": "Συνημμένα Έγγραφα",
