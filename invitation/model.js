@@ -131,7 +131,13 @@ const addInvitationUsers = (invitationId, userList, role, pool) => {
         (IN_InvitationID, U_UserID, URT_UserRoleType_Code)
             select ${invitationId}, UserID, ${role}
             from _User
-            where U_LoginName in ( '${userList.split(',').join(`','`)}' )`
+            where U_LoginName in ( '${userList.split(',').join(`','`)}' )
+			and UserID not in 
+			(
+			select U_UserID
+			from Invitation_User_Role
+			where IN_InvitationID = ${invitationId} 
+			)`
     return query(q, pool)
 }
 
