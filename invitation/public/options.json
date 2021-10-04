@@ -8,7 +8,7 @@
           "hideNone": true
         },
 	"ANALYTIS": {
-          "type": "select",
+          "type": "select"
         },
         "DATE_ENARKSHS_ISXYOS": {
           "type": "date",
