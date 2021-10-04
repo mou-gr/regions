@@ -5,6 +5,39 @@ var hash = '#!' // Defaults to: '#'
 var router = new Navigo(root, useHash, hash)
 var invitationId
 
+let callPhaseList = [
+    { value: '', label: ''},
+    { value: 1985, label: '1985 - Ηλ. Υποβολή/Submission of the Proposal (AF) [electronic submission]'},
+    { value: 2031, label: '2031 - Συμπληρωματικά Έγγραφα'},
+    { value: 2054, label: '2054 - Έλεγχος Πληρότητας'},
+    { value: 2061, label: '2061 - Αξιολόγηση Προτάσεων'},
+    { value: 2073, label: '2073 - Γνωμοδοτική Ένταξης'},
+    { value: 2123, label: '2123 - Αίτηση Ένστασηςς'},
+    { value: 2125, label: '2125 - Αξιολόγηση Ένστασης'},
+    { value: 2129, label: '2129 - Αίτηση Προκαταβολήςς'},
+    { value: 2131, label: '2131 - Αξιολόγηση Αίτησης Προκαταβολής'},
+    { value: 2170, label: '2170 - Εκταμίευση Προκαταβολής'},
+    { value: 2171, label: '2171 - Παραλαβή Φυσικού Φακελού'},
+    { value: 2177, label: '2177 - Αίτημα Ενδιάμεσης Καταβολής Ενίσχυσης (Ελέγχου)'},
+    { value: 2178, label: '2178 - Έκθεση Ενδιάμεσης Επαλήθευσης (Ελέγχου)'},
+    { value: 2179, label: '2179 - Έκθεση Ενδιάμεσης Πιστοποίησης'},
+    { value: 2345, label: '2345 - Ενδιάμεσος Έλεγχος Δικαιολογητικών'},
+    { value: 2351, label: '2351 - Ενδιάμεση Καταβολή Ενίσχυσης (Εκταμίευση)'},
+    { value: 2357, label: '2357 - Αίτημα Τροποποίησης'},
+    { value: 2378, label: '2378 - Χρήση Καταπιστευτικού Λογαριασμού'},
+    { value: 2403, label: '2403 - Αξιολόγηση Τροποποίησης'},
+    { value: 2429, label: '2429 - Αίτημα Τελικής Καταβολής Ενίσχυσης (Ελέγχου)'},
+    { value: 2431, label: '2431 - Έκθεση Τελικής Επαλήθευσης (Ελέγχου)'},
+    { value: 2432, label: '2432 - Έκθεση Τελικής Πιστοποίησης'},
+    { value: 2433, label: '2433 - Τελικός Έλεγχος Δικαιολογητικών'},
+    { value: 2434, label: '2434 - Τελική Καταβολή Ενίσχυσης (Εκταμίευση)'},
+    { value: 2485, label: '2485 - Αντίρρηση Ενδιάμεσης Πιστοποίησης'},
+    { value: 2486, label: '2486 - Αξιολόγηση Αντιρρήσεων Ενδιάμεσης Πιστοποίησης'},
+    { value: 2489, label: '2489 - Αντίρρηση Τελικής Πιστοποίησηςς'},
+    { value: 2491, label: '2491 - Αξιολόγηση Αντίρρησης Τελικής Πιστοποίησης'},
+    { value: 2561, label: '2561 - Απογραφικό Δελτίο'},
+];
+
 // var urlBase = 'http://localhost:4000/'
 var urlBase = 'api/'
 
@@ -81,7 +114,13 @@ var createDateGrid = function createDateGrid(div) {
     var controller = createController(() => urlBase + 'invitation/' + invitationId + '/date')
     var fields = [
         { name: 'ID', type: 'number', editing: false, width: 50 },
-        { name: 'CallPhaseID', type: 'number', width: 70 },
+        {   name: 'CallPhaseID',
+            type: 'select',
+            width: 400,
+            items: callPhaseList,
+            valueField: "value",
+            textField: "label",
+        },
         { name: 'StartDate', type: 'solRiaDateTimeField', width: 200 },
         { name: 'EndDate', type: 'solRiaDateTimeField', width: 200 },
         { name: 'isActive', type: 'checkbox', title: 'Ενεργό', sorting: false },
