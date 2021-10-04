@@ -17,6 +17,10 @@
           "type": "number",
           "title": "Α/Α ΟΠΣ"
         },
+	"ANALYTIS": {
+          "type": "string",
+          "title": "Αναλυτής"
+        },
         "EKDOSI_PROSKLHSHS": {
           "type": "number",
           "title": "Έκδοση"
