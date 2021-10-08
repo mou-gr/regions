@@ -19,6 +19,9 @@ window.renderForm = function renderForm(invitationId, data) {
                         EIDOS_AJIOLOGHSHS: {
                             dataSource: '/resources/eidiAksiologisis.json'
                         },
+			ANALYTIS: {
+                            dataSource: '/resources/analysts.json'
+                        },
                         KATHESTOS_ENISXYSHS_LIST: {
                             items: {
                                 fields: {
