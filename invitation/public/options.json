@@ -7,6 +7,9 @@
           "type": "select",
           "hideNone": true
         },
+	"ANALYTIS": {
+          "type": "select"
+        },
         "DATE_ENARKSHS_ISXYOS": {
           "type": "date",
           "picker": {
