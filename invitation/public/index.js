@@ -116,6 +116,7 @@ var createDateGrid = function createDateGrid(div) {
         { name: 'ID', type: 'number', editing: false, width: 50 },
         {   name: 'CallPhaseID',
             type: 'select',
+            align: "left",
             width: 400,
             items: callPhaseList,
             valueField: "value",
