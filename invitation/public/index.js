@@ -211,8 +211,11 @@ $(document).ready(createUserGrid('user-grid'))
 $(document).ready($('#new-user').off('click').on('click', function () {
     const userList = $('#new-user-list').val()
     const role = $('#user-role').val()
-    $.post(`${urlBase}userRoleType`, { id: invitationId, userList: userList, role: role })
-        .then(reload($('#user-grid')))
+    const userArray =  userList.replaceAll(', ',',').split(',');
+    userArray.forEach(user => {
+        $.post(`${urlBase}userRoleType`, { id: invitationId, userList: user, role: role })
+            .then(reload($('#user-grid')))
+    });
 }))
 $(document).ready(createDateGrid('date-grid'))
 $(document).ready(createInvitationGrid('invitation-grid'))
