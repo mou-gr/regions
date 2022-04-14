@@ -207,8 +207,7 @@ var createRoute = function (name, $grid, $div) {
     }
 }
 
-$(document).ready(createUserGrid('user-grid'))
-$(document).ready($('#new-user').off('click').on('click', function () {
+const addUserRoles = () => {
     const userList = $('#new-user-list').val()
     const role = $('#user-role').val()
     const userArray =  userList.replaceAll(', ',',').split(',');
@@ -216,7 +215,10 @@ $(document).ready($('#new-user').off('click').on('click', function () {
         $.post(`${urlBase}userRoleType`, { id: invitationId, userList: user, role: role })
             .then(reload($('#user-grid')))
     });
-}))
+};
+$(document).ready(createUserGrid('user-grid'))
+$(document).ready(document.getElementById("new-user").addEventListener("click", addUserRoles));
+
 $(document).ready(createDateGrid('date-grid'))
 $(document).ready(createInvitationGrid('invitation-grid'))
 $(document).ready($('#invitation-grid').on('click', '.clone-btn', function () {
