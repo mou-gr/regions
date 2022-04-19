@@ -217,7 +217,6 @@ const addUserRoles = () => {
     });
 };
 $(document).ready(createUserGrid('user-grid'))
-$(document).ready(document.getElementById("new-user").addEventListener("click", addUserRoles));
 
 $(document).ready(createDateGrid('date-grid'))
 $(document).ready(createInvitationGrid('invitation-grid'))
