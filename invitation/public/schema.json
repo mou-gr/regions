@@ -110,6 +110,14 @@
         "headerLogo": {
             "title": "Αρχείο Λογότυπου Επικεφαλίδας"
         },
+		"implementationStartDateChoice": {
+          "type": "string",
+          "title": "Ημερομηνία Έναρξης Υλοποίησης Της Πράξης για την βεβαίωση ολοκλήρωσης θεωρείται",
+          "enum": [
+               "1",
+               "2"
+             ]
+        },	
 		"genericCheckpointCategoryOfCompletionDate": {
             "title": "ID κατηγορίας checkpoint που περιέχει τη στήλη στην οποία καταχωρείται η Ημερομηνία Ολοκλήρωσης"
         },
