@@ -24,6 +24,14 @@
                 "Ναι"
               ]
         },
+		"implementationStartDateChoice": {
+          "type": "select",
+          "hideNone": true,
+          "optionLabels": [
+            "1. Η Ημερομηνία Απόφασης ¨Ενταξης (από πρωτόκολλο γνωμοδοτικής)",
+            "2. Η Ημερομηνία Επιλεξιμότητας Δαπανών (από διαχειριστικό)"
+          ]
+        },		
 		"DATE_ENARKSHS_EPILEKSIMOTITAS_DAPANON": {
           "type": "date",
           "picker": {
@@ -89,14 +97,6 @@
           "optionLabels": [
             "1. Σε επεξεργασία (302)",
             "2. Αποδεκτό (304)"
-          ]
-        },
-		"implementationStartDateChoice": {
-          "type": "select",
-          "hideNone": true,
-          "optionLabels": [
-            "1. Η Ημερομηνία Απόφασης ¨Ενταξης (από πρωτόκολλο γνωμοδοτικής)",
-            "2. Η Ημερομηνία Επιλεξιμότητας Δαπανών (από διαχειριστικό)"
           ]
         }
       }

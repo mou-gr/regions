@@ -17,7 +17,7 @@
           "type": "number",
           "title": "Α/Α ΟΠΣ"
         },
-	"ANALYTIS": {
+	    "ANALYTIS": {
           "type": "string",
           "title": "Αναλυτής"
         },
@@ -60,6 +60,14 @@
 		"DATE_ENARKSHS_EPILEKSIMOTITAS_DAPANON": {
           "type": "string",
           "title": "Ημερομηνία Έναρξης Επιλεξιμότητας Δαπανών"
+        },
+		"implementationStartDateChoice": {
+          "type": "string",
+          "title": "Ημερομηνία Έναρξης Υλοποίησης της Πράξης για την Βεβαίωση Ολοκλήρωσης θεωρείται",
+          "enum": [
+               "1",
+               "2"
+             ]
         },
         "EIDOS_AJIOLOGHSHS": {
           "type": "string",
@@ -110,14 +118,6 @@
         "headerLogo": {
             "title": "Αρχείο Λογότυπου Επικεφαλίδας"
         },
-		"implementationStartDateChoice": {
-          "type": "string",
-          "title": "Ημερομηνία Έναρξης Υλοποίησης Της Πράξης για την βεβαίωση ολοκλήρωσης θεωρείται",
-          "enum": [
-               "1",
-               "2"
-             ]
-        },	
 		"genericCheckpointCategoryOfCompletionDate": {
             "title": "ID κατηγορίας checkpoint που περιέχει τη στήλη στην οποία καταχωρείται η Ημερομηνία Ολοκλήρωσης"
         },
