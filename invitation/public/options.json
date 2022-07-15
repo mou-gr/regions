@@ -79,6 +79,14 @@
             }
           }
         },
+		"MEGISTOS_ARITHMOS_ENDIAMESON_EXTRA": {
+          "type": "select",
+          "hideNone": false,
+          "optionLabels": [
+            "Όχι",
+            "Ναι"
+          ]
+        },
 	    "AUTOMATIC_SEND_DDD": {
           "type": "select",
           "hideNone": true,

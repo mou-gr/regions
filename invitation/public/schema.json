@@ -73,6 +73,19 @@
           "type": "string",
           "title": "Είδος Αξιολόγησης"
         },
+		"MEGISTOS_ARITHMOS_ENDIAMESON": {
+          "type": "number",
+          "title": "Μέγιστος Αριθμός Ενδιάμεσων Αιτημάτων Ελέγχου",
+		  "maximum": 9
+        },
+		"MEGISTOS_ARITHMOS_ENDIAMESON_EXTRA": {
+			"type": "string",
+			"title": "Τα Απορριφθέντα Αιτήματα Ελέγχου λαμβάνοται υπ' όψιν στον Μέγιστο Αριθμό Ενδιάμεσων Αιτημάτων Ελέγχου",
+			"enum": [
+                "0",
+                "1"
+              ]
+		},
         "AR_KOINOP": {
           "type": "string",
           "title": "Αρ. Kοινοποίησης / Γνωστοποίησης"
