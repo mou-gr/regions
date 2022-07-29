@@ -148,3 +148,9 @@ body {
 .ace_search{
      position: fixed;
 }
+.bg-red td {
+  background-color: #f08080 !important;
+}
+.bg-green td{
+  background-color: #90ee90 !important;
+}

@@ -57,8 +57,13 @@ const resquel = {
     }, {
         method: 'GET',
         endpoint: '/api/invitation/:id/date',
-        query: 'select * from Invitation_CallPhase_Date where InvitationID = {{ params.id }}'
-    }, {
+        query: `SELECT ID = ISNULL(b.ID,''), InvitationID =  1, a.CallPhaseID, isActive = ISNULL(b.isActive,''), StartDate = ISNULL(b.StartDate,''), 
+                            EndDate = ISNULL(b.EndDate,''), canFinalize = ISNULL(b.canFinalize,''), Invisible = ISNULL(b.Invisible,''), 
+                            MinDuration = ISNULL(b.MinDuration,''), MaxDuration = ISNULL(b.MaxDuration,'')
+                FROM (SELECT * FROM CallPhase WHERE CP_CallID = 204) a 
+                LEFT JOIN (SELECT * FROM Invitation_CallPhase_Date 
+                WHERE InvitationID = {{ params.id }}) b ON b.CallPhaseID = a.CallPhaseID`
+    },{
         method: 'POST',
         endpoint: '/api/invitation/:id/date',
         query: `insert into Invitation_CallPhase_Date (InvitationID, CallPhaseID, isActive, StartDate, EndDate)

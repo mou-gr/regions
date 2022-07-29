@@ -77,7 +77,7 @@ var createGrid = function createDateGrid(div, controller, fields, options) {
         $('#' + div).jsGrid({
             width: '100%',
             filtering: true,
-            inserting: options === undefined || options.inserting === undefined ? true : options.inserting,
+            inserting: false,
             editing: options === undefined || options.editing === undefined ? true : options.editing,
             sorting: true,
             paging: false,
@@ -86,8 +86,28 @@ var createGrid = function createDateGrid(div, controller, fields, options) {
             deleteConfirm: 'Διαγραφή ενέργειας;',
             onItemInserted: refresh,
             onItemUpdated: refresh,
+			onItemDeleted: refresh,
             controller: controller,
-            fields: fields
+            fields: fields,
+            rowClass: function(item) {
+                if (item.StartDate != undefined) {
+                    var currentDate = new Date()
+                    var mapObj = {
+                        'T':' ',
+                        'Z':''
+                    }
+                    var startDateString = item.StartDate.replace(/['T','Z']/g, function(matched){ 
+                        return mapObj[matched]
+                    })                     
+                    var endDateString = item.EndDate.replace(/['T','Z']/g, function(matched){ 
+                        return mapObj[matched]
+                    })
+                    var startDate = new Date (startDateString)                
+                    var endDate = new Date (endDateString)
+                    if (item.ID==0 ) return (item.CallPhaseID == 1985) ? 'bg-red' : 'bg-green'                
+                    else return (startDate > currentDate || endDate < currentDate) ? 'bg-red' : 'bg-green'   
+                }                       
+            }			
         })
     }
 }
@@ -113,19 +133,35 @@ var createController = function (getUrl) {
         }
     }
 }
+var createControllerDateGrid = function (getUrl) {
+    return {
+        loadData: function (filter) {
+            return $.get(getUrl())
+                .then(result => result.rows.map(db2grid))
+                .then(result => result.filter(row => Object.keys(filter).every(col =>
+                    filter[col] === undefined
+                    || ('' + filter[col]).trim() === ''
+                    || ('' + row[col]).toLowerCase().includes(('' + filter[col]).trim().toLowerCase())
+                )))               
+        },
+        updateItem: function (item) {
+            if (item.ID == 0) {
+                return $.post(getUrl(), grid2db(item))
+            }
+            else {
+                return $.ajax({ type: 'PUT', url: getUrl(), data: grid2db(item) })
+            }
+        },
+        deleteItem: function (item) {
+            return $.ajax({ type: 'DELETE', url: getUrl(), data: item })
+        }
+    }
+}
 var createDateGrid = function createDateGrid(div) {
-    var controller = createController(() => urlBase + 'invitation/' + invitationId + '/date')
+    var controller = createControllerDateGrid(() => urlBase + 'invitation/' + invitationId + '/date')
     var fields = [
         { name: 'ID', type: 'number', editing: false, width: 50 },
-        {   name: 'CallPhaseID',
-            type: 'select',
-            align: "left",
-            width: 400,
-            editing: false,
-            items: callPhaseList,
-            valueField: "value",
-            textField: "label",
-        },
+        { name: 'CallPhaseID', type: 'select', align: 'left', width: 400, editing: false, items: callPhaseList, valueField: 'value', textField: 'label' },
         { name: 'StartDate', type: 'solRiaDateTimeField', width: 200 },
         { name: 'EndDate', type: 'solRiaDateTimeField', width: 200 },
         { name: 'isActive', type: 'checkbox', title: 'Ενεργό', sorting: false },
