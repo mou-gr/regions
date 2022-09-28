@@ -66,43 +66,13 @@ const resquel = {
         canFinalize = ISNULL(b.canFinalize,''), 
         Invisible = ISNULL(b.Invisible,''), 
         MinDuration = ISNULL(b.MinDuration,''), 
-        MaxDuration = ISNULL(b.MaxDuration,'')
+        MaxDuration = ISNULL(b.MaxDuration,''),
+		c.RankNo
         FROM (SELECT * FROM CallPhase WHERE CP_CallID = 204) a 
+	    JOIN (SELECT ig.* FROM Invitation_Group_Flow ig JOIN Invitation i ON i.InvitationGroup = ig.GroupID WHERE i.ID = {{ params.id }}) c ON c.CallPhaseID = a.CallPhaseID
         LEFT JOIN (SELECT * FROM Invitation_CallPhase_Date WHERE InvitationID = {{ params.id }}) b ON b.CallPhaseID = a.CallPhaseID
-        ORDER BY CASE WHEN a.CallPhaseID = 1985 THEN 1
-                      WHEN a.CallPhaseID = 2171 THEN 2
-                      WHEN a.CallPhaseID = 2561 THEN 3
-                      WHEN a.CallPhaseID = 2031 THEN 4
-                      WHEN a.CallPhaseID = 2054 THEN 5
-                      WHEN a.CallPhaseID = 2061 THEN 6
-                      WHEN a.CallPhaseID = 2073 THEN 7
-                      WHEN a.CallPhaseID = 2123 THEN 8
-                      WHEN a.CallPhaseID = 2125 THEN 9
-                      WHEN a.CallPhaseID = 2129 THEN 10
-                      WHEN a.CallPhaseID = 2131 THEN 11
-                      WHEN a.CallPhaseID = 2170 THEN 12
-                      WHEN a.CallPhaseID = 2378 THEN 13
-                      WHEN a.CallPhaseID = 2357 THEN 14
-                      WHEN a.CallPhaseID = 2403 THEN 15
-                      WHEN a.CallPhaseID = 2177 THEN 16
-                      WHEN a.CallPhaseID = 2178 THEN 17
-                      WHEN a.CallPhaseID = 2485 THEN 18
-                      WHEN a.CallPhaseID = 2486 THEN 19
-                      WHEN a.CallPhaseID = 2179 THEN 20
-                      WHEN a.CallPhaseID = 2345 THEN 21
-                      WHEN a.CallPhaseID = 2351 THEN 22
-                      WHEN a.CallPhaseID = 2429 THEN 23
-                      WHEN a.CallPhaseID = 2431 THEN 24
-                      WHEN a.CallPhaseID = 2432 THEN 25
-                      WHEN a.CallPhaseID = 2489 THEN 26
-                      WHEN a.CallPhaseID = 2491 THEN 27
-                      WHEN a.CallPhaseID = 2433 THEN 28
-                      WHEN a.CallPhaseID = 2434 THEN 29
-                      WHEN a.CallPhaseID = 2769 THEN 30
-                      WHEN a.CallPhaseID = 2781 THEN 31
-                      WHEN a.CallPhaseID = 2782 THEN 32
-                      ELSE a.CallPhaseID END ASC`
-    },{
+        ORDER BY c.RankNo  ASC`
+    }, {
         method: 'POST',
         endpoint: '/api/invitation/:id/date',
         query: `insert into Invitation_CallPhase_Date (InvitationID, CallPhaseID, isActive, StartDate, EndDate)
