@@ -110,6 +110,44 @@ const resquel = {
         method: 'POST',
         endpoint: '/api/invitation/:id/user',
         query: `insert into Invitation_User_Role (U_UserID, IN_InvitationID, URT_UserRoleType_Code) values ({{ U_UserId }}, {{ IN_InvitationID }}, {{ URT_UserRoleType_Code }})`
+    },
+    {
+        method: 'GET',
+        endpoint: '/api/invitation/:id/userEdel',
+        query: `SELECT e.Id, e.CN_Code,  u.U_LoginName, ci.CI_FirstName, ci.CI_LastName, ci.CI_Email_1, e.CheckDateTimeFrom, e.CheckDateTimeTo 
+                FROM Contract cn JOIN Invitation_Contract inv_cn ON cn.ContractID = inv_cn.CO_ContractID
+                JOIN Invitation inv ON inv_cn.INV_InvitationID = inv.ID
+                JOIN EdelCheck2022 e ON e.CN_Code = cn.CN_Code
+                JOIN _User u ON e.UserId = u.UserID
+                JOIN ContactInfo ci ON ci.ContactInfoID = u.UserID
+                WHERE inv.ID = {{ params.id }}`
+    },
+    {
+        method: 'POST',
+        endpoint: '/api/invitation/:id/userEdel',
+        query: `INSERT INTO EdelCheck2022 (CN_Code, UserId, CheckDateTimeFrom, CheckDateTimeTo) 
+                SELECT 
+                 (SELECT cn.CN_Code FROM Contract cn JOIN Invitation_Contract inv_cn ON inv_cn.CO_ContractID = cn.ContractID 
+                  WHERE cn.CN_Code = RTRIM(LTRIM('{{ CN_Code }}')) AND inv_cn.INV_InvitationID = {{ params.id }})
+                ,(SELECT UserID FROM UserRoles_view WHERE U_LoginName = RTRIM(LTRIM('{{ U_LoginName }}')) AND PrimaryRoleTypeCode = 9)
+                ,'{{ CheckDateTimeFrom }}'
+                ,'{{ CheckDateTimeTo }}'`
+    },
+    {
+        method: 'PUT',
+        endpoint: '/api/invitation/:id/userEdel',
+        query: `UPDATE EdelCheck2022 
+                SET CN_Code = (SELECT cn.CN_Code FROM Contract cn JOIN Invitation_Contract inv_cn ON inv_cn.CO_ContractID = cn.ContractID 
+                               WHERE cn.CN_Code = RTRIM(LTRIM('{{ CN_Code }}')) AND inv_cn.INV_InvitationID = {{ params.id }}),
+                UserId = (SELECT UserID FROM UserRoles_view WHERE U_LoginName = RTRIM(LTRIM('{{ U_LoginName }}')) AND PrimaryRoleTypeCode = 9),
+                CheckDateTimeFrom = '{{ CheckDateTimeFrom }}',
+                CheckDateTimeTo = '{{ CheckDateTimeTo }}'
+                WHERE Id = {{ Id }}`
+    },
+    {
+        method: 'DELETE',
+        endpoint: '/api/invitation/:id/userEdel',
+        query: `DELETE FROM EdelCheck2022 WHERE Id = {{ Id }}`
     }
     ]
 }

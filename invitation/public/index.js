@@ -77,25 +77,25 @@ var createGrid = function createDateGrid(div, controller, fields, options) {
         $('#' + div).jsGrid({
             width: '100%',
             filtering: true,
-            inserting: false,
+            inserting: options === undefined || options.inserting === undefined ? true : options.inserting,
             editing: options === undefined || options.editing === undefined ? true : options.editing,
             sorting: true,
             paging: false,
             autoload: false,
             pageButtonCount: 5,
-            deleteConfirm: 'Διαγραφή ενέργειας;',
+            deleteConfirm: 'Διαγραφή εγγραφής;',
             onItemInserted: refresh,
             onItemUpdated: refresh,
 			onItemDeleted: refresh,
             controller: controller,
             fields: fields,
             rowClass: function(item) {
+                var currentDate = new Date()
+                var mapObj = {
+                    'T':' ',
+                    'Z':''
+                }
                 if (item.StartDate != undefined) {
-                    var currentDate = new Date()
-                    var mapObj = {
-                        'T':' ',
-                        'Z':''
-                    }
                     var startDateString = item.StartDate.replace(/['T','Z']/g, function(matched){ 
                         return mapObj[matched]
                     })                     
@@ -106,7 +106,18 @@ var createGrid = function createDateGrid(div, controller, fields, options) {
                     var endDate = new Date (endDateString)
                     if (item.ID==0 ) return (item.CallPhaseID == 1985) ? 'bg-red' : 'bg-green'                
                     else return (startDate > currentDate || endDate < currentDate) ? 'bg-red' : 'bg-green'   
-                }                       
+                }                
+                if (item.CheckDateTimeFrom != undefined) {
+                    var checkDateTimeFromString = item.CheckDateTimeFrom.replace(/['T','Z']/g, function(matched){ 
+                        return mapObj[matched]
+                    })                     
+                    var checkDateTimeToString = item.CheckDateTimeTo.replace(/['T','Z']/g, function(matched){ 
+                        return mapObj[matched]
+                    })
+                    var checkDateTimeFrom = new Date (checkDateTimeFromString)                
+                    var checkDateTimeTo = new Date (checkDateTimeToString)
+                    return (checkDateTimeFrom > currentDate || checkDateTimeTo < currentDate) ? 'bg-red' : 'bg-green'   
+                }
             }			
         })
     }
@@ -128,6 +139,38 @@ var createController = function (getUrl) {
         updateItem: function (item) {
             return $.ajax({ type: 'PUT', url: getUrl(), data: grid2db(item) })
         },
+        deleteItem: function (item) {
+            return $.ajax({ type: 'DELETE', url: getUrl(), data: item })
+        }
+    }
+}
+var createControllerUserEdelGrid = function (getUrl) {
+    return {
+        loadData: function (filter) {
+            return $.get(getUrl())
+                .then(result => result.rows.map(db2grid))
+                .then(result => result.filter(row => Object.keys(filter).every(col =>
+                    filter[col] === undefined
+                    || ('' + filter[col]).trim() === ''
+                    || ('' + row[col]).toLowerCase().includes(('' + filter[col]).trim().toLowerCase())
+                )))
+        },        
+        insertItem: function (item) {
+            return $.ajax({ type: 'POST', url: getUrl(), data: item }).catch(function () { 
+                return alert(`Η εισαγωγή της εγγραφής απέτυχε.
+                        \nΕπιβεβαιώστε ότι: 
+                        \n • Η τιμή στην στήλη "Κωδικός Πρότασης" είναι υπαρκτός κωδικός έργου 
+                        \n • Η τιμή στην στήλη "Κωδικός Πρότασης" είναι κωδικός έργου που αφορά την δράση
+                        \n • Η τιμή στην στήλη "Χρήστης" είναι κωδικός χρήστη με ρόλο «ΕΔΕΛ 2022»`)
+            })},
+        updateItem: function (item) {
+            return $.ajax({ type: 'PUT', url: getUrl(), data: item }).catch(function () {
+                return alert(`Η ενημέρωση της εγγραφής απέτυχε.
+                \nΕπιβεβαιώστε ότι: 
+                \n • Η τιμή στην στήλη "Κωδικός Πρότασης" είναι υπαρκτός κωδικός έργου 
+                \n • Η τιμή στην στήλη "Κωδικός Πρότασης" είναι κωδικός έργου που αφορά την δράση
+                \n • Η τιμή στην στήλη "Χρήστης" είναι κωδικός χρήστη με ρόλο «ΕΔΕΛ 2022»`)
+            })},
         deleteItem: function (item) {
             return $.ajax({ type: 'DELETE', url: getUrl(), data: item })
         }
@@ -168,7 +211,7 @@ var createDateGrid = function createDateGrid(div) {
         { name: 'canFinalize', type: 'checkbox', title: 'Οριστικοποίηση', sorting: false },
         { type: 'control' }
     ]
-    return createGrid(div, controller, fields)
+    return createGrid(div, controller, fields, { inserting: false})
 }
 
 var createInvitationGrid = function createDateGrid(div) {
@@ -189,10 +232,11 @@ var createInvitationGrid = function createDateGrid(div) {
                 var dateLink = '<a href="#!/invitation/' + item.ID + '/date" title="Έναρξη / Λήξη" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-calendar" aria-hidden="true"></span></a>'
                 var kadLink = '<a href="#!/invitation/' + item.ID + '/kad" title="ΚΑΔ" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-list-alt" aria-hidden="true"></span></a>'
                 var userLink = '<a href="#!/invitation/' + item.ID + '/user" title="Χρήστες" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-user" aria-hidden="true"></span></a>'
+                var userEdelLink = '<a href="#!/invitation/' + item.ID + '/userEdel" title="Χρήστες ΕΔΕΛ" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-eye-open" aria-hidden="true"></span></a>'
                 var editLink = '<a href="#!/invitation/' + item.ID + '" title="Επεξεργασία" class="btn btn-info btn-sm"><span class="glyphicon glyphicon-edit" aria-hidden="true"></span></a>'
                 var cloneLink = '<button title="Αντιγραφή" data-id="' + item.ID + '"class="btn btn-info btn-sm clone-btn"><span class="glyphicon glyphicon-plus" aria-hidden="true"></span>'
                 var compareLink = '<button title="Σύγκριση" data-id="' + item.ID + '"class="btn btn-success btn-sm diff-btn"><span class="glyphicon glyphicon-sunglasses" aria-hidden="true"></span>'
-                return $result.append(dateLink + kadLink + userLink + editLink + cloneLink + compareLink)
+                return $result.append(dateLink + kadLink + userLink + userEdelLink + editLink + cloneLink + compareLink)
             },
             width: 120
         },
@@ -233,6 +277,21 @@ var createUserGrid = function (div) {
     ]
     return createGrid(div, controller, fields, { inserting: false, editing: false })
 }
+var createUserEdelGrid = function (div) {
+    var controller = createControllerUserEdelGrid(() => urlBase + 'invitation/' + invitationId + '/userEdel')
+    var fields = [
+        { name: 'Id', type: 'number', inserting: false, editing: false, width: 70, css: 'id-cell' },
+        { name: 'CN_Code', type: 'text', title: 'Κωδικός Πρότασης', width: 130 },
+        { name: 'U_LoginName', type: 'text', title: 'Χρήστης', width: 150 },        
+        { name: 'CI_LastName', type: 'text', inserting: false, editing: false, title: 'Επώνυμο', width: 200 },
+        { name: 'CI_FirstName', type: 'text', inserting: false, editing: false, title: 'Όνομα', width: 200 },
+        { name: 'CI_Email_1', type: 'text', inserting: false, editing: false, title: 'e-mail', width: 200 },
+        { name: 'CheckDateTimeFrom', type: 'solRiaDateTimeField', title: 'Ενεργός Από', width: 120 },
+        { name: 'CheckDateTimeTo', type: 'solRiaDateTimeField', title: 'Ενεργός Έως', width: 120 },
+        { type: 'control' }
+    ]
+    return createGrid(div, controller, fields, { inserting: true })
+}
 var createRoute = function (name, $grid, $div) {
     $div = $div === undefined ? $grid : $div
     return function (params) {
@@ -243,7 +302,6 @@ var createRoute = function (name, $grid, $div) {
         reload($grid)()
     }
 }
-
 const addUserRoles = () => {
     const userList = $('#new-user-list').val()
     const role = $('#user-role').val()
@@ -254,7 +312,7 @@ const addUserRoles = () => {
     });
 };
 $(document).ready(createUserGrid('user-grid'))
-
+$(document).ready(createUserEdelGrid('userEdel-grid'))
 $(document).ready(createDateGrid('date-grid'))
 $(document).ready(createInvitationGrid('invitation-grid'))
 $(document).ready($('#invitation-grid').on('click', '.clone-btn', function () {
@@ -322,6 +380,7 @@ $(document).ready(function () {
         })
         .on('/invitation/:id/date', createRoute(' - Έναρξη / Λήξη Ενεργειών', $('#date-grid')))
         .on('/invitation/:id/user', createRoute(' - Χρήστες', $('#user-grid'), $('#user-div')))
+		.on('/invitation/:id/userEdel', createRoute(' - Χρήστες ΕΔΕΛ', $('#userEdel-grid')))
         .on('/invitation/:id/kad', function (params) {
             $('.router-option').hide()
             $('#kad').show()
