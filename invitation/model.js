@@ -129,7 +129,7 @@ const resquel = {
                 SELECT 
                  (SELECT cn.CN_Code FROM Contract cn JOIN Invitation_Contract inv_cn ON inv_cn.CO_ContractID = cn.ContractID 
                   WHERE cn.CN_Code = RTRIM(LTRIM('{{ CN_Code }}')) AND inv_cn.INV_InvitationID = {{ params.id }})
-                ,(SELECT UserID FROM UserRoles_view WHERE U_LoginName = RTRIM(LTRIM('{{ U_LoginName }}')) AND PrimaryRoleTypeCode = 9)
+                ,(SELECT UserID FROM UserRoles_view WHERE U_LoginName = RTRIM(LTRIM('{{ U_LoginName }}')) AND (UserRoleType_Code = 9 OR PrimaryRoleTypeCode = 9))
                 ,'{{ CheckDateTimeFrom }}'
                 ,'{{ CheckDateTimeTo }}'`
     },
@@ -139,7 +139,7 @@ const resquel = {
         query: `UPDATE EdelCheck2022 
                 SET CN_Code = (SELECT cn.CN_Code FROM Contract cn JOIN Invitation_Contract inv_cn ON inv_cn.CO_ContractID = cn.ContractID 
                                WHERE cn.CN_Code = RTRIM(LTRIM('{{ CN_Code }}')) AND inv_cn.INV_InvitationID = {{ params.id }}),
-                UserId = (SELECT UserID FROM UserRoles_view WHERE U_LoginName = RTRIM(LTRIM('{{ U_LoginName }}')) AND PrimaryRoleTypeCode = 9),
+                UserId = (SELECT UserID FROM UserRoles_view WHERE U_LoginName = RTRIM(LTRIM('{{ U_LoginName }}')) AND (UserRoleType_Code = 9 OR PrimaryRoleTypeCode = 9)),
                 CheckDateTimeFrom = '{{ CheckDateTimeFrom }}',
                 CheckDateTimeTo = '{{ CheckDateTimeTo }}'
                 WHERE Id = {{ Id }}`
