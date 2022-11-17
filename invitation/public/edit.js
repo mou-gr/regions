@@ -70,7 +70,32 @@ window.renderForm = function renderForm(invitationId, data) {
                                 dataSource: '/resources/eidiDeikton.json'
                             },
                             ONOMASIA_DEIKTH: {
-                                dataSource: '/resources/deiktes.json'
+                                dataSource: function(callback) { 
+                                    var index = this.path.substring(this.path.indexOf('[')+1,this.path.indexOf(']'))
+                                    var filter = ''
+                                    if (this.observable('/tab3['+index+']/ONOMASIA_DEIKTH_FILTER').get() !== undefined)
+                                    {
+                                        filter = this.observable('/tab3['+index+']/ONOMASIA_DEIKTH_FILTER').get().toUpperCase()  
+                                    }    
+                                    if (this.parent.childrenByPropertyId['ONOMASIA_DEIKTH_FILTER'] !== undefined)
+                                    {
+                                        filter = this.parent.childrenByPropertyId['ONOMASIA_DEIKTH_FILTER'].getValue().toUpperCase()  
+                                    }                       
+                                    $.getJSON('/resources/deiktes.json', function(data){
+                                        var deiktes = []
+                                        if (filter === '') {
+                                            $.each(data, function (key, val) {
+                                                deiktes.push({
+                                                    value:   key, 
+                                                    text: val})})}
+                                        else {
+                                            $.each(data, function (key, val) {
+                                                if (val.toUpperCase().indexOf(filter) > -1) {
+                                                    deiktes.push({
+                                                        value:   key, 
+                                                        text: val})}})}
+                                        callback(deiktes)})                                    
+                                }
                             },
                             MONADA_METRHSHS: {
                                 dataSource: '/resources/monadesMetrisis.json'
@@ -206,6 +231,32 @@ window.renderForm = function renderForm(invitationId, data) {
         },
         postRender: function (control) {
             $('body').css('cursor', 'default')
+
+            var deiktes = control.getControlByPath('tab3')  
+            deiktes.children.forEach(element => {
+                var filterDeiktis = element.getControlByPath('ONOMASIA_DEIKTH_FILTER')
+                var deiktesOnomasia = element.getControlByPath('ONOMASIA_DEIKTH')
+                filterDeiktis.on('change', function() {
+                    deiktesOnomasia.refresh()                            
+                    filterDeiktis.setValue('')
+                })
+                deiktesOnomasia.on('change', function() {
+                    deiktesOnomasia.refresh()
+                })
+            })
+            deiktes.on('add', function() {
+                deiktes.children.forEach(element => {
+                    var filterDeiktis = element.getControlByPath('ONOMASIA_DEIKTH_FILTER')
+                    var deiktesOnomasia = element.getControlByPath('ONOMASIA_DEIKTH')
+                    filterDeiktis.on('change', function() {
+                        deiktesOnomasia.refresh()                            
+                        filterDeiktis.setValue('')
+                    })
+                    deiktesOnomasia.on('change', function() {
+                        deiktesOnomasia.refresh()
+                    })
+                })
+            })
 
             var codeControl = control.getControlByPath('compiled')
             var code = codeControl.data

@@ -231,6 +231,10 @@
             "type": "string",
             "title": "Είδος Δείκτη"
           },
+          "ONOMASIA_DEIKTH_FILTER": {
+            "type": "string",
+            "title": "Φίλτρο για Ονομασία Δείκτη"
+          },
           "ONOMASIA_DEIKTH": {
             "type": "string",
             "title": "Ονομασία Δείκτη"

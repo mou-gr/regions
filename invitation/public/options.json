@@ -152,6 +152,9 @@
             "type": "select",
             "hideNone": true
           },
+          "ONOMASIA_DEIKTH_FILTER":{
+            "type": "search"                         
+          },
           "ONOMASIA_DEIKTH": {
             "type": "select",
             "hideNone": true
