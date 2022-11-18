@@ -71,12 +71,7 @@ window.renderForm = function renderForm(invitationId, data) {
                             },
                             ONOMASIA_DEIKTH: {
                                 dataSource: function(callback) { 
-                                    var index = this.path.substring(this.path.indexOf('[')+1,this.path.indexOf(']'))
-                                    var filter = ''
-                                    if (this.observable('/tab3['+index+']/ONOMASIA_DEIKTH_FILTER').get() !== undefined)
-                                    {
-                                        filter = this.observable('/tab3['+index+']/ONOMASIA_DEIKTH_FILTER').get().toUpperCase()  
-                                    }    
+                                    var filter = '' 
                                     if (this.parent.childrenByPropertyId['ONOMASIA_DEIKTH_FILTER'] !== undefined)
                                     {
                                         filter = this.parent.childrenByPropertyId['ONOMASIA_DEIKTH_FILTER'].getValue().toUpperCase()  
