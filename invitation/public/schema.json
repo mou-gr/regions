@@ -94,13 +94,21 @@
           "type": "string",
           "title": "Αρ. Απόφασης Έγκρισης ΕΕ"
         },
-				"AUTOMATIC_SEND_DDD": {
-			"type": "string",
-			"title": "Αυτόματη Αποστολή Δελτίων Δήλωσης Δαπανών",
-			"enum": [
-                "0",
-                "1"
-              ]
+		"AUTOMATIC_SEND_DDD": {
+		  "type": "string",
+		  "title": "Αυτόματη Αποστολή Δελτίων Δήλωσης Δαπανών",
+		   "enum": [
+               "0",
+               "1"
+          ]
+		},
+		"DEDOMENA_SIGKENTR_PINAKA_DAPANON": {
+		  "type": "string",
+		  "title": "Αποθήκευση Δεδομένων Συγκεντρωτικού Πίνακα Δαπανών",
+		   "enum": [
+               "0",
+               "1"
+          ]
 		},
 		"FOREAS_PLIROMIS": {
           "type": "string",

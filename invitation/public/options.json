@@ -95,6 +95,14 @@
             "Ναι"
           ]
         },
+		"DEDOMENA_SIGKENTR_PINAKA_DAPANON": {
+          "type": "select",
+          "hideNone": true,
+          "optionLabels": [
+            "Όχι",
+            "Ναι"
+          ]
+        },
 		"FOREAS_PLIROMIS": {
           "type": "select",
           "hideNone": true
