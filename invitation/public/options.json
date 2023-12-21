@@ -114,6 +114,14 @@
             "1. Σε επεξεργασία (302)",
             "2. Αποδεκτό (304)"
           ]
+        },
+	    "footerAtFinalReport": {
+          "type": "select",
+          "hideNone": true,
+          "optionLabels": [
+            "Όχι",
+            "Ναι"
+          ]
         }
       }
     },
@@ -289,7 +297,7 @@
             }
           }
         },
-				"OPSEdafikh_Diastash_Mhxanismos_id_LIST": {
+		"OPSEdafikh_Diastash_Mhxanismos_id_LIST": {
           "type": "table",
           "view": "bootstrap-edit",
           "fieldClass": "padded-array",

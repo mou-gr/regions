@@ -139,6 +139,14 @@
         "headerLogo": {
             "title": "Αρχείο Λογότυπου Επικεφαλίδας"
         },
+		"footerAtFinalReport": {
+		  "type": "string",
+		  "title": "Εμφάνιση Υπογραφής και Ημερομηνίας στην Βεβαίωση Ολοκλήρωσης",
+		   "enum": [
+               "0",
+               "1"
+          ]
+		},
 		"genericCheckpointCategoryOfCompletionDate": {
             "title": "ID κατηγορίας checkpoint που περιέχει τη στήλη στην οποία καταχωρείται η Ημερομηνία Ολοκλήρωσης"
         },
