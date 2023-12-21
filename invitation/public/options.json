@@ -115,7 +115,7 @@
             "2. Αποδεκτό (304)"
           ]
         },
-	    "footerAtFinalReport": {
+	    "lastPageAtFinalReport": {
           "type": "select",
           "hideNone": true,
           "optionLabels": [

@@ -139,7 +139,7 @@
         "headerLogo": {
             "title": "Αρχείο Λογότυπου Επικεφαλίδας"
         },
-		"footerAtFinalReport": {
+		"lastPageAtFinalReport": {
 		  "type": "string",
 		  "title": "Εμφάνιση Υπογραφής και Ημερομηνίας στην Βεβαίωση Ολοκλήρωσης",
 		   "enum": [
